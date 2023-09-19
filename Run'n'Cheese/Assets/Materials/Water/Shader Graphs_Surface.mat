@@ -76,7 +76,7 @@ Material:
     - _FoamScale: 1500
     - _FoamSomth: 1
     - _FoamSpeed: 0.4
-    - _HightFrequency: 1
+    - _HightFrequency: 60.98
     - _NormalStrenght: 0.3
     - _QueueControl: 0
     - _QueueOffset: 0
