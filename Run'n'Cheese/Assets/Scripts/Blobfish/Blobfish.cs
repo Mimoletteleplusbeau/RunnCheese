@@ -5,15 +5,23 @@ using UnityEngine;
 public class Blobfish : MonoBehaviour
 {
 
-    [Tooltip("The layer with which the bullet")] [SerializeField] private LayerMask _collidingLayer;
     private Rigidbody2D _rb;
+    private Animator _animator;
     private Vector2 _direction;
     public Vector2 Direction { set => _direction = value; get => _direction; }
+    public GameObject Parent;
     [SerializeField] private float _speed;
+    private float _destroyTime = 20f;
+
+    [Header("Animations")]
+    [SerializeField] private string _explosionAnimationName;
+    [SerializeField] private float _destroyDelay;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
+        Destroy(gameObject, _destroyTime);
     }
 
     private void Update()
@@ -21,17 +29,22 @@ public class Blobfish : MonoBehaviour
         _rb.MovePosition(transform.position + (Vector3)Direction * _speed);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-        if (collision.collider.gameObject.layer == _collidingLayer)
+        if (collision.gameObject != Parent)
         {
-            Die();
+            SetExplosion();
         }
     }
 
-    private void Die()
+    private void SetExplosion()
     {
+        _speed = 0f;
+        _animator.Play(_explosionAnimationName);
+    }
 
+    private void DestroySelf()
+    {
+        Destroy(gameObject);
     }
 }

@@ -46,7 +46,8 @@ public class PlayerShoot : MonoBehaviour
             {
                 Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Vector2 mouseDirection = mousePosition - (Vector2)transform.position;
-                myBullet.GetComponent<Blobfish>().Direction = mouseDirection.normalized;
+                myBlobfish.Direction = mouseDirection.normalized;
+                myBlobfish.Parent = this.gameObject;
             }
         }
     }
