@@ -197,3 +197,5 @@ MonoBehaviour:
   _speed: 0.5
   _explosionAnimationName: Explosion
   _destroyDelay: 0.1
+  _pushZonePrefab: {fileID: 2341801454756376701, guid: c850c62e2305d214bb37e0c6970fb034,
+    type: 3}

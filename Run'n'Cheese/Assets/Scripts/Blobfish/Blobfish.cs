@@ -9,13 +9,15 @@ public class Blobfish : MonoBehaviour
     private Animator _animator;
     private Vector2 _direction;
     public Vector2 Direction { set => _direction = value; get => _direction; }
-    public GameObject Parent;
+    [HideInInspector] public GameObject Parent;
     [SerializeField] private float _speed;
     private float _destroyTime = 20f;
 
     [Header("Animations")]
     [SerializeField] private string _explosionAnimationName;
     [SerializeField] private float _destroyDelay;
+    [Space(5)]
+    [SerializeField] private GameObject _pushZonePrefab;
 
     private void Awake()
     {
@@ -41,6 +43,7 @@ public class Blobfish : MonoBehaviour
     {
         _speed = 0f;
         _animator.Play(_explosionAnimationName);
+        Instantiate(_pushZonePrefab, transform.position, Quaternion.identity);
     }
 
     private void DestroySelf()
