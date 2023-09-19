@@ -106,6 +106,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
+    FocusDistance: 10
     m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
@@ -149,7 +150,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!96 &7613301426749646653
 TrailRenderer:
-  serializedVersion: 2
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -190,6 +191,7 @@ TrailRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Time: 0.3
+  m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -244,17 +246,21 @@ TrailRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
+      m_ColorSpace: -1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
     textureMode: 0
+    textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
   m_MinVertexDistance: 0.1
+  m_MaskInteraction: 0
   m_Autodestruct: 0
   m_Emitting: 1
+  m_ApplyActiveColorSpace: 0
 --- !u!1 &7613301426772207764
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,7 +437,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &492591389447492108
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -448,7 +454,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &8004910794935063532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -476,9 +483,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7613301427442531053}
   - component: {fileID: 7613301427442531051}
+  - component: {fileID: 825473888266565722}
   - component: {fileID: 7613301427442531054}
   - component: {fileID: 7613301427442531055}
-  - component: {fileID: 7613301427231146003}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -532,15 +539,15 @@ MonoBehaviour:
   minJumpForce: 0.4
   fallSpeedAscent: 0.05
   fallSpeedDescent: 0.2
-  canWallSlide: 1
+  canWallSlide: 0
   fallSpeedWallSliding: 0.015
   maxFallSpeed: 1
   coyoteTime: 0.1
   jumpBufferTime: 0.2
-  canWallJump: 1
+  canWallJump: 0
   wallJumpDirection: {x: 3, y: 0.7}
   wallJumpTime: 0.3
-  canDash: 1
+  canDash: 0
   MaxDashes: 1
   dashSpeed: 2
   _dashTime: 0.05
@@ -548,6 +555,22 @@ MonoBehaviour:
   _afterDashMomentum: 0.5
   ShowTrail: 0
   squashAndStrech: 0
+--- !u!114 &825473888266565722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7613301427442531050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e754f8b91fe6f1438173e56834dee83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefabBullet: {fileID: 167836674412635396, guid: c0ae2215fd5e83341a6e6a78e2fe7727,
+    type: 3}
+  _bullets: 100
+  _reloadTime: 0.5
 --- !u!50 &7613301427442531054
 Rigidbody2D:
   serializedVersion: 4
@@ -565,6 +588,12 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -579,6 +608,25 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -595,20 +643,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3141404, y: 1.4744763}
   m_EdgeRadius: 0
---- !u!114 &7613301427231146003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7613301427442531050}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2453d0ca4001404286c1822bda06dd3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zoomTime: 1
-  zoomCamera: {fileID: 1184575491}
 --- !u!1 &7613301428118929135
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,6 +705,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
+    FocusDistance: 10
     m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
