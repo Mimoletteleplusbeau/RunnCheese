@@ -6,6 +6,8 @@ using DG.Tweening;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController Instance;
+
     private PlayerInputs input;
     private Rigidbody2D rigidbody;
     private SpriteRenderer spriteRenderer;
@@ -44,6 +46,12 @@ public class PlayerController : MonoBehaviour
     private float _jumpBufferCounter;
     private bool _isGrounded;
 
+    [Header("External Forces")]
+    [SerializeField] private float _explosionTimer;
+    private float _explosionCounter;
+    private Vector2 _explosionCurrentDirection;
+    private float _explosionCurrentForce;
+
     [Header("Wall Jump")]
     [Tooltip("Allows the player to perform Wall jumps")] [SerializeField] private bool canWallJump;
     [Tooltip("The direction of the Wall jump along both axis")] [SerializeField] private Vector2 wallJumpDirection;
@@ -78,6 +86,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
         input = new PlayerInputs();
         rigidbody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
@@ -97,6 +106,8 @@ public class PlayerController : MonoBehaviour
         CheckForJumps();
 
         CheckForDashs();
+
+        ApplyForces();
 
         ApplyGravity();
 
@@ -245,6 +256,27 @@ public class PlayerController : MonoBehaviour
         {
             X_Velocity = _dashVector.x * dashSpeed;
             Y_Velocity = _dashVector.y * dashSpeed;
+        }
+    }
+    #endregion
+
+    #region External Forces
+    public void SetForce(Vector2 direction, float force)
+    {
+        Debug.Log(direction);
+        _explosionCurrentDirection = direction;
+        _explosionCurrentForce = force;
+        X_Velocity = direction.x;
+        Y_Velocity = direction.y;
+        _explosionCounter = _explosionTimer;
+    }
+
+    private void ApplyForces()
+    {
+        if (_explosionCurrentForce >= 0)
+        {
+            _targetPosition += _explosionCurrentDirection * _explosionCurrentForce;
+            //_currentForce -= _forceDiminution;
         }
     }
     #endregion

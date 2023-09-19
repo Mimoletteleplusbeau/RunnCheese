@@ -16,11 +16,11 @@ public class PushZone : MonoBehaviour
 
     private void Update()
     {
-        float distance = Vector3.Distance(transform.position, PlayerForces.Instance.transform.position);
+        float distance = Vector3.Distance(transform.position, PlayerController.Instance.transform.position);
         if (distance <= _radius)
         {
-            Vector3 playerDirection = PlayerForces.Instance.transform.position - transform.position;
-            PlayerForces.Instance.SetForce(playerDirection, _force);
+            Vector3 playerDirection = PlayerController.Instance.transform.position - transform.position;
+            PlayerController.Instance.SetForce(playerDirection, _force);
             Destroy(gameObject);
         }
     }
