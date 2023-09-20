@@ -17,9 +17,9 @@ MonoBehaviour:
   categories: []
   uiBounds:
     serializedVersion: 2
-    x: -432
+    x: -368
     y: 421
-    width: 2903
+    width: 2839
     height: 3971
 --- !u!114 &114350483966674976
 MonoBehaviour:
@@ -2714,7 +2714,9 @@ MonoBehaviour:
   m_Label: Spawn system
   m_Data: {fileID: 8926484042661614969}
   m_InputFlowSlot:
-  - link: []
+  - link:
+    - context: {fileID: 8926484042661615223}
+      slotIndex: 0
   - link: []
   m_OutputFlowSlot:
   - link:
@@ -6073,7 +6075,9 @@ MonoBehaviour:
   m_Label: Spawn system
   m_Data: {fileID: 8926484042661615071}
   m_InputFlowSlot:
-  - link: []
+  - link:
+    - context: {fileID: 8926484042661615223}
+      slotIndex: 0
   - link: []
   m_OutputFlowSlot:
   - link:
@@ -9204,7 +9208,7 @@ MonoBehaviour:
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
-  m_UIPosition: {x: -432, y: 2061}
+  m_UIPosition: {x: 246, y: 441}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
@@ -9216,6 +9220,10 @@ MonoBehaviour:
   m_OutputFlowSlot:
   - link:
     - context: {fileID: 8926484042661614885}
+      slotIndex: 0
+    - context: {fileID: 8926484042661614968}
+      slotIndex: 0
+    - context: {fileID: 8926484042661615070}
       slotIndex: 0
   eventName: Explosion
 --- !u!114 &8926484042661615224
@@ -9231,7 +9239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UIIgnoredErrors: []
-  m_Parent: {fileID: 0}
+  m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
