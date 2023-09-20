@@ -545,6 +545,7 @@ MonoBehaviour:
   coyoteTime: 0.1
   jumpBufferTime: 0.2
   _explosionTimer: 0
+  _maxVelocity: 0
   canWallJump: 0
   wallJumpDirection: {x: 3, y: 0.7}
   wallJumpTime: 0.3
@@ -654,6 +655,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7613301428118929169}
   - component: {fileID: 7613301428118929168}
+  - component: {fileID: 1826625091207966739}
   m_Layer: 0
   m_Name: PlayerCamera
   m_TagString: Untagged
@@ -716,3 +718,50 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 7613301426772207765}
+--- !u!114 &1826625091207966739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7613301428118929135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8a40d8471bc6454f8f5bc9473eb96c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strength: 1
+  duration: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 54.329422
+      outSlope: 54.329422
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.0041674487
+      value: 0.22641508
+      inSlope: 0.08086252
+      outSlope: 0.08086252
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.23431003
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.57633185
+      outSlope: -0.57633185
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.2301247
+      outWeight: 0
+    m_PreInfinity: 0
+    m_PostInfinity: 2
+    m_RotationOrder: 4

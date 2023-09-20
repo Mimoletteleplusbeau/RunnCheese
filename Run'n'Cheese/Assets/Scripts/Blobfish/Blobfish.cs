@@ -18,6 +18,9 @@ public class Blobfish : MonoBehaviour
     [Space(5)]
     [Tooltip("The prefab of the push zone")] [SerializeField] private GameObject _pushZonePrefab;
 
+    [Header("FX")]
+    [SerializeField] private GameObject _explosionVFXPrefab;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -43,6 +46,10 @@ public class Blobfish : MonoBehaviour
         _speed = 0f;
         _animator.Play(_explosionAnimationName);
         Instantiate(_pushZonePrefab, transform.position, Quaternion.identity);
+
+        // Feedback
+        Instantiate(_explosionVFXPrefab, transform.position, Quaternion.identity);
+        ScreenShake.Instance.Shake(2, 0.8f);
     }
 
     private void DestroySelf()
