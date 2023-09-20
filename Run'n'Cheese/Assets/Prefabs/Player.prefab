@@ -530,7 +530,7 @@ Transform:
   - {fileID: 7613301426749646652}
   - {fileID: 1184575493}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7613301427442531051
 MonoBehaviour:
@@ -566,6 +566,7 @@ MonoBehaviour:
   jumpBufferTime: 0.2
   _explosionTimer: 1
   _maxVelocity: 2
+  _minVelocity: -2
   canWallJump: 0
   wallJumpDirection: {x: 3, y: 0.7}
   wallJumpTime: 0.3

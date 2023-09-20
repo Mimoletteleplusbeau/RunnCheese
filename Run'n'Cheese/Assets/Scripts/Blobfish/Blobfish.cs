@@ -48,6 +48,7 @@ public class Blobfish : MonoBehaviour
         _speed = 0f;
         _animator.Play(_explosionAnimationName);
         Instantiate(_pushZonePrefab, transform.position, Quaternion.identity);
+        transform.SetParent(null);
 
         // Feedback
         Instantiate(_explosionVFXPrefab, transform.position, Quaternion.identity);

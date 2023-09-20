@@ -286,7 +286,8 @@ public class PlayerController : MonoBehaviour
     private void EnterGround()
     {
         _jumps = MaxJumps;
-        _dashes = MaxDashes; 
+        _dashes = MaxDashes;
+        _explosionCounter = 0;
         Y_Velocity = 0;
         if (_jumpBufferCounter > 0) StartJump();
             StopCoroutine(OnCoyoteTime());
