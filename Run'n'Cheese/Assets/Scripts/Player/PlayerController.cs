@@ -440,4 +440,5 @@ public class PlayerController : MonoBehaviour
         _trail.gameObject.SetActive(ShowTrail);
     }
     #endregion
+
 }

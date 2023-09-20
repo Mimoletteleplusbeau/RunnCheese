@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Blobfish : MonoBehaviour
 {
@@ -12,6 +14,8 @@ public class Blobfish : MonoBehaviour
     [HideInInspector] public GameObject Parent;
     [Tooltip("The speed the bullet travells at")] [SerializeField] private float _speed;
     private float _destroyTime = 20f;
+    private bool _isSticked;
+    [SerializeField] private LayerMask _defaultLayer;
 
     [Header("Animations")]
     [Tooltip("The name of the explosion animation")] [SerializeField] private string _explosionAnimationName;
@@ -27,7 +31,7 @@ public class Blobfish : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-        Destroy(gameObject, _destroyTime);
+        Invoke("DestroySelf", _destroyTime);
     }
 
     private void Update()
@@ -39,7 +43,14 @@ public class Blobfish : MonoBehaviour
     {
         if (collision.gameObject != Parent)
         {
-            SetExplosion();
+            if (collision.gameObject.GetComponent<Sticky>() != null)
+            {
+                SetStick();
+
+            } else {
+
+                SetExplosion();
+            }
         }
     }
 
@@ -47,12 +58,21 @@ public class Blobfish : MonoBehaviour
     {
         _speed = 0f;
         _animator.Play(_explosionAnimationName);
+        
         Instantiate(_pushZonePrefab, transform.position, Quaternion.identity);
-        transform.SetParent(null);
 
         // Feedback
         Instantiate(_explosionVFXPrefab, transform.position, Quaternion.identity);
         ScreenShake.Instance.Shake(_explosionShakeForce, _explosionShakeTime);
+    }
+
+    private void SetStick()
+    {
+        _speed = 0;
+        CancelInvoke("DestroySelf");
+        _isSticked = true;
+        gameObject.layer = _defaultLayer;
+        Parent = this.gameObject;
     }
 
     private void DestroySelf()

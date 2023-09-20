@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.VisualScripting;
 
 [RequireComponent(typeof(Animator))]
 public class PlayerAnimator : MonoBehaviour
@@ -36,7 +37,7 @@ public class PlayerAnimator : MonoBehaviour
                 break;
             case PlayerController.PlayerState.Walk:
                 _animator.Play(WalkAnimName);
-                Instantiate(_walkVFX, transform.position, Quaternion.identity);
+                CustomEvent.Trigger(_walkVFX, "Run");
                 break;
             case PlayerController.PlayerState.JumpAscent:
                 _animator.Play(JumpAscentAnimName);
