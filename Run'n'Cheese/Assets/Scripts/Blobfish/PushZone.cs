@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class PushZone : MonoBehaviour
 {
-    [SerializeField] private float _force;
-    [SerializeField] private float _radius;
-    [SerializeField] private float _activationTime;
+    [Tooltip("The force applied by the push force")][SerializeField] private float _force;
+    [Tooltip("The radius ofthe push zone")][SerializeField] private float _radius;
+    [Tooltip("The time the push zone stays active in seconds")] [SerializeField] private float _activationTime;
     private Collider2D[] _collidersGround;
 
     private void Start()
     {
         _collidersGround = new Collider2D[1];
+        Destroy(gameObject, _activationTime);
     }
 
     private void Update()

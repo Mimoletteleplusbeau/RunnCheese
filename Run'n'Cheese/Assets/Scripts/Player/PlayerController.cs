@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
     private bool _isGrounded;
 
     [Header("External Forces")]
-    [SerializeField] private float _explosionTimer;
+    [Tooltip("The time the player is pushed by the explosion")] [SerializeField] private float _explosionTimer;
     private float _explosionCounter;
     private Vector2 _explosionCurrentDirection;
     private float _explosionCurrentForce;
@@ -155,7 +155,7 @@ public class PlayerController : MonoBehaviour
         //_isDashing = false;
 
 
-        if (_wallJumpCounter > 0 && !IsGrounded()) targetSpeed = targetSpeed * ((_wallJumpCounter / wallJumpTime) * - 1 + 1) + (wallJumpDirection.x * _wallJumpCounter * _wallJumpCurrentDirection); 
+        //if (_wallJumpCounter > 0 && !IsGrounded()) targetSpeed = targetSpeed * ((_wallJumpCounter / wallJumpTime) * - 1 + 1) + (wallJumpDirection.x * _wallJumpCounter * _wallJumpCurrentDirection);
         float speedChangeRate = Mathf.Abs(targetSpeed) > 0.01f ? (_isGrounded ? groundFriction : airFriction) : (_isGrounded ? groundMomentum : airMomentum);
         speed = Mathf.Lerp(speed, targetSpeed, speedChangeRate);
 
@@ -193,6 +193,7 @@ public class PlayerController : MonoBehaviour
 
         _wallJumpCounter -= Time.deltaTime;
         _jumpBufferCounter -= Time.deltaTime;
+        _explosionCounter -= Time.deltaTime;
     }
 
     private void StartJump()
@@ -263,20 +264,19 @@ public class PlayerController : MonoBehaviour
     #region External Forces
     public void SetForce(Vector2 direction, float force)
     {
-        Debug.Log(direction);
-        _explosionCurrentDirection = direction;
+        _explosionCurrentDirection = direction.normalized;
+        Debug.Log(_explosionCurrentDirection);
         _explosionCurrentForce = force;
-        X_Velocity = direction.x;
-        Y_Velocity = direction.y;
         _explosionCounter = _explosionTimer;
     }
 
     private void ApplyForces()
     {
-        if (_explosionCurrentForce >= 0)
+        if (_explosionCounter > 0.01f)
         {
-            _targetPosition += _explosionCurrentDirection * _explosionCurrentForce;
-            //_currentForce -= _forceDiminution;
+            float normalizedExplosionTimer = (_explosionCounter / _explosionTimer);
+            Debug.Log(normalizedExplosionTimer);
+            _targetPosition += _explosionCurrentDirection * normalizedExplosionTimer * _explosionCurrentForce;
         }
     }
     #endregion

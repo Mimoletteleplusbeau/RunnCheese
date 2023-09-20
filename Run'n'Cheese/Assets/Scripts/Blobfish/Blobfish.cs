@@ -10,14 +10,13 @@ public class Blobfish : MonoBehaviour
     private Vector2 _direction;
     public Vector2 Direction { set => _direction = value; get => _direction; }
     [HideInInspector] public GameObject Parent;
-    [SerializeField] private float _speed;
+    [Tooltip("The speed the bullet travells at")] [SerializeField] private float _speed;
     private float _destroyTime = 20f;
 
     [Header("Animations")]
-    [SerializeField] private string _explosionAnimationName;
-    [SerializeField] private float _destroyDelay;
+    [Tooltip("The name of the explosion animation")] [SerializeField] private string _explosionAnimationName;
     [Space(5)]
-    [SerializeField] private GameObject _pushZonePrefab;
+    [Tooltip("The prefab of the push zone")] [SerializeField] private GameObject _pushZonePrefab;
 
     private void Awake()
     {
