@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7559454205013065420}
   - component: {fileID: 2439511908434792188}
   - component: {fileID: 1976226726625553746}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Blobfish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,6 +196,5 @@ MonoBehaviour:
   Parent: {fileID: 0}
   _speed: 0.5
   _explosionAnimationName: Explosion
-  _destroyDelay: 0.1
   _pushZonePrefab: {fileID: 2341801454756376701, guid: c850c62e2305d214bb37e0c6970fb034,
     type: 3}

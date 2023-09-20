@@ -51,6 +51,7 @@ public class PlayerController : MonoBehaviour
     private float _explosionCounter;
     private Vector2 _explosionCurrentDirection;
     private float _explosionCurrentForce;
+    [Tooltip("The maximum velocity the player can be launched at")][SerializeField] private float _maxVelocity;
 
     [Header("Wall Jump")]
     [Tooltip("Allows the player to perform Wall jumps")] [SerializeField] private bool canWallJump;
@@ -177,7 +178,7 @@ public class PlayerController : MonoBehaviour
 
     private void CheckForJumps()
     {
-        if (_jumpInput)
+        if (_jumpInput && (_explosionCounter <= 0.01f))
         {
             _jumpInput = false;
             if (!IsTouchingWalls() || IsGrounded())
@@ -265,9 +266,9 @@ public class PlayerController : MonoBehaviour
     public void SetForce(Vector2 direction, float force)
     {
         _explosionCurrentDirection = direction.normalized;
-        Debug.Log(_explosionCurrentDirection);
         _explosionCurrentForce = force;
         _explosionCounter = _explosionTimer;
+        //Debug.Log(_targetPosition + _explosionCurrentDirection * (_explosionCounter / _explosionTimer) * _explosionCurrentForce);
     }
 
     private void ApplyForces()
@@ -275,7 +276,6 @@ public class PlayerController : MonoBehaviour
         if (_explosionCounter > 0.01f)
         {
             float normalizedExplosionTimer = (_explosionCounter / _explosionTimer);
-            Debug.Log(normalizedExplosionTimer);
             _targetPosition += _explosionCurrentDirection * normalizedExplosionTimer * _explosionCurrentForce;
         }
     }
@@ -374,6 +374,7 @@ public class PlayerController : MonoBehaviour
     private void ApplyPositionChanges()
     {
         _targetPosition += new Vector2(X_Velocity, Y_Velocity);
+        _targetPosition = Vector2.ClampMagnitude(_targetPosition, _maxVelocity);
         rigidbody.MovePosition((Vector2)transform.position + _targetPosition);
     }
     #endregion

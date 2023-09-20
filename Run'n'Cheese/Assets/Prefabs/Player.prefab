@@ -544,7 +544,7 @@ MonoBehaviour:
   maxFallSpeed: 1
   coyoteTime: 0.1
   jumpBufferTime: 0.2
-  _forceDiminution: 1
+  _explosionTimer: 0
   canWallJump: 0
   wallJumpDirection: {x: 3, y: 0.7}
   wallJumpTime: 0.3
@@ -614,7 +614,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 384
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
