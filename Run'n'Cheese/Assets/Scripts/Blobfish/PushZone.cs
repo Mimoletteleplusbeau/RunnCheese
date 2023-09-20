@@ -9,6 +9,10 @@ public class PushZone : MonoBehaviour
     [Tooltip("The time the push zone stays active in seconds")] [SerializeField] private float _activationTime;
     private Collider2D[] _collidersGround;
 
+    [Header("FX")]
+    [SerializeField] private float _explosionShakeForce;
+    [SerializeField] private float _explosionShakeTime;
+
     private void Start()
     {
         _collidersGround = new Collider2D[1];
@@ -22,6 +26,7 @@ public class PushZone : MonoBehaviour
         {
             Vector3 playerDirection = PlayerController.Instance.transform.position - transform.position;
             PlayerController.Instance.SetForce(playerDirection, _force);
+            ScreenShake.Instance.Shake(_explosionShakeForce, _explosionShakeTime);
             Destroy(gameObject);
         }
     }

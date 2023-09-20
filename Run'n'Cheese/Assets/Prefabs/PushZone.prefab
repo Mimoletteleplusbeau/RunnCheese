@@ -47,3 +47,5 @@ MonoBehaviour:
   _force: 2
   _radius: 2
   _activationTime: 0.5
+  _explosionShakeForce: 25
+  _explosionShakeTime: 0.1

@@ -15,6 +15,9 @@ public class PlayerAnimator : MonoBehaviour
     [SerializeField] string JumpAscentAnimName;
     [SerializeField] string JumpDescentAnimName;
 
+    [Header("VFX")]
+    [SerializeField] private GameObject _walkVFX;
+
     private void Awake()
     {
         _animator = GetComponent<Animator>();
@@ -33,6 +36,7 @@ public class PlayerAnimator : MonoBehaviour
                 break;
             case PlayerController.PlayerState.Walk:
                 _animator.Play(WalkAnimName);
+                Instantiate(_walkVFX, transform.position, Quaternion.identity);
                 break;
             case PlayerController.PlayerState.JumpAscent:
                 _animator.Play(JumpAscentAnimName);

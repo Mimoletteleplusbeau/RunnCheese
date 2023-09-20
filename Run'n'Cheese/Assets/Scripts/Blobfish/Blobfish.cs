@@ -20,6 +20,8 @@ public class Blobfish : MonoBehaviour
 
     [Header("FX")]
     [SerializeField] private GameObject _explosionVFXPrefab;
+    [SerializeField] private float _explosionShakeForce;
+    [SerializeField] private float _explosionShakeTime;
 
     private void Awake()
     {
@@ -49,7 +51,7 @@ public class Blobfish : MonoBehaviour
 
         // Feedback
         Instantiate(_explosionVFXPrefab, transform.position, Quaternion.identity);
-        ScreenShake.Instance.Shake(2, 0.8f);
+        ScreenShake.Instance.Shake(_explosionShakeForce, _explosionShakeTime);
     }
 
     private void DestroySelf()

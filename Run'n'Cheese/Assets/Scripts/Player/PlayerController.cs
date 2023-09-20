@@ -268,6 +268,7 @@ public class PlayerController : MonoBehaviour
         _explosionCurrentDirection = direction.normalized;
         _explosionCurrentForce = force;
         _explosionCounter = _explosionTimer;
+        _jumps--;
         //Debug.Log(_targetPosition + _explosionCurrentDirection * (_explosionCounter / _explosionTimer) * _explosionCurrentForce);
     }
 

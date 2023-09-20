@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4790048141921532426}
+  - component: {fileID: 1976226726625553746}
   - component: {fileID: 5264666748233795691}
   - component: {fileID: 9172182469515452858}
   - component: {fileID: 7559454205013065420}
   - component: {fileID: 2439511908434792188}
-  - component: {fileID: 1976226726625553746}
   m_Layer: 8
   m_Name: Blobfish
   m_TagString: Untagged
@@ -36,6 +36,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1976226726625553746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167836674412635396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f682f112ccf5a5f48adadbc1c957378a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Parent: {fileID: 0}
+  _speed: 0.5
+  _explosionAnimationName: Explosion
+  _pushZonePrefab: {fileID: 2341801454756376701, guid: c850c62e2305d214bb37e0c6970fb034,
+    type: 3}
+  _explosionVFXPrefab: {fileID: 2161253024249132031, guid: 1289e229ea704c948b554d1aaf5cfcdb,
+    type: 3}
+  _explosionShakeForce: 5
+  _explosionShakeTime: 0.16
 --- !u!212 &5264666748233795691
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -181,22 +202,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1976226726625553746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 167836674412635396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f682f112ccf5a5f48adadbc1c957378a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Parent: {fileID: 0}
-  _speed: 0.5
-  _explosionAnimationName: Explosion
-  _pushZonePrefab: {fileID: 2341801454756376701, guid: c850c62e2305d214bb37e0c6970fb034,
-    type: 3}
-  _explosionVFXPrefab: {fileID: 2161253024249132031, guid: 1289e229ea704c948b554d1aaf5cfcdb,
-    type: 3}
