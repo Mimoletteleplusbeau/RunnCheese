@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
     [Header("External Forces")]
     [Tooltip("The time the player is pushed by the explosion")] [SerializeField] private float _explosionTimer;
     private float _explosionCounter;
+    private bool _isBeingExplosionPushed;
     private Vector2 _explosionCurrentDirection;
     private float _explosionCurrentForce;
     [Tooltip("The maximum velocity the player can be launched at")][SerializeField] private float _maxVelocity;
@@ -178,7 +179,7 @@ public class PlayerController : MonoBehaviour
 
     private void CheckForJumps()
     {
-        if (_jumpInput && (_explosionCounter <= 0.01f))
+        if (_jumpInput && !_isBeingExplosionPushed)
         {
             _jumpInput = false;
             if (!IsTouchingWalls() || IsGrounded())
@@ -268,7 +269,8 @@ public class PlayerController : MonoBehaviour
         _explosionCurrentDirection = direction.normalized;
         _explosionCurrentForce = force;
         _explosionCounter = _explosionTimer;
-        _jumps--;
+        _jumpBufferCounter = 0;
+        _isBeingExplosionPushed = true;
         //Debug.Log(_targetPosition + _explosionCurrentDirection * (_explosionCounter / _explosionTimer) * _explosionCurrentForce);
     }
 
@@ -288,9 +290,14 @@ public class PlayerController : MonoBehaviour
         _jumps = MaxJumps;
         _dashes = MaxDashes;
         _explosionCounter = 0;
+        _isBeingExplosionPushed = false;
         Y_Velocity = 0;
-        if (_jumpBufferCounter > 0) StartJump();
-            StopCoroutine(OnCoyoteTime());
+        if (_jumpBufferCounter > 0)
+        {
+            StartJump();
+            Debug.Log("Jump buffer triggered");
+        }
+        StopCoroutine(OnCoyoteTime());
 
         if (squashAndStrech)
             StartCoroutine(EnterGroundSquash());

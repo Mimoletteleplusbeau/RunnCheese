@@ -29,6 +29,7 @@ public class PlayerAnimator : MonoBehaviour
     private void Update()
     {
         _spriteRenderer.flipX = !Player.Flipped;
+        //_walkVFX.SetActive(false);
 
         switch (Player.MyState)
         {
@@ -37,7 +38,8 @@ public class PlayerAnimator : MonoBehaviour
                 break;
             case PlayerController.PlayerState.Walk:
                 _animator.Play(WalkAnimName);
-                CustomEvent.Trigger(_walkVFX, "Run");
+                //_walkVFX.SetActive(true);
+                //CustomEvent.Trigger(_walkVFX, "Run");
                 break;
             case PlayerController.PlayerState.JumpAscent:
                 _animator.Play(JumpAscentAnimName);
