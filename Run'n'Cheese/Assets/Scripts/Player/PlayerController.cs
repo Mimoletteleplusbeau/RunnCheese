@@ -402,7 +402,7 @@ public class PlayerController : MonoBehaviour
             }
         } else
         {
-            if (Y_Velocity > 0)
+            if (_targetPosition.y > 0)
             {
                 MyState = PlayerState.JumpAscent;
             } else

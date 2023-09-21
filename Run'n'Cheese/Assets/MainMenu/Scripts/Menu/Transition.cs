@@ -8,6 +8,7 @@ using DG.Tweening;
 
 public class Transition : MonoBehaviour
 {
+    public static Transition Instance;
     [Tooltip("The visual representation type of the transition")] [SerializeField] private AnimationMode _transitionMode;
     [Tooltip("Fades in at the beginning")] [SerializeField] private bool _fadeIn;
     [Header("Fade")]
@@ -21,6 +22,11 @@ public class Transition : MonoBehaviour
     {
         Fade,
         Animation
+    }
+
+    private void Awake()
+    {
+        Instance = this;
     }
 
     private void Start()
