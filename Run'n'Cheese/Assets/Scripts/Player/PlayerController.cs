@@ -161,7 +161,6 @@ public class PlayerController : MonoBehaviour
             _jumpInput = false;
             if ((!IsTouchingWalls() || IsGrounded()) && (_explosionCounter <= 0.01f))
             {
-                Debug.Log(_explosionCounter);
                 StartJump();
                 _jumpBufferCounter = jumpBufferTime;
             }
