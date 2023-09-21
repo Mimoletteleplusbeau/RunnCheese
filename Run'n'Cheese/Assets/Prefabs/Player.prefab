@@ -530,7 +530,7 @@ Transform:
   - {fileID: 7613301426749646652}
   - {fileID: 1184575493}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7613301427442531051
 MonoBehaviour:
@@ -564,17 +564,9 @@ MonoBehaviour:
   maxFallSpeed: 1
   coyoteTime: 0.1
   jumpBufferTime: 0.2
-  _explosionTimer: 1
+  _groundedOffset: 0.05
+  _explosionTimer: 0.7
   _maxVelocity: 2
-  canWallJump: 0
-  wallJumpDirection: {x: 3, y: 0.7}
-  wallJumpTime: 0.3
-  canDash: 0
-  MaxDashes: 1
-  dashSpeed: 2
-  _dashTime: 0.05
-  dashCooldown: 0.2
-  _afterDashMomentum: 0.5
   ShowTrail: 0
   squashAndStrech: 0
 --- !u!114 &1845943815896088591

@@ -52,27 +52,8 @@ public class PlayerController : MonoBehaviour
     [Tooltip("The time the player is pushed by the explosion")] [SerializeField] private float _explosionTimer;
     private float _explosionCounter;
     private Vector2 _explosionCurrentDirection;
-    private float _explosionCurrentForce;
+    private Vector2 _explosionCurrentForce;
     [Tooltip("The maximum velocity the player can be launched at")][SerializeField] private float _maxVelocity;
-
-    [Header("Wall Jump")]
-    [Tooltip("Allows the player to perform Wall jumps")] [SerializeField] private bool canWallJump;
-    [Tooltip("The direction of the Wall jump along both axis")] [SerializeField] private Vector2 wallJumpDirection;
-    private float _wallJumpCurrentDirection;
-    [Tooltip("The time the Wall Jump force is applied in seconds")] [SerializeField] private float wallJumpTime;
-    private float _wallJumpCounter;
-
-    [Header("Dash")]
-    [Tooltip("Allows the player to perform a dash")] [SerializeField] private bool canDash;
-    [Tooltip("The number of dashes allowed before touching the ground")] [SerializeField] private float MaxDashes;
-    private float _dashes;
-    [Tooltip("The force of the dash")] [SerializeField] private float dashSpeed;
-    [Tooltip("The duration of the dash")] [SerializeField] private float _dashTime;
-    private bool _isDashing;
-    private bool _canDashCooldown = true;
-    [Tooltip("The cooldown between two dashes")] [SerializeField] private float dashCooldown;
-    private Vector2 _dashVector;
-    [Tooltip("The momentum given at the end of a dash")] [SerializeField] private float _afterDashMomentum;
 
     [Header("Special")]
     [Tooltip("Renders a trail that follows the Player's movements")] [SerializeField] private bool ShowTrail;
@@ -108,8 +89,6 @@ public class PlayerController : MonoBehaviour
 
         CheckForJumps();
 
-        CheckForDashs();
-
         ApplyForces();
 
         ApplyGravity();
@@ -128,7 +107,6 @@ public class PlayerController : MonoBehaviour
         input.Player.Movement.canceled += OnMovementStop;
         input.Player.Jump.performed += OnJumpPerformed;
         input.Player.Jump.canceled += OnJumpStop;
-        input.Player.Dash.performed += OnDashPerformed;
     }
 
     private void OnDisable()
@@ -138,7 +116,6 @@ public class PlayerController : MonoBehaviour
         input.Player.Movement.canceled -= OnMovementStop;
         input.Player.Jump.performed -= OnJumpPerformed;
         input.Player.Jump.canceled -= OnJumpStop;
-        input.Player.Dash.performed -= OnDashPerformed;
     }
 
     #region Move
@@ -154,8 +131,7 @@ public class PlayerController : MonoBehaviour
 
     private void CheckForMovements()
     {
-        float targetSpeed = moveVector.x * (_isDashing? dashSpeed : maxSpeed);
-        //_isDashing = false;
+        float targetSpeed = moveVector.x * maxSpeed;
 
 
         //if (_wallJumpCounter > 0 && !IsGrounded()) targetSpeed = targetSpeed * ((_wallJumpCounter / wallJumpTime) * - 1 + 1) + (wallJumpDirection.x * _wallJumpCounter * _wallJumpCurrentDirection);
@@ -183,19 +159,14 @@ public class PlayerController : MonoBehaviour
         if (_jumpInput)
         {
             _jumpInput = false;
-            if (!IsTouchingWalls() || IsGrounded())
+            if ((!IsTouchingWalls() || IsGrounded()) && (_explosionCounter <= 0.01f))
             {
                 StartJump();
                 _jumpBufferCounter = jumpBufferTime;
             }
-            else if (canWallJump)
-            {
-                StartWallJump();
-            }
         }
         if (_isGrounded) _jumps = MaxJumps;
 
-        _wallJumpCounter -= Time.deltaTime;
         _jumpBufferCounter -= Time.deltaTime;
         _explosionCounter -= Time.deltaTime;
     }
@@ -215,14 +186,6 @@ public class PlayerController : MonoBehaviour
         Y_Velocity = Mathf.Clamp(minJumpForce, minJumpForce, Y_Velocity);
     }
 
-    private void StartWallJump()
-    {
-        //X_Velocity = wallJumpDirection.x * (!Flipped ? 1 : -1);
-        _wallJumpCurrentDirection = (!Flipped ? 1 : -1);
-        Y_Velocity = wallJumpDirection.y;
-        _wallJumpCounter = wallJumpTime;
-    }
-
     IEnumerator OnCoyoteTime()
     {
         yield return new WaitForSeconds(coyoteTime);
@@ -231,48 +194,15 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
-    #region Dash
-    private void OnDashPerformed(InputAction.CallbackContext callback)
-    {
-        if (canDash && _dashes > 0 && _canDashCooldown)
-        {
-            if (!IsGrounded())
-                _dashes--;
-            StartCoroutine(StartDash());
-            _dashVector = moveVector;
-        }
-    }
-
-    IEnumerator StartDash()
-    {
-        _isDashing = true;
-        _canDashCooldown = false;
-        yield return new WaitForSeconds(_dashTime);
-        _isDashing = false;
-        X_Velocity = _afterDashMomentum * _dashVector.x;
-        Y_Velocity = _afterDashMomentum * _dashVector.y;
-        yield return new WaitForSeconds(dashCooldown);
-        _canDashCooldown = true;
-    }
-
-    private void CheckForDashs()
-    {
-        if (_isDashing)
-        {
-            X_Velocity = _dashVector.x * dashSpeed;
-            Y_Velocity = _dashVector.y * dashSpeed;
-        }
-    }
-    #endregion
-
     #region External Forces
-    public void SetForce(Vector2 direction, float force)
+    public void SetForce(Vector2 direction, Vector2 force)
     {
         _explosionCurrentDirection = direction.normalized;
         _explosionCurrentForce = force;
         _explosionCounter = _explosionTimer;
         _jumpBufferCounter = 0;
         _jumps--;
+        //_jumps=0;
         //Debug.Log(_targetPosition + _explosionCurrentDirection * (_explosionCounter / _explosionTimer) * _explosionCurrentForce);
     }
 
@@ -290,7 +220,6 @@ public class PlayerController : MonoBehaviour
     private void EnterGround()
     {
         _jumps = MaxJumps;
-        _dashes = MaxDashes;
         _explosionCounter = 0;
         Y_Velocity = 0;
         if (_jumpBufferCounter > 0)
@@ -369,12 +298,9 @@ public class PlayerController : MonoBehaviour
     #region Gravity
     private void ApplyGravity()
     {
-        if (!_isDashing)
-        {
-            float _fallSpeed = Y_Velocity >= 0 ? fallSpeedAscent : (IsSliding() && canWallSlide) ? fallSpeedWallSliding : fallSpeedDescent;
-            float _currentFallSpeed = Mathf.Clamp(Y_Velocity - _fallSpeed, -maxFallSpeed, Y_Velocity - _fallSpeed);
-            if (!_isGrounded) Y_Velocity = _currentFallSpeed;
-        }
+        float _fallSpeed = (Y_Velocity >= 0 || _targetPosition.y > 0) ? fallSpeedAscent : (IsSliding() && canWallSlide) ? fallSpeedWallSliding : fallSpeedDescent;
+        float _currentFallSpeed = Mathf.Clamp(Y_Velocity - _fallSpeed, -maxFallSpeed, Y_Velocity - _fallSpeed);
+        if (!_isGrounded) Y_Velocity = _currentFallSpeed;
     }
     #endregion
 
@@ -420,27 +346,29 @@ public class PlayerController : MonoBehaviour
     #region SpecialEffects
     IEnumerator EnterGroundSquash()
     {
+        Vector3 originalScale = transform.localScale;
         float squashTime = 0.15f;
         float normalTime = 0.2f;
-        spriteRenderer.transform.DOScaleX(1.1f, squashTime);
-        spriteRenderer.transform.DOScaleY(0.7f, squashTime);
+        spriteRenderer.transform.DOScaleX(originalScale.x * 1.1f, squashTime);
+        spriteRenderer.transform.DOScaleY(originalScale.y * 0.7f, squashTime);
         spriteRenderer.transform.DOLocalMoveY(-squashTime, squashTime);
         yield return new WaitForSeconds(squashTime);
-        spriteRenderer.transform.DOScaleX(1f, normalTime);
-        spriteRenderer.transform.DOScaleY(1f, normalTime);
+        spriteRenderer.transform.DOScaleX(originalScale.x, normalTime);
+        spriteRenderer.transform.DOScaleY(originalScale.y, normalTime);
         spriteRenderer.transform.DOLocalMoveY(0, normalTime);
         yield return new WaitForSeconds(normalTime);
     }
 
     IEnumerator LeaveGroundStretch()
     {
+        Vector3 originalScale = transform.localScale;
         float strecthTime = 0.15f;
         float normalTime = 0.2f;
-        spriteRenderer.transform.DOScaleX(0.8f, strecthTime);
-        spriteRenderer.transform.DOScaleY(1.2f, strecthTime);
+        spriteRenderer.transform.DOScaleX(originalScale.x * 0.8f, strecthTime);
+        spriteRenderer.transform.DOScaleY(originalScale.y * 1.2f, strecthTime);
         yield return new WaitForSeconds(strecthTime);
-        spriteRenderer.transform.DOScaleX(1f, normalTime);
-        spriteRenderer.transform.DOScaleY(1f, normalTime);
+        spriteRenderer.transform.DOScaleX(originalScale.x, normalTime);
+        spriteRenderer.transform.DOScaleY(originalScale.y, normalTime);
         yield return new WaitForSeconds(normalTime);
     }
 
