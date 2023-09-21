@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _force: 1.5
-  _radius: 2
+  _radius: 4
   _activationTime: 0.5
   _explosionShakeForce: 25
   _explosionShakeTime: 0.1
