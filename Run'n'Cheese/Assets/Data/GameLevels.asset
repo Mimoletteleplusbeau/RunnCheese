@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61e1f92ef559002468a36ba2dff9409a, type: 3}
   m_Name: GameLevels
   m_EditorClassIdentifier: 
-  _levels:
+  Levels:
   - GunTestScene
+  - MainMenu

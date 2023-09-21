@@ -23,11 +23,11 @@ public class LevelsManager : MonoBehaviour
 
     public void GoToNextLevel()
     {
-        Transition.Instance.SetTransition(() => SceneManager.LoadScene(_currentLevel + 1));
+        Transition.Instance.SetTransition(() => SceneManager.LoadScene(_levelsList.Levels[_currentLevel + 1]));
     }
 
     public void RestartLevel()
     {
-        //Transition.Instance.SetTransition(() => SceneManager.LoadScene(_levelsList._currentLevel));
+        Transition.Instance.SetTransition(() => SceneManager.LoadScene(_levelsList.Levels[_currentLevel]));
     }
 }

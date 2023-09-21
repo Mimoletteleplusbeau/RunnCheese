@@ -495,9 +495,9 @@ RectTransform:
   m_Children:
   - {fileID: 1729013263}
   - {fileID: 675073289}
-  - {fileID: 117524659}
   - {fileID: 498538752}
   - {fileID: 1164191250}
+  - {fileID: 117524659}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1581,7 +1581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4068ce7b7585bd840b23c456490650de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetScene: PlateformerControllerScene
+  _targetScene: GunTestScene
   _originalScale: 1
   _hoverScale: 1.05
   _hoverScaleDuration: 0.2
@@ -1733,7 +1733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4068ce7b7585bd840b23c456490650de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetScene: PlateformerControllerScene
+  _targetScene: GunTestScene
   _originalScale: 1
   _hoverScale: 1.05
   _hoverScaleDuration: 0.2
@@ -2155,7 +2155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4068ce7b7585bd840b23c456490650de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetScene: PlateformerControllerScene
+  _targetScene: GunTestScene
   _originalScale: 1
   _hoverScale: 1.05
   _hoverScaleDuration: 0.2

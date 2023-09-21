@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New LevelsList", menuName = "LevelsList")]
 public class LevelsList : ScriptableObject
 {
-    [SerializeField] private string[] _levels;
+    public string[] Levels;
 }

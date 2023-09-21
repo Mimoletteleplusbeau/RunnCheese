@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -45,6 +46,7 @@ public class PlayerController : MonoBehaviour
     [Tooltip("The time a jump is allowed before reaching the ground in seconds")] [SerializeField] private float jumpBufferTime;
     private float _jumpBufferCounter;
     private bool _isGrounded;
+    [Tooltip("The offset of the ground detection")] [SerializeField] private float _groundedOffset;
 
     [Header("External Forces")]
     [Tooltip("The time the player is pushed by the explosion")] [SerializeField] private float _explosionTimer;
@@ -315,13 +317,12 @@ public class PlayerController : MonoBehaviour
 
     private bool IsGrounded()
     {
-        float offset = 0.05f;
-        RaycastHit2D raycastHit2D = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0f, Vector2.down, offset, platformsLayerMask);
+        RaycastHit2D raycastHit2D = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0f, Vector2.down, _groundedOffset, platformsLayerMask);
 
-        //Color rayColor = Color.red;
-        //Debug.DrawRay(boxCollider.bounds.center + new Vector3(boxCollider.bounds.extents.x, 0), Vector2.down * (boxCollider.bounds.extents.y + offset), rayColor);
-        //Debug.DrawRay(boxCollider.bounds.center - new Vector3(boxCollider.bounds.extents.x, 0), Vector2.down * (boxCollider.bounds.extents.y + offset), rayColor);
-        //Debug.DrawRay(boxCollider.bounds.center - new Vector3(boxCollider.bounds.extents.x, boxCollider.bounds.extents.y + offset), Vector2.right * (boxCollider.bounds.extents.x), rayColor);
+        Color rayColor = Color.red;
+        Debug.DrawRay(boxCollider.bounds.center + new Vector3(boxCollider.bounds.extents.x, 0), Vector2.down * (boxCollider.bounds.extents.y + _groundedOffset), rayColor);
+        Debug.DrawRay(boxCollider.bounds.center - new Vector3(boxCollider.bounds.extents.x, 0), Vector2.down * (boxCollider.bounds.extents.y + _groundedOffset), rayColor);
+        Debug.DrawRay(boxCollider.bounds.center - new Vector3(boxCollider.bounds.extents.x, boxCollider.bounds.extents.y + _groundedOffset), Vector2.right * (boxCollider.bounds.extents.x), rayColor);
 
         return raycastHit2D.collider != null;
     }
@@ -351,10 +352,10 @@ public class PlayerController : MonoBehaviour
         Vector2 direction = Flipped ? Vector2.right : Vector2.left;
         RaycastHit2D raycastHit2D = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0f, direction, offset, platformsLayerMask);
 
-        Color rayColor = Color.red;
-        Debug.DrawRay(boxCollider.bounds.center + new Vector3(0, boxCollider.bounds.extents.y), direction * (boxCollider.bounds.extents.x + offset), rayColor);
-        Debug.DrawRay(boxCollider.bounds.center - new Vector3(0, boxCollider.bounds.extents.y), direction * (boxCollider.bounds.extents.x + offset), rayColor);
-        Debug.DrawRay(boxCollider.bounds.center + new Vector3(direction.x * (boxCollider.bounds.extents.x + offset), boxCollider.bounds.extents.y), Vector2.down * (boxCollider.bounds.size.y), rayColor);
+        //Color rayColor = Color.red;
+        //Debug.DrawRay(boxCollider.bounds.center + new Vector3(0, boxCollider.bounds.extents.y), direction * (boxCollider.bounds.extents.x + offset), rayColor);
+        //Debug.DrawRay(boxCollider.bounds.center - new Vector3(0, boxCollider.bounds.extents.y), direction * (boxCollider.bounds.extents.x + offset), rayColor);
+        //Debug.DrawRay(boxCollider.bounds.center + new Vector3(direction.x * (boxCollider.bounds.extents.x + offset), boxCollider.bounds.extents.y), Vector2.down * (boxCollider.bounds.size.y), rayColor);
 
         return raycastHit2D.collider != null;
     }
@@ -389,7 +390,10 @@ public class PlayerController : MonoBehaviour
     #region States
     private void SetStates()
     {
-        Flipped = _targetPosition.x > 0;
+        if (_targetPosition.x != 0)
+        {
+            Flipped = _targetPosition.x > 0;
+        }
 
         if (_isGrounded)
         {
