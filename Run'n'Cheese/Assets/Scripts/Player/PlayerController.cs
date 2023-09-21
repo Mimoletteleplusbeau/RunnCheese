@@ -87,9 +87,9 @@ public class PlayerController : MonoBehaviour
 
         CheckForMovements();
 
-        CheckForJumps();
-
         ApplyForces();
+
+        CheckForJumps();
 
         ApplyGravity();
 
@@ -161,6 +161,7 @@ public class PlayerController : MonoBehaviour
             _jumpInput = false;
             if ((!IsTouchingWalls() || IsGrounded()) && (_explosionCounter <= 0.01f))
             {
+                Debug.Log(_explosionCounter);
                 StartJump();
                 _jumpBufferCounter = jumpBufferTime;
             }
@@ -202,7 +203,7 @@ public class PlayerController : MonoBehaviour
         _explosionCounter = _explosionTimer;
         _jumpBufferCounter = 0;
         _jumps--;
-        //_jumps=0;
+        Y_Velocity = 0;
         //Debug.Log(_targetPosition + _explosionCurrentDirection * (_explosionCounter / _explosionTimer) * _explosionCurrentForce);
     }
 
