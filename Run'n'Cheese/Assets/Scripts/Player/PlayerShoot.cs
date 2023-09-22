@@ -9,7 +9,8 @@ public class PlayerShoot : MonoBehaviour
 {
     private PlayerInputs _inputs;
     [Tooltip("The prefab of the bullet")] [SerializeField] private GameObject _prefabBullet;
-    [Tooltip("The numbers of bullets available")] [SerializeField] private float _bullets;
+    private float _bullets;
+    [Tooltip("The numbers of bullets available")] [SerializeField] private float _bulletsMax;
     [Tooltip("The time between each shot in seconds")] [SerializeField] private float _reloadTime;
     private float _reloadTimer;
 
@@ -22,7 +23,10 @@ public class PlayerShoot : MonoBehaviour
     private void Awake()
     {
         _inputs = new PlayerInputs();
+        _bullets = _bulletsMax;
     }
+
+
 
     private void OnEnable()
     {
@@ -40,6 +44,12 @@ public class PlayerShoot : MonoBehaviour
     {
         _reloadTimer -= Time.deltaTime;
         TurnGunAnimation();
+        PlayerController playerController = GetComponent<PlayerController>();
+        if (playerController.MyState == PlayerController.PlayerState.JumpAscent || playerController.MyState == PlayerController.PlayerState.JumpDescent)
+        {
+            return;
+        }
+        Reload();
     }
 
     private void TurnGunAnimation()
@@ -78,5 +88,9 @@ public class PlayerShoot : MonoBehaviour
 
             _spriteGunAnimator.Play(_gunAnimationName);
         }
+    }
+    void Reload()
+    {
+        _bullets = _bulletsMax;
     }
 }
