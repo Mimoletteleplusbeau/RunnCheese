@@ -15,6 +15,7 @@ public class PlayerAnimator : MonoBehaviour
     [SerializeField] string WalkAnimName;
     [SerializeField] string JumpAscentAnimName;
     [SerializeField] string JumpDescentAnimName;
+    [SerializeField] string WinAnimName;
 
     [Header("VFX")]
     [SerializeField] private GameObject _walkVFX;
@@ -47,9 +48,17 @@ public class PlayerAnimator : MonoBehaviour
             case PlayerController.PlayerState.JumpDescent:
                 _animator.Play(JumpDescentAnimName);
                 break;
+            case PlayerController.PlayerState.WinLevel:
+                _animator.Play(WinAnimName);
+                break;
             default:
                 _animator.Play(IdleAnimName);
                 break;
         }
+    }
+
+    public void WinAnimationEnd()
+    {
+        LevelsManager.Instance.GoToNextLevel();
     }
 }

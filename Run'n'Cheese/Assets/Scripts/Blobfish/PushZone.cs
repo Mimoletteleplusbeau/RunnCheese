@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PushZone : MonoBehaviour
 {
+    private CircleCollider2D _collider;
     [Tooltip("The force applied by the push force")][SerializeField] private Vector2 _force;
     [Tooltip("The radius ofthe push zone")][SerializeField] private float _radius;
     [Tooltip("The time the push zone stays active in seconds")] [SerializeField] private float _activationTime;
-    private Collider2D[] _collidersGround;
 
     [Header("FX")]
     [SerializeField] private float _explosionShakeForce;
@@ -15,8 +15,9 @@ public class PushZone : MonoBehaviour
 
     private void Start()
     {
-        _collidersGround = new Collider2D[1];
         Destroy(gameObject, _activationTime);
+        _collider = GetComponent<CircleCollider2D>();
+        _collider.radius = _radius;
     }
 
     private void Update()
@@ -25,6 +26,13 @@ public class PushZone : MonoBehaviour
         if (distance <= _radius)
         {
             Vector3 playerDirection = PlayerController.Instance.transform.position - transform.position;
+            Vector3 playerInputDirection = PlayerController.Instance.MoveVector;
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            playerDirection = (playerInputDirection + playerDirection) / 2;
+            if (Mathf.Abs(mousePosition.x) - Mathf.Abs(PlayerController.Instance.transform.position.x) < 5)
+            {
+                Debug.Log("hihihi");
+            }
             PlayerController.Instance.SetForce(playerDirection, _force);
             ScreenShake.Instance.Shake(_explosionShakeForce, _explosionShakeTime);
             Destroy(gameObject);

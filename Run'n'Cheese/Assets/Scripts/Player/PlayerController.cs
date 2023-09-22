@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
 using UnityEngine.UIElements;
+using Unity.VisualScripting;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,7 +14,7 @@ public class PlayerController : MonoBehaviour
     private PlayerInputs input;
     private Rigidbody2D rigidbody;
     private SpriteRenderer spriteRenderer;
-    private Vector2 moveVector;
+    [HideInInspector] public Vector2 MoveVector;
     private Vector2 _targetPosition;
     private Collider2D boxCollider;
     [HideInInspector] public PlayerState MyState;
@@ -60,12 +62,16 @@ public class PlayerController : MonoBehaviour
     private TrailRenderer _trail;
     [Tooltip("Add Squash & Strech to the sprite of the Player")] [SerializeField] private bool squashAndStrech;
 
+    [Header("Camera")]
+    [SerializeField] private GameObject _zoomCamera;
+
     public enum PlayerState
     {
         Idle,
         Walk,
         JumpAscent,
         JumpDescent,
+        WinLevel,
     }
 
     private void Awake()
@@ -77,27 +83,47 @@ public class PlayerController : MonoBehaviour
         _jumps = MaxJumps;
         boxCollider = GetComponent<Collider2D>();
         _trail = transform.GetComponentInChildren<TrailRenderer>();
+        MyState = PlayerState.Idle;
+        _zoomCamera.SetActive(false);
+    }
+
+    private void Start()
+    {
+        LevelEndManager.Instance.OnLevelWin += WinLevel;
     }
 
     private void FixedUpdate()
     {
         _targetPosition = Vector2.zero;
 
-        CheckForGround();
+        CheckWin();
+    }
 
-        CheckForMovements();
+    private void CheckWin()
+    {
+        if (MyState != PlayerState.WinLevel)
+        {
+            CheckForGround();
 
-        CheckForJumps();
+            CheckForMovements();
 
-        ApplyForces();
+            ApplyForces();
+
+            CheckForJumps();
+        }
 
         ApplyGravity();
 
         ApplyPositionChanges();
 
-        ShowSpecialEffects();
+        if (MyState != PlayerState.WinLevel)
+        {
 
-        SetStates();
+            ShowSpecialEffects();
+
+            SetStates();
+        }
+        
     }
 
     private void OnEnable()
@@ -116,22 +142,23 @@ public class PlayerController : MonoBehaviour
         input.Player.Movement.canceled -= OnMovementStop;
         input.Player.Jump.performed -= OnJumpPerformed;
         input.Player.Jump.canceled -= OnJumpStop;
+        LevelEndManager.Instance.OnLevelWin -= WinLevel;
     }
 
     #region Move
     private void OnMovementPerformed(InputAction.CallbackContext callback)
     {
-        moveVector = callback.ReadValue<Vector2>();
+        MoveVector = callback.ReadValue<Vector2>();
     }
 
     private void OnMovementStop(InputAction.CallbackContext callback)
     {
-        moveVector = Vector2.zero;
+        MoveVector = Vector2.zero;
     }
 
     private void CheckForMovements()
     {
-        float targetSpeed = moveVector.x * maxSpeed;
+        float targetSpeed = MoveVector.x * maxSpeed;
 
 
         //if (_wallJumpCounter > 0 && !IsGrounded()) targetSpeed = targetSpeed * ((_wallJumpCounter / wallJumpTime) * - 1 + 1) + (wallJumpDirection.x * _wallJumpCounter * _wallJumpCurrentDirection);
@@ -202,7 +229,7 @@ public class PlayerController : MonoBehaviour
         _explosionCounter = _explosionTimer;
         _jumpBufferCounter = 0;
         _jumps--;
-        //_jumps=0;
+        Y_Velocity = 0;
         //Debug.Log(_targetPosition + _explosionCurrentDirection * (_explosionCounter / _explosionTimer) * _explosionCurrentForce);
     }
 
@@ -291,7 +318,7 @@ public class PlayerController : MonoBehaviour
 
     private bool IsSliding()
     {
-        return IsTouchingWalls() && moveVector.x != 0;
+        return IsTouchingWalls() && MoveVector.x != 0;
     }
     #endregion
 
@@ -375,6 +402,15 @@ public class PlayerController : MonoBehaviour
     private void ShowSpecialEffects()
     {
         _trail.gameObject.SetActive(ShowTrail);
+    }
+    #endregion
+
+    #region Win Level
+    public void WinLevel()
+    {
+        MyState = PlayerState.WinLevel;
+        _zoomCamera.SetActive(true);
+        Destroy(GetComponent<PlayerShoot>());
     }
     #endregion
 
