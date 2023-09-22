@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
 using UnityEngine.UIElements;
+using Unity.VisualScripting;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private PlayerInputs input;
     private Rigidbody2D rigidbody;
     private SpriteRenderer spriteRenderer;
-    private Vector2 moveVector;
+    [HideInInspector] public Vector2 MoveVector;
     private Vector2 _targetPosition;
     private Collider2D boxCollider;
     [HideInInspector] public PlayerState MyState;
@@ -66,6 +67,7 @@ public class PlayerController : MonoBehaviour
         Walk,
         JumpAscent,
         JumpDescent,
+        WinLevel,
     }
 
     private void Awake()
@@ -77,6 +79,11 @@ public class PlayerController : MonoBehaviour
         _jumps = MaxJumps;
         boxCollider = GetComponent<Collider2D>();
         _trail = transform.GetComponentInChildren<TrailRenderer>();
+    }
+
+    private void Start()
+    {
+        LevelEndManager.Instance.OnLevelWin += WinLevel;
     }
 
     private void FixedUpdate()
@@ -116,22 +123,23 @@ public class PlayerController : MonoBehaviour
         input.Player.Movement.canceled -= OnMovementStop;
         input.Player.Jump.performed -= OnJumpPerformed;
         input.Player.Jump.canceled -= OnJumpStop;
+        LevelEndManager.Instance.OnLevelWin -= WinLevel;
     }
 
     #region Move
     private void OnMovementPerformed(InputAction.CallbackContext callback)
     {
-        moveVector = callback.ReadValue<Vector2>();
+        MoveVector = callback.ReadValue<Vector2>();
     }
 
     private void OnMovementStop(InputAction.CallbackContext callback)
     {
-        moveVector = Vector2.zero;
+        MoveVector = Vector2.zero;
     }
 
     private void CheckForMovements()
     {
-        float targetSpeed = moveVector.x * maxSpeed;
+        float targetSpeed = MoveVector.x * maxSpeed;
 
 
         //if (_wallJumpCounter > 0 && !IsGrounded()) targetSpeed = targetSpeed * ((_wallJumpCounter / wallJumpTime) * - 1 + 1) + (wallJumpDirection.x * _wallJumpCounter * _wallJumpCurrentDirection);
@@ -291,7 +299,7 @@ public class PlayerController : MonoBehaviour
 
     private bool IsSliding()
     {
-        return IsTouchingWalls() && moveVector.x != 0;
+        return IsTouchingWalls() && MoveVector.x != 0;
     }
     #endregion
 
@@ -375,6 +383,15 @@ public class PlayerController : MonoBehaviour
     private void ShowSpecialEffects()
     {
         _trail.gameObject.SetActive(ShowTrail);
+    }
+    #endregion
+
+    #region Win Level
+    public void WinLevel()
+    {
+        MyState = PlayerState.WinLevel;
+        Debug.Log("LEVEL WON", this);
+        //Destroy(this);
     }
     #endregion
 

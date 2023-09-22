@@ -58,7 +58,7 @@ public class PlayerShoot : MonoBehaviour
         {
             _reloadTimer = _reloadTime;
             _bullets--;
-            GameObject myBullet = Instantiate(_prefabBullet, _spriteGun.transform.position, Quaternion.identity);
+            GameObject myBullet = Instantiate(_prefabBullet, transform.position, Quaternion.identity);
             Blobfish myBlobfish = myBullet.GetComponent<Blobfish>();
             if (myBlobfish != null)
             {
