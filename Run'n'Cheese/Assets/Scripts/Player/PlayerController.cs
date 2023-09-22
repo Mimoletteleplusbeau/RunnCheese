@@ -62,6 +62,9 @@ public class PlayerController : MonoBehaviour
     private TrailRenderer _trail;
     [Tooltip("Add Squash & Strech to the sprite of the Player")] [SerializeField] private bool squashAndStrech;
 
+    [Header("Camera")]
+    [SerializeField] private GameObject _zoomCamera;
+
     public enum PlayerState
     {
         Idle,
@@ -81,6 +84,7 @@ public class PlayerController : MonoBehaviour
         boxCollider = GetComponent<Collider2D>();
         _trail = transform.GetComponentInChildren<TrailRenderer>();
         MyState = PlayerState.Idle;
+        _zoomCamera.SetActive(false);
     }
 
     private void Start()
@@ -405,7 +409,7 @@ public class PlayerController : MonoBehaviour
     public void WinLevel()
     {
         MyState = PlayerState.WinLevel;
-        Debug.Log("LEVEL WON", this);
+        _zoomCamera.SetActive(true);
         Destroy(GetComponent<PlayerShoot>());
     }
     #endregion

@@ -8,15 +8,50 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9722838662185834, guid: 83ad5a34afbd6bf47bd02878ec271938, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e8049a17917440d4486ff537d52790ca,
+        type: 3}
+    - target: {fileID: 889231885927664323, guid: 83ad5a34afbd6bf47bd02878ec271938,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 889231885927664323, guid: 83ad5a34afbd6bf47bd02878ec271938,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6224301781378775871, guid: 83ad5a34afbd6bf47bd02878ec271938,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 6224301781378775871, guid: 83ad5a34afbd6bf47bd02878ec271938,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.05
+      objectReference: {fileID: 0}
     - target: {fileID: 6928214377236207114, guid: 83ad5a34afbd6bf47bd02878ec271938,
         type: 3}
       propertyPath: m_Name
-      value: Enemy Variant
+      value: Crab
       objectReference: {fileID: 0}
     - target: {fileID: 8232881472159033318, guid: 83ad5a34afbd6bf47bd02878ec271938,
         type: 3}
       propertyPath: m_RootOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8232881472159033318, guid: 83ad5a34afbd6bf47bd02878ec271938,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8232881472159033318, guid: 83ad5a34afbd6bf47bd02878ec271938,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8232881472159033318, guid: 83ad5a34afbd6bf47bd02878ec271938,
         type: 3}
@@ -68,6 +103,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8232881472159033318, guid: 83ad5a34afbd6bf47bd02878ec271938,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -77,7 +117,7 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 6190246202857081754}
   m_SourcePrefab: {fileID: 100100000, guid: 83ad5a34afbd6bf47bd02878ec271938, type: 3}
---- !u!1 &3876994939072732560 stripped
+--- !u!1 &6119871494068232550 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6928214377236207114, guid: 83ad5a34afbd6bf47bd02878ec271938,
     type: 3}
@@ -89,7 +129,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3876994939072732560}
+  m_GameObject: {fileID: 6119871494068232550}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 75b88cd3327a9c64ca46b5e450764f7d, type: 3}
