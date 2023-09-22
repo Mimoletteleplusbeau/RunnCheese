@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collision.gameObject.GetComponent<PushZone>() != null)
+        if (collider.gameObject.GetComponent<PushZone>() == null)
             return;
-        Debug.Log(collision.collider.name);
         Destroy(gameObject);
     }
 }

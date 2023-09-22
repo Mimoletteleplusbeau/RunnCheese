@@ -545,6 +545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa9b44fd07e2cd4ca80d24e1d88d79e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MoveVector: {x: 0, y: 0}
   MyState: 0
   platformsLayerMask:
     serializedVersion: 2
@@ -582,11 +583,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e754f8b91fe6f1438173e56834dee83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteGun: {fileID: 7665811236509379415}
   _prefabBullet: {fileID: 167836674412635396, guid: c0ae2215fd5e83341a6e6a78e2fe7727,
     type: 3}
-  _bullets: 1000
+  _bulletsMax: 0
   _reloadTime: 0.5
+  _spriteGun: {fileID: 1147174180882729519}
+  _spriteGunAnimator: {fileID: 0}
+  _sprite: {fileID: 0}
+  _gunAnimationName: 
 --- !u!50 &7613301427442531054
 Rigidbody2D:
   serializedVersion: 4

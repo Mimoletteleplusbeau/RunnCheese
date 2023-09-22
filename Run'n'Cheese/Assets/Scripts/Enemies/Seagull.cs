@@ -13,12 +13,13 @@ public class Seagull : Enemy
         Instance = this;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected override void OnTriggerEnter2D(Collider2D collider)
     {
-        bool _isGlobFish = collision.gameObject.GetComponent<Blobfish>() != null || collision.gameObject.GetComponent<PushZone>() != null;
-        if (_isGlobFish)
-        {
-            OnKill?.Invoke();
-        }
+        bool _isPushZone = collider.gameObject.GetComponent<PushZone>() != null;
+        if (!_isPushZone) return;
+        
+        OnKill?.Invoke();
+        Debug.Log("END");
+        
     }
 }

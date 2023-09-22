@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PushZone : MonoBehaviour
 {
+    private CircleCollider2D _collider;
     [Tooltip("The force applied by the push force")][SerializeField] private Vector2 _force;
     [Tooltip("The radius ofthe push zone")][SerializeField] private float _radius;
     [Tooltip("The time the push zone stays active in seconds")] [SerializeField] private float _activationTime;
@@ -15,6 +16,8 @@ public class PushZone : MonoBehaviour
     private void Start()
     {
         Destroy(gameObject, _activationTime);
+        _collider = GetComponent<CircleCollider2D>();
+        _collider.radius = _radius;
     }
 
     private void Update()
