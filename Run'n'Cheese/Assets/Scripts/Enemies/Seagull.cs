@@ -18,8 +18,6 @@ public class Seagull : Enemy
         bool _isPushZone = collider.gameObject.GetComponent<PushZone>() != null;
         if (!_isPushZone) return;
         
-        OnKill?.Invoke();
-        Debug.Log("END");
-        
+        OnKill?.Invoke();        
     }
 }

@@ -420,6 +420,7 @@ MonoBehaviour:
   WalkAnimName: Walk
   JumpAscentAnimName: JumpAscent
   JumpDescentAnimName: JumpDescent
+  WinAnimName: WinSmile
   _walkVFX: {fileID: 4992687835117753119}
 --- !u!212 &7613301427142775227
 SpriteRenderer:

@@ -80,6 +80,7 @@ public class PlayerController : MonoBehaviour
         _jumps = MaxJumps;
         boxCollider = GetComponent<Collider2D>();
         _trail = transform.GetComponentInChildren<TrailRenderer>();
+        MyState = PlayerState.Idle;
     }
 
     private void Start()
@@ -91,21 +92,34 @@ public class PlayerController : MonoBehaviour
     {
         _targetPosition = Vector2.zero;
 
-        CheckForGround();
+        CheckWin();
+    }
 
-        CheckForMovements();
+    private void CheckWin()
+    {
+        if (MyState != PlayerState.WinLevel)
+        {
+            CheckForGround();
 
-        ApplyForces();
+            CheckForMovements();
 
-        CheckForJumps();
+            ApplyForces();
+
+            CheckForJumps();
+        }
 
         ApplyGravity();
 
         ApplyPositionChanges();
 
-        ShowSpecialEffects();
+        if (MyState != PlayerState.WinLevel)
+        {
 
-        SetStates();
+            ShowSpecialEffects();
+
+            SetStates();
+        }
+        
     }
 
     private void OnEnable()
@@ -392,7 +406,7 @@ public class PlayerController : MonoBehaviour
     {
         MyState = PlayerState.WinLevel;
         Debug.Log("LEVEL WON", this);
-        //Destroy(this);
+        Destroy(GetComponent<PlayerShoot>());
     }
     #endregion
 
