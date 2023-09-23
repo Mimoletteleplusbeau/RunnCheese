@@ -65,6 +65,10 @@ public class PlayerController : MonoBehaviour
     [Header("Camera")]
     [SerializeField] private GameObject _zoomCamera;
 
+    [Header("VFX")]
+    [SerializeField] private GameObject _vfxLeaveGround;
+    [SerializeField] private GameObject _vfxEnterGround;
+
     public enum PlayerState
     {
         Idle,
@@ -257,6 +261,8 @@ public class PlayerController : MonoBehaviour
 
         if (squashAndStrech)
             StartCoroutine(EnterGroundSquash());
+
+        Instantiate(_vfxEnterGround, boxCollider.bounds.center - Vector3.down * boxCollider.bounds.extents.y, Quaternion.identity);
     }
 
     private void LeaveGround()
@@ -269,6 +275,9 @@ public class PlayerController : MonoBehaviour
 
         if (squashAndStrech)
             StartCoroutine(LeaveGroundStretch());
+
+        if (Y_Velocity > 0)
+            Instantiate(_vfxLeaveGround, boxCollider.bounds.center - Vector3.down * boxCollider.bounds.extents.y, Quaternion.identity);
     }
 
     private bool IsGrounded()

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DestructiblePlateform : Enemy
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.GetComponent<Blobfish>() == null) return;
         Destroy(gameObject);

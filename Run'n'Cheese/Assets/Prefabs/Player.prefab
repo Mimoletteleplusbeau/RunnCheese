@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Follow: {fileID: 7613301427442531053}
   m_Lens:
     FieldOfView: 40
-    OrthographicSize: 1.59
+    OrthographicSize: 2.5
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 7613301426772207765}
   - component: {fileID: 7613301426772207766}
   - component: {fileID: 7613301426772207767}
-  - component: {fileID: 3433802387520830754}
+  - component: {fileID: 1253551019096424600}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -350,7 +350,7 @@ MonoBehaviour:
   m_MaximumFOV: 60
   m_MinimumOrthoSize: 1
   m_MaximumOrthoSize: 5000
---- !u!114 &3433802387520830754
+--- !u!114 &1253551019096424600
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -362,11 +362,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_NoiseProfile: {fileID: 11400000, guid: 3e025db2c3cfdf345b69e9850048d363, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 0
-  m_FrequencyGain: 1
-  mNoiseOffsets: {x: 385.66513, y: -574.44434, z: 3.4907837}
+  m_AmplitudeGain: 24
+  m_FrequencyGain: 15
+  mNoiseOffsets: {x: 764.1368, y: 718.19543, z: 898.46014}
 --- !u!1 &7613301427142775225
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,12 +587,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefabBullet: {fileID: 167836674412635396, guid: c0ae2215fd5e83341a6e6a78e2fe7727,
     type: 3}
-  _bulletsMax: 0
+  _bulletsMax: 1
   _reloadTime: 0.5
   _spriteGun: {fileID: 1147174180882729519}
-  _spriteGunAnimator: {fileID: 0}
-  _sprite: {fileID: 0}
-  _gunAnimationName: 
+  _spriteGunAnimator: {fileID: 7714881936492388852}
+  _sprite: {fileID: 7613301427142775227}
+  _gunAnimationName: Firing
 --- !u!50 &7613301427442531054
 Rigidbody2D:
   serializedVersion: 4
@@ -795,6 +795,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8304992627326276460}
   - component: {fileID: 1147174180882729519}
+  - component: {fileID: 7714881936492388852}
   m_Layer: 0
   m_Name: PlayerGunSprite
   m_TagString: Untagged
@@ -869,6 +870,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &7714881936492388852
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7665811236509379415}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c7855fd32073ff04aaa446f0b9f70272, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &6131109103514588672
 PrefabInstance:
   m_ObjectHideFlags: 0
