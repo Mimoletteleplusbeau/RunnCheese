@@ -9,9 +9,10 @@ public class TemporaryPlateformManager : MonoBehaviour
     private Vector2 _plateformPosition;
     private Quaternion _plateformRotation;
     private Vector2 _plateformScale;
+    private float _plateformRadius;
     [SerializeField] private float _respawnTime;
     private bool _canSpawn;
-    private float _playerDistance = 2f;
+    private float _playerDistanceOffset = 1.05f;
 
     private void Start()
     {
@@ -47,8 +48,7 @@ public class TemporaryPlateformManager : MonoBehaviour
 
     private void CheckForPlayer()
     {
-        Debug.Log("check for player");
-        if (Vector2.Distance(_plateformPosition, (Vector2)PlayerController.Instance.transform.position) > _playerDistance)
+        if (Vector2.Distance(_plateformPosition, PlayerController.Instance.transform.position) > _plateformRadius * _playerDistanceOffset)
         {
             SpawnNewPlateform();
         }
@@ -59,6 +59,8 @@ public class TemporaryPlateformManager : MonoBehaviour
         _plateformPosition = transform.transform.position;
         _plateformRotation = transform.transform.rotation;
         _plateformScale = transform.transform.localScale;
+        Vector2 plateformBounds = transform.GetComponent<Collider2D>().bounds.extents;
+        _plateformRadius = Mathf.Max(plateformBounds.x, plateformBounds.y);
     }
 
     private void SetTransform(Transform transform)
