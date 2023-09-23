@@ -417,7 +417,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &168093234
 PrefabInstance:
@@ -840,7 +840,7 @@ Transform:
   - {fileID: 1637583132}
   - {fileID: 1726593785}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &455572955
 GameObject:
@@ -1069,7 +1069,7 @@ Transform:
   - {fileID: 292274602}
   - {fileID: 771934543}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &707413713
 PrefabInstance:
@@ -1079,10 +1079,60 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5409135785460553992, guid: 844554535ae846545ad8caa23e363433,
+        type: 3}
+      propertyPath: duration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5409135785460553992, guid: 844554535ae846545ad8caa23e363433,
+        type: 3}
+      propertyPath: curve.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5409135785460553992, guid: 844554535ae846545ad8caa23e363433,
+        type: 3}
+      propertyPath: curve.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5409135785460553992, guid: 844554535ae846545ad8caa23e363433,
+        type: 3}
+      propertyPath: curve.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5409135785460553992, guid: 844554535ae846545ad8caa23e363433,
+        type: 3}
+      propertyPath: curve.m_Curve.Array.data[0].inSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5409135785460553992, guid: 844554535ae846545ad8caa23e363433,
+        type: 3}
+      propertyPath: curve.m_Curve.Array.data[1].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5409135785460553992, guid: 844554535ae846545ad8caa23e363433,
+        type: 3}
+      propertyPath: curve.m_Curve.Array.data[0].outSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5409135785460553992, guid: 844554535ae846545ad8caa23e363433,
+        type: 3}
+      propertyPath: curve.m_Curve.Array.data[1].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5409135785460553992, guid: 844554535ae846545ad8caa23e363433,
+        type: 3}
+      propertyPath: curve.m_Curve.Array.data[0].tangentMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5409135785460553992, guid: 844554535ae846545ad8caa23e363433,
+        type: 3}
+      propertyPath: curve.m_Curve.Array.data[1].tangentMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5862552395800606676, guid: 844554535ae846545ad8caa23e363433,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5862552395800606676, guid: 844554535ae846545ad8caa23e363433,
         type: 3}
@@ -1603,7 +1653,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1461192200
 GameObject:
@@ -1636,7 +1686,7 @@ Transform:
   - {fileID: 455572959}
   - {fileID: 398623027}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1637583130
 GameObject:
