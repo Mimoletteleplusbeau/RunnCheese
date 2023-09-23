@@ -37,13 +37,12 @@ public class Crab : Enemy
 
     private void CheckForGround()
     {
-        Debug.Log(IsGrounded());
-        if (_grounded && !IsGrounded())
+        if (_grounded && (!IsGrounded() || IsTouchingWalls()))
         {
             _direction *= -1;
             _grounded = false;
         }
-        else if (IsGrounded())
+        else if (IsGrounded() || !IsTouchingWalls())
         {
             _grounded = true;
         }
@@ -59,5 +58,17 @@ public class Crab : Enemy
         Debug.DrawRay(_boxCollider.bounds.center - new Vector3(_boxCollider.bounds.extents.x, _boxCollider.bounds.extents.y + _groundedOffset), Vector2.right * (_boxCollider.bounds.extents.x), rayColor);
 
         return results > 0;
+    }
+
+    private bool IsTouchingWalls()
+    {
+        RaycastHit2D raycastHit2D = Physics2D.BoxCast(_boxCollider.bounds.center, _boxCollider.bounds.size, 0f, _direction, _groundedOffset, platformsLayerMask);
+
+        //Color rayColor = Color.red;
+        //Debug.DrawRay(boxCollider.bounds.center + new Vector3(0, boxCollider.bounds.extents.y), direction * (boxCollider.bounds.extents.x + offset), rayColor);
+        //Debug.DrawRay(boxCollider.bounds.center - new Vector3(0, boxCollider.bounds.extents.y), direction * (boxCollider.bounds.extents.x + offset), rayColor);
+        //Debug.DrawRay(boxCollider.bounds.center + new Vector3(direction.x * (boxCollider.bounds.extents.x + offset), boxCollider.bounds.extents.y), Vector2.down * (boxCollider.bounds.size.y), rayColor);
+
+        return raycastHit2D.collider != null;
     }
 }
