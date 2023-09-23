@@ -14,6 +14,8 @@ public class Crab : Enemy
     [Tooltip("The layer of the platforms the enemy can detect")] [SerializeField] private LayerMask platformsLayerMask;
     [SerializeField] private float _groundedOffset = 0.05f;
     private bool _grounded;
+    private float _checkTimer;
+    private float _cooldownFrames = 2f;
 
     private void Awake()
     {
@@ -37,10 +39,12 @@ public class Crab : Enemy
 
     private void CheckForGround()
     {
-        if (_grounded && (!IsGrounded() || IsTouchingWalls()))
+        _checkTimer--;
+        if (_grounded && (!IsGrounded() || IsTouchingWalls()) && _checkTimer < 0)
         {
             _direction *= -1;
             _grounded = false;
+            _checkTimer = _cooldownFrames;
         }
         else if (IsGrounded() || !IsTouchingWalls())
         {
@@ -62,7 +66,7 @@ public class Crab : Enemy
 
     private bool IsTouchingWalls()
     {
-        RaycastHit2D raycastHit2D = Physics2D.BoxCast(_boxCollider.bounds.center, _boxCollider.bounds.size, 0f, _direction, _groundedOffset, platformsLayerMask);
+        RaycastHit2D raycastHit2D = Physics2D.BoxCast(_boxCollider.bounds.center, _boxCollider.bounds.size, 0f, _direction, _speed, platformsLayerMask);
 
         //Color rayColor = Color.red;
         //Debug.DrawRay(boxCollider.bounds.center + new Vector3(0, boxCollider.bounds.extents.y), direction * (boxCollider.bounds.extents.x + offset), rayColor);
