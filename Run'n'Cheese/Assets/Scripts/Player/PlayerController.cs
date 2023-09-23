@@ -283,7 +283,8 @@ public class PlayerController : MonoBehaviour
 
     private bool IsGrounded()
     {
-        RaycastHit2D raycastHit2D = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0f, Vector2.down, _groundedOffset, platformsLayerMask);
+        float defaultOffset = Physics2D.defaultContactOffset;
+        RaycastHit2D raycastHit2D = Physics2D.BoxCast(boxCollider.bounds.center, new Vector2(boxCollider.bounds.size.x + defaultOffset, boxCollider.bounds.size.y + defaultOffset), 0f, Vector2.down, _groundedOffset, platformsLayerMask);
 
         Color rayColor = Color.red;
         Debug.DrawRay(boxCollider.bounds.center + new Vector3(boxCollider.bounds.extents.x, 0), Vector2.down * (boxCollider.bounds.extents.y + _groundedOffset), rayColor);
