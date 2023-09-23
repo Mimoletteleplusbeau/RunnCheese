@@ -70,21 +70,20 @@ public class PlayerShoot : MonoBehaviour
             _bullets--;
             GameObject myBullet = Instantiate(_prefabBullet, transform.position, Quaternion.identity);
             Blobfish myBlobfish = myBullet.GetComponent<Blobfish>();
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mouseDirection = mousePosition - (Vector2)transform.position;
             if (myBlobfish != null)
             {
-                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Vector2 mouseDirection = mousePosition - (Vector2)transform.position;
                 myBlobfish.Direction = mouseDirection.normalized;
                 myBlobfish.Parent = this.gameObject;
             }
-
             Sequence sequence = DOTween.Sequence();
             Vector2 originalGunPosition = _spriteGun.transform.localPosition;
-            int flipDirection = (_spriteGun.flipX ? -1 : 1);
-            sequence.Append(_spriteGun.transform.DOLocalMove(originalGunPosition + (Vector2)_spriteGun.transform.right * 2f * flipDirection, 0.05f));
+            float _recoilOffset = 2f;
+            sequence.Append(_spriteGun.transform.DOLocalMove(new Vector2(originalGunPosition.x + mouseDirection.normalized.x * _recoilOffset, originalGunPosition.y - mouseDirection.normalized.y * _recoilOffset), 0.05f));
             sequence.Append(_spriteGun.transform.DOLocalMove(originalGunPosition, 0.2f));
             sequence.Play();
-            Debug.Log(_spriteGun.transform.right);
+            Debug.Log(mouseDirection.normalized);
 
             _spriteGunAnimator.Play(_gunAnimationName);
         }
