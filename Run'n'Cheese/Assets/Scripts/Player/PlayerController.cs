@@ -244,6 +244,7 @@ public class PlayerController : MonoBehaviour
             float normalizedExplosionTimer = (_explosionCounter / _explosionTimer);
             _targetPosition += _explosionCurrentDirection * normalizedExplosionTimer * _explosionCurrentForce;
         }
+        
     }
     #endregion
 
@@ -334,7 +335,7 @@ public class PlayerController : MonoBehaviour
     #region Gravity
     private void ApplyGravity()
     {
-        float _fallSpeed = (Y_Velocity >= 0 || _targetPosition.y > 0) ? fallSpeedAscent : (IsSliding() && canWallSlide) ? fallSpeedWallSliding : fallSpeedDescent;
+        float _fallSpeed = (Y_Velocity >= 0 ||_targetPosition.y > 0 ) ? fallSpeedAscent : (IsSliding() && canWallSlide) ? fallSpeedWallSliding : fallSpeedDescent;
         float _currentFallSpeed = Mathf.Clamp(Y_Velocity - _fallSpeed, -maxFallSpeed, Y_Velocity - _fallSpeed);
         if (!_isGrounded) Y_Velocity = _currentFallSpeed;
     }

@@ -29,7 +29,7 @@ public class PushZone : MonoBehaviour
             Vector3 playerInputDirection = PlayerController.Instance.MoveVector;
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             playerDirection = (playerInputDirection + playerDirection) / 2;
-            if (Mathf.Abs(mousePosition.x) - Mathf.Abs(PlayerController.Instance.transform.position.x) < 5)
+            if (PlayerController.Instance.transform.position.x - mousePosition.x > 5)
             {
                 Debug.Log("hihihi");
             }
