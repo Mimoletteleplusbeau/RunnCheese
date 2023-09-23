@@ -29,7 +29,9 @@ public class PlayerAnimator : MonoBehaviour
 
     private void Update()
     {
-        _spriteRenderer.flipX = !Player.Flipped;
+        //_spriteRenderer.flipX = !Player.Flipped;
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        _spriteRenderer.flipX = Player.transform.position.x > mousePosition.x;
         //_walkVFX.SetActive(false);
 
         switch (Player.MyState)
