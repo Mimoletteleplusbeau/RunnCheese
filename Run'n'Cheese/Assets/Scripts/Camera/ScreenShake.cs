@@ -17,6 +17,11 @@ public class ScreenShake : MonoBehaviour
         cinemachineVirtualCamera = GetComponent<Cinemachine.CinemachineVirtualCamera>();
     }
 
+    private void Start()
+    {
+        cinemachineVirtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 0;
+    }
+
     public void Shake(float _strength = -1, float _duration = -1, AnimationCurve _curve = null)
     {
         StartCoroutine(Shaking(_strength, _duration, _curve));
