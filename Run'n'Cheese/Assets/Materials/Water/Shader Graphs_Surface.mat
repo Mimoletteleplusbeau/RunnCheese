@@ -101,7 +101,7 @@ Material:
     - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
     - _RefractionScale: {r: 8, g: 8, b: 0, a: 0}
     - _Shallow_Water_Color: {r: 0, g: 0.99056596, b: 0.92994887, a: 0.5529412}
-    - _Surface_Water_Color: {r: 0.5294118, g: 0.12549019, b: 0.37403998, a: 0.7294118}
+    - _Surface_Water_Color: {r: 0.12549019, g: 0.4797933, b: 0.5294118, a: 0.7294118}
   m_BuildTextureStacks: []
 --- !u!114 &8933087570128014447
 MonoBehaviour:
