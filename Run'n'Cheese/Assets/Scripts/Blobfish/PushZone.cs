@@ -8,6 +8,7 @@ public class PushZone : MonoBehaviour
     [Tooltip("The force applied by the push force")][SerializeField] private Vector2 _force;
     [Tooltip("The radius ofthe push zone")][SerializeField] private float _radius;
     [Tooltip("The time the push zone stays active in seconds")] [SerializeField] private float _activationTime;
+    [HideInInspector] public Vector2 HitNormal;
 
     [Header("FX")]
     [SerializeField] private float _explosionShakeForce;
@@ -18,6 +19,7 @@ public class PushZone : MonoBehaviour
         Destroy(gameObject, _activationTime);
         _collider = GetComponent<CircleCollider2D>();
         _collider.radius = _radius;
+        Debug.Log(HitNormal);
     }
 
     private void Update()
@@ -25,13 +27,14 @@ public class PushZone : MonoBehaviour
         float distance = Vector3.Distance(transform.position, PlayerController.Instance.transform.position);
         if (distance <= _radius)
         {
-            Vector3 playerDirection = PlayerController.Instance.transform.position - transform.position;
-            Vector3 playerInputDirection = PlayerController.Instance.MoveVector;
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            playerDirection = (playerInputDirection + playerDirection) / 2;
-            if (PlayerController.Instance.transform.position.x - mousePosition.x > 5)
+            Vector2 playerDirection = HitNormal;
+            if (Mathf.Abs(playerDirection.x) > 0)
             {
-                Debug.Log("hihihi");
+                playerDirection.y = 1;
+                if (transform.position.y < PlayerController.Instance.transform.position.y)
+                {
+                    playerDirection.x = 0;
+                }
             }
             PlayerController.Instance.SetForce(playerDirection, _force);
             ScreenShake.Instance.Shake(_explosionShakeForce, _explosionShakeTime);

@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private PlayerInputs input;
     private Rigidbody2D rigidbody;
     private SpriteRenderer spriteRenderer;
+    private Vector2 _spriteOriginalScale;
     [HideInInspector] public Vector2 MoveVector;
     private Vector2 _targetPosition;
     private Collider2D boxCollider;
@@ -84,6 +85,7 @@ public class PlayerController : MonoBehaviour
         input = new PlayerInputs();
         rigidbody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        _spriteOriginalScale = spriteRenderer.transform.localScale;
         _jumps = MaxJumps;
         boxCollider = GetComponent<Collider2D>();
         _trail = transform.GetComponentInChildren<TrailRenderer>();
@@ -384,29 +386,27 @@ public class PlayerController : MonoBehaviour
     #region SpecialEffects
     IEnumerator EnterGroundSquash()
     {
-        Vector3 originalScale = transform.localScale;
         float squashTime = 0.15f;
         float normalTime = 0.2f;
-        spriteRenderer.transform.DOScaleX(originalScale.x * 1.1f, squashTime);
-        spriteRenderer.transform.DOScaleY(originalScale.y * 0.7f, squashTime);
-        spriteRenderer.transform.DOLocalMoveY(-squashTime, squashTime);
+        spriteRenderer.transform.DOScaleX(_spriteOriginalScale.x * 1.1f, squashTime);
+        spriteRenderer.transform.DOScaleY(_spriteOriginalScale.y * 0.7f, squashTime);
+        //spriteRenderer.transform.DOLocalMoveY(-squashTime, squashTime);
         yield return new WaitForSeconds(squashTime);
-        spriteRenderer.transform.DOScaleX(originalScale.x, normalTime);
-        spriteRenderer.transform.DOScaleY(originalScale.y, normalTime);
-        spriteRenderer.transform.DOLocalMoveY(0, normalTime);
+        spriteRenderer.transform.DOScaleX(_spriteOriginalScale.x, normalTime);
+        spriteRenderer.transform.DOScaleY(_spriteOriginalScale.y, normalTime);
+        //spriteRenderer.transform.DOLocalMoveY(0, normalTime);
         yield return new WaitForSeconds(normalTime);
     }
 
     IEnumerator LeaveGroundStretch()
     {
-        Vector3 originalScale = transform.localScale;
         float strecthTime = 0.15f;
         float normalTime = 0.2f;
-        spriteRenderer.transform.DOScaleX(originalScale.x * 0.8f, strecthTime);
-        spriteRenderer.transform.DOScaleY(originalScale.y * 1.2f, strecthTime);
+        spriteRenderer.transform.DOScaleX(_spriteOriginalScale.x * 0.8f, strecthTime);
+        spriteRenderer.transform.DOScaleY(_spriteOriginalScale.y * 1.2f, strecthTime);
         yield return new WaitForSeconds(strecthTime);
-        spriteRenderer.transform.DOScaleX(originalScale.x, normalTime);
-        spriteRenderer.transform.DOScaleY(originalScale.y, normalTime);
+        spriteRenderer.transform.DOScaleX(_spriteOriginalScale.x, normalTime);
+        spriteRenderer.transform.DOScaleY(_spriteOriginalScale.y, normalTime);
         yield return new WaitForSeconds(normalTime);
     }
 

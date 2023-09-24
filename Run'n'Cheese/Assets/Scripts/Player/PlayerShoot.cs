@@ -83,7 +83,6 @@ public class PlayerShoot : MonoBehaviour
             sequence.Append(_spriteGun.transform.DOLocalMove(new Vector2(originalGunPosition.x + mouseDirection.normalized.x * _recoilOffset, originalGunPosition.y - mouseDirection.normalized.y * _recoilOffset), 0.05f));
             sequence.Append(_spriteGun.transform.DOLocalMove(originalGunPosition, 0.2f));
             sequence.Play();
-            Debug.Log(mouseDirection.normalized);
 
             _spriteGunAnimator.Play(_gunAnimationName);
         }

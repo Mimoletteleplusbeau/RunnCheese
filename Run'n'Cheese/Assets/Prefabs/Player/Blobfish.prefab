@@ -54,7 +54,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   _explosionAnimationName: Explosion
-  _pushZonePrefab: {fileID: 2341801454756376701, guid: c850c62e2305d214bb37e0c6970fb034,
+  _pushZonePrefab: {fileID: 5866205515079277471, guid: c850c62e2305d214bb37e0c6970fb034,
     type: 3}
   _explosionVFXPrefab: {fileID: 2161253024249132031, guid: 1289e229ea704c948b554d1aaf5cfcdb,
     type: 3}

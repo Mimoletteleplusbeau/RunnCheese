@@ -16,11 +16,12 @@ public class Blobfish : MonoBehaviour
     private float _destroyTime = 20f;
     private bool _isSticked;
     [SerializeField] private LayerMask _defaultLayer;
+    private Vector2 _hitNormal;
 
     [Header("Animations")]
     [Tooltip("The name of the explosion animation")] [SerializeField] private string _explosionAnimationName;
     [Space(5)]
-    [Tooltip("The prefab of the push zone")] [SerializeField] private GameObject _pushZonePrefab;
+    [Tooltip("The prefab of the push zone")] [SerializeField] private PushZone _pushZonePrefab;
 
     [Header("FX")]
     [SerializeField] private GameObject _explosionVFXPrefab;
@@ -45,32 +46,36 @@ public class Blobfish : MonoBehaviour
         {
             if (collision.gameObject.GetComponent<Sticky>() != null)
             {
-                SetStick();
+                SetStick(collision);
 
             } else {
 
-                SetExplosion();
+                SetExplosion(collision);
             }
         }
     }
 
-    private void SetExplosion()
+    private void SetExplosion(Collision2D collision)
     {
         _speed = 0f;
         _animator.Play(_explosionAnimationName);
-        
-        Instantiate(_pushZonePrefab, transform.position, Quaternion.identity);
+
+        if (!_isSticked)
+            _hitNormal = collision.contacts[0].normal;
+        PushZone myPushZone = Instantiate(_pushZonePrefab, transform.position, Quaternion.identity);
+        myPushZone.HitNormal = _hitNormal;
 
         // Feedback
         Instantiate(_explosionVFXPrefab, transform.position, Quaternion.identity);
         ScreenShake.Instance.Shake(_explosionShakeForce, _explosionShakeTime);
     }
 
-    private void SetStick()
+    private void SetStick(Collision2D collision)
     {
+        _isSticked = true;
+        _hitNormal = collision.contacts[0].normal;
         _speed = 0;
         CancelInvoke("DestroySelf");
-        _isSticked = true;
         gameObject.layer = _defaultLayer;
         Parent = this.gameObject;
     }
