@@ -10,6 +10,7 @@ public class Gull : Enemy
     private float _angle;
     private Vector3 _pivotPoint;
     [Tooltip("The time after which the gull starts moving (for more randomness)")] [SerializeField] private float _delay;
+    private float _currentDelay;
 
     [Header("Random")]
     [Tooltip("Give random stats")] [SerializeField] private bool _isRandom;
@@ -19,12 +20,13 @@ public class Gull : Enemy
     private void Start()
     {
         _pivotPoint = transform.position;
+        _currentDelay = _delay;
         PutRandomValues();
     }
     private void Update()
     {
-        _delay -= Time.deltaTime;
-        if (_delay > 0) return;
+        _currentDelay -= Time.deltaTime;
+        if (_currentDelay > 0) return;
         _angle += _speed;
         Vector3 direction = Quaternion.Euler(Vector3.forward * _angle * _direction) * _pivotPoint;
         transform.position = direction.normalized * _radius;
@@ -39,7 +41,7 @@ public class Gull : Enemy
             _speed = Random.Range(_speed * _minRandomRange, _speed * _maxRandomRange);
             _direction = Mathf.Floor(Random.Range(0, 2)) * 2 - 1;
             _radius = Random.Range(_radius * _minRandomRange, _radius * _maxRandomRange);
-            _delay = Random.Range(_delay * _minRandomRange, _delay * _maxRandomRange);
+            _currentDelay = Random.Range(_delay * _minRandomRange, _delay * _maxRandomRange);
         }
     }
 
