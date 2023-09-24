@@ -13,11 +13,8 @@ public class Seagull : Enemy
         Instance = this;
     }
 
-    protected override void OnTriggerEnter2D(Collider2D collider)
+    private void OnDestroy()
     {
-        bool _isPushZone = collider.gameObject.GetComponent<PushZone>() != null;
-        if (!_isPushZone) return;
-        
-        OnKill?.Invoke();        
+        OnKill?.Invoke();
     }
 }

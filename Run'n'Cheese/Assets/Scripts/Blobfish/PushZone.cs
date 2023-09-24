@@ -9,6 +9,7 @@ public class PushZone : MonoBehaviour
     [Tooltip("The radius ofthe push zone")][SerializeField] private float _radius;
     [Tooltip("The time the push zone stays active in seconds")] [SerializeField] private float _activationTime;
     [HideInInspector] public Vector2 HitNormal;
+    private bool _hasHitPlayer = false;
 
     [Header("FX")]
     [SerializeField] private float _explosionShakeForce;
@@ -19,26 +20,30 @@ public class PushZone : MonoBehaviour
         Destroy(gameObject, _activationTime);
         _collider = GetComponent<CircleCollider2D>();
         _collider.radius = _radius;
-        Debug.Log(HitNormal);
     }
 
     private void Update()
     {
+        if (_hasHitPlayer) return;
+
         float distance = Vector3.Distance(transform.position, PlayerController.Instance.transform.position);
         if (distance <= _radius)
         {
             Vector2 playerDirection = HitNormal;
             if (Mathf.Abs(playerDirection.x) > 0)
             {
-                playerDirection.y = 1;
-                if (transform.position.y < PlayerController.Instance.transform.position.y)
+                if (PlayerController.Instance.MyState == PlayerController.PlayerState.JumpAscent || PlayerController.Instance.MyState == PlayerController.PlayerState.JumpDescent)
                 {
-                    playerDirection.x = 0;
+                    playerDirection.y = 1;
+                    if (transform.position.y < PlayerController.Instance.transform.position.y)
+                    {
+                        playerDirection.x = 0;
+                    }
                 }
             }
             PlayerController.Instance.SetForce(playerDirection, _force);
             ScreenShake.Instance.Shake(_explosionShakeForce, _explosionShakeTime);
-            Destroy(gameObject);
+            _hasHitPlayer = true;
         }
     }
 
