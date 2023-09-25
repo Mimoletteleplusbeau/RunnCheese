@@ -13,6 +13,10 @@ public class TimeManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+    }
+
+    private void Start()
+    {
         Seagull.Instance.OnKill += StopTimer;
     }
 

@@ -54,8 +54,10 @@ public class PlayerShoot : MonoBehaviour
 
     private void TurnGunAnimation()
     {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 mouseDirection = mousePosition - (Vector2)_spriteGun.transform.position;
+        Vector2 mousePosition = Input.mousePosition;
+        Vector2 playerPosition = Camera.main.WorldToScreenPoint((Vector2)_spriteGun.transform.position);
+        Vector2 mouseDirection = mousePosition - playerPosition;
+        Debug.Log(mousePosition);
         _spriteGun.flipX = _sprite.flipX;
         int flipDirection = (_spriteGun.flipX ? -1 : 1);
         _spriteGun.transform.right = mouseDirection * flipDirection;
@@ -70,8 +72,9 @@ public class PlayerShoot : MonoBehaviour
             _bullets--;
             GameObject myBullet = Instantiate(_prefabBullet, transform.position, Quaternion.identity);
             Blobfish myBlobfish = myBullet.GetComponent<Blobfish>();
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 mouseDirection = mousePosition - (Vector2)transform.position;
+            Vector2 mousePosition = Input.mousePosition;
+            Vector2 playerPosition = Camera.main.WorldToScreenPoint((Vector2)_spriteGun.transform.position);
+            Vector2 mouseDirection = mousePosition - playerPosition;
             if (myBlobfish != null)
             {
                 myBlobfish.Direction = mouseDirection.normalized;

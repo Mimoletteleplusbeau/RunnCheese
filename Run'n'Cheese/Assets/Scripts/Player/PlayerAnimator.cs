@@ -54,8 +54,9 @@ public class PlayerAnimator : MonoBehaviour
         }
 
         
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        _spriteRenderer.flipX = Player.transform.position.x > mousePosition.x;
+        Vector2 mousePosition = Input.mousePosition;
+        Vector2 playerPosition = Camera.main.WorldToScreenPoint(Player.transform.position);
+        _spriteRenderer.flipX = playerPosition.x > mousePosition.x;
         //_walkVFX.SetActive(false);
     }
 
