@@ -10,6 +10,7 @@ using System;
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance;
+    public event Action OnStateChange;
 
     private PlayerInputs input;
     private Rigidbody2D rigidbody;
@@ -361,6 +362,8 @@ public class PlayerController : MonoBehaviour
             Flipped = _targetPosition.x > 0;
         }
 
+        var currentState = MyState;
+
         if (_isGrounded)
         {
             if (Mathf.Abs(_targetPosition.x) > 0.01f)
@@ -380,6 +383,8 @@ public class PlayerController : MonoBehaviour
                 MyState = PlayerState.JumpDescent;
             }
         }
+
+        if (MyState != currentState) OnStateChange?.Invoke();
     }
     #endregion
 

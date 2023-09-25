@@ -421,7 +421,7 @@ MonoBehaviour:
   JumpAscentAnimName: JumpAscent
   JumpDescentAnimName: JumpDescent
   WinAnimName: WinSmile
-  _walkVFX: {fileID: 4992687835117753119}
+  _walkVFX: {fileID: 3584014489993793220}
 --- !u!212 &7613301427142775227
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -532,7 +532,7 @@ Transform:
   - {fileID: 7613301426749646652}
   - {fileID: 1184575493}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7613301427442531051
 MonoBehaviour:
@@ -693,7 +693,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7613301428118929135}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.9999995, z: -10}
+  m_LocalPosition: {x: 0, y: 5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -906,6 +906,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Run
       objectReference: {fileID: 0}
+    - target: {fileID: 1179806886757467423, guid: ac5ecbfaecd86c44fb778b88237a72b4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4752425019119205923, guid: ac5ecbfaecd86c44fb778b88237a72b4,
         type: 3}
       propertyPath: m_RootOrder
@@ -961,6 +966,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7964906309901725022, guid: ac5ecbfaecd86c44fb778b88237a72b4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -972,9 +982,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6131109103514588672}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4992687835117753119 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1179806886757467423, guid: ac5ecbfaecd86c44fb778b88237a72b4,
+--- !u!2083052967 &3584014489993793220 stripped
+VisualEffect:
+  m_CorrespondingSourceObject: {fileID: 7253866398114928836, guid: ac5ecbfaecd86c44fb778b88237a72b4,
     type: 3}
   m_PrefabInstance: {fileID: 6131109103514588672}
   m_PrefabAsset: {fileID: 0}

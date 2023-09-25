@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.VisualScripting;
+using UnityEngine.VFX;
 
 [RequireComponent(typeof(Animator))]
 public class PlayerAnimator : MonoBehaviour
@@ -18,12 +19,17 @@ public class PlayerAnimator : MonoBehaviour
     [SerializeField] string WinAnimName;
 
     [Header("VFX")]
-    [SerializeField] private GameObject _walkVFX;
+    [SerializeField] private VisualEffect _walkVFX;
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void Start()
+    {
+        Player.OnStateChange += CheckRunVFX;
     }
 
 
@@ -36,8 +42,6 @@ public class PlayerAnimator : MonoBehaviour
                 break;
             case PlayerController.PlayerState.Walk:
                 _animator.Play(WalkAnimName);
-                //_walkVFX.SetActive(true);
-                //CustomEvent.Trigger(_walkVFX, "Run");
                 break;
             case PlayerController.PlayerState.JumpAscent:
                 _animator.Play(JumpAscentAnimName);
@@ -57,11 +61,16 @@ public class PlayerAnimator : MonoBehaviour
         Vector2 mousePosition = Input.mousePosition;
         Vector2 playerPosition = Camera.main.WorldToScreenPoint(Player.transform.position);
         _spriteRenderer.flipX = playerPosition.x > mousePosition.x;
-        //_walkVFX.SetActive(false);
     }
 
     public void WinAnimationEnd()
     {
         LevelsManager.Instance.GoToNextLevel();
+    }
+
+    private void CheckRunVFX()
+    {
+        if (Player.MyState != PlayerController.PlayerState.Walk) _walkVFX.SendEvent("StopRun");
+        else _walkVFX.SendEvent("StartRun");
     }
 }

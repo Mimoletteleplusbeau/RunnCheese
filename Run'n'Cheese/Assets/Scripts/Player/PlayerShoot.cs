@@ -57,7 +57,6 @@ public class PlayerShoot : MonoBehaviour
         Vector2 mousePosition = Input.mousePosition;
         Vector2 playerPosition = Camera.main.WorldToScreenPoint((Vector2)_spriteGun.transform.position);
         Vector2 mouseDirection = mousePosition - playerPosition;
-        Debug.Log(mousePosition);
         _spriteGun.flipX = _sprite.flipX;
         int flipDirection = (_spriteGun.flipX ? -1 : 1);
         _spriteGun.transform.right = mouseDirection * flipDirection;
