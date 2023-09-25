@@ -27,7 +27,7 @@ public class Gull : Enemy
     {
         _currentDelay -= Time.deltaTime;
         if (_currentDelay > 0) return;
-        _angle += _speed;
+        _angle += _speed * Time.deltaTime;
         Vector3 direction = Quaternion.Euler(Vector3.forward * _angle * _direction) * _pivotPoint;
         transform.position = direction.normalized * _radius;
         transform.position += _pivotPoint;

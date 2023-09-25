@@ -48,7 +48,7 @@ public class TemporaryPlateformManager : MonoBehaviour
 
     private void CheckForPlayer()
     {
-        if (Vector2.Distance(_plateformPosition, PlayerController.Instance.transform.position) > _plateformRadius * _playerDistanceOffset)
+        if (PlayerController.Instance == null || Vector2.Distance(_plateformPosition, PlayerController.Instance.transform.position) > _plateformRadius * _playerDistanceOffset)
         {
             SpawnNewPlateform();
         }
