@@ -60,7 +60,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1184575493
 Transform:
   m_ObjectHideFlags: 0
@@ -328,7 +328,7 @@ MonoBehaviour:
   m_ZDamping: 1
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
-  m_ScreenY: 0.5
+  m_ScreenY: 0.75
   m_CameraDistance: 10
   m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0
@@ -395,8 +395,8 @@ Transform:
   m_GameObject: {fileID: 7613301427142775225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.78, z: 0}
-  m_LocalScale: {x: -0.32, y: 0.32, z: 0.32}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: -0.18, y: 0.18, z: 0.18}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8304992627326276460}
   - {fileID: 1504785424665667619}
@@ -532,7 +532,7 @@ Transform:
   - {fileID: 7613301426749646652}
   - {fileID: 1184575493}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7613301427442531051
 MonoBehaviour:
@@ -551,14 +551,14 @@ MonoBehaviour:
   platformsLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  maxSpeed: 0.4
+  maxSpeed: 0.3
   Flipped: 0
   groundFriction: 0.8
   groundMomentum: 0.5
-  airFriction: 0.5
+  airFriction: 0.537
   airMomentum: 0.5
   MaxJumps: 1
-  jumpForce: 1
+  jumpForce: 0.5
   minJumpForce: 0.4
   fallSpeedAscent: 0.05
   fallSpeedDescent: 0.2
@@ -569,10 +569,12 @@ MonoBehaviour:
   jumpBufferTime: 0.2
   _groundedOffset: 0.05
   _explosionTimer: 0.7
-  _maxVelocity: 2
+  _maxVelocity: 1.5
   ShowTrail: 0
   squashAndStrech: 0
   _zoomCamera: {fileID: 1184575491}
+  _vfxLeaveGround: {fileID: 0}
+  _vfxEnterGround: {fileID: 0}
 --- !u!114 &1845943815896088591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -588,7 +590,7 @@ MonoBehaviour:
   _prefabBullet: {fileID: 167836674412635396, guid: c0ae2215fd5e83341a6e6a78e2fe7727,
     type: 3}
   _bulletsMax: 1
-  _reloadTime: 0.5
+  _reloadTime: 0.2
   _spriteGun: {fileID: 1147174180882729519}
   _spriteGunAnimator: {fileID: 7714881936492388852}
   _sprite: {fileID: 7613301427142775227}
@@ -605,7 +607,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.8
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -691,7 +693,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7613301428118929135}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 4.9999995, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -720,7 +722,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 7613301427442531053}
   m_Lens:
-    FieldOfView: 40
+    FieldOfView: 60
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
