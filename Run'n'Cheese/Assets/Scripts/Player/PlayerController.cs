@@ -290,9 +290,9 @@ public class PlayerController : MonoBehaviour
         RaycastHit2D raycastHit2D = Physics2D.BoxCast(boxCollider.bounds.center, new Vector2(boxCollider.bounds.size.x + defaultOffset, boxCollider.bounds.size.y + defaultOffset), 0f, Vector2.down, _groundedOffset, platformsLayerMask);
 
         Color rayColor = Color.red;
-        Debug.DrawRay(boxCollider.bounds.center + new Vector3(boxCollider.bounds.extents.x, 0), Vector2.down * (boxCollider.bounds.extents.y + _groundedOffset), rayColor);
-        Debug.DrawRay(boxCollider.bounds.center - new Vector3(boxCollider.bounds.extents.x, 0), Vector2.down * (boxCollider.bounds.extents.y + _groundedOffset), rayColor);
-        Debug.DrawRay(boxCollider.bounds.center - new Vector3(boxCollider.bounds.extents.x, boxCollider.bounds.extents.y + _groundedOffset), Vector2.right * (boxCollider.bounds.extents.x), rayColor);
+        Debug.DrawRay(boxCollider.bounds.center + new Vector3(boxCollider.bounds.extents.x + defaultOffset, 0), Vector2.down * (boxCollider.bounds.extents.y + _groundedOffset), rayColor);
+        Debug.DrawRay(boxCollider.bounds.center - new Vector3(boxCollider.bounds.extents.x + defaultOffset, 0), Vector2.down * (boxCollider.bounds.extents.y + _groundedOffset), rayColor);
+        Debug.DrawRay(boxCollider.bounds.center - new Vector3(boxCollider.bounds.extents.x + defaultOffset, boxCollider.bounds.extents.y + _groundedOffset), Vector2.right * (boxCollider.bounds.extents.x + defaultOffset), rayColor);
 
         return raycastHit2D.collider != null;
     }
