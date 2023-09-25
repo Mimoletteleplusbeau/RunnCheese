@@ -45,9 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46ec96940a88ce646bdd11afe3646997, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _force: {x: 0.8, y: 1.2}
+  _force: {x: 1, y: 1}
   _radius: 2
   _activationTime: 0.4
+  HitNormal: {x: 0, y: 0}
   _explosionShakeForce: 25
   _explosionShakeTime: 0.1
 --- !u!58 &6061703233990185956
