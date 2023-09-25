@@ -433,4 +433,8 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
+    private void OnDestroy()
+    {
+        LevelsManager.Instance.RestartLevel();
+    }
 }
