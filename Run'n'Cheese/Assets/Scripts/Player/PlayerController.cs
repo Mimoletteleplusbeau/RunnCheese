@@ -425,6 +425,9 @@ public class PlayerController : MonoBehaviour
     public void WinLevel()
     {
         MyState = PlayerState.WinLevel;
+        X_Velocity = 0;
+        Y_Velocity = 0;
+        _targetPosition = Vector2.zero;
         _zoomCamera.SetActive(true);
         Destroy(GetComponent<PlayerShoot>());
     }

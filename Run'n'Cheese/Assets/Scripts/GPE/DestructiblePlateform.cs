@@ -6,7 +6,7 @@ public class DestructiblePlateform : MonoBehaviour
 {
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<Blobfish>() == null) return;
+        if (collision.gameObject.GetComponent<Bullet>() == null) return;
         Destroy(gameObject);
     }
 }

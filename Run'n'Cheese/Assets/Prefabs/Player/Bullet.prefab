@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7559454205013065420}
   - component: {fileID: 2439511908434792188}
   m_Layer: 8
-  m_Name: Blobfish
+  m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

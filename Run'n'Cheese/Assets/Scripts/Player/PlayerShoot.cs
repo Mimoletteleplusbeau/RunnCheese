@@ -69,15 +69,15 @@ public class PlayerShoot : MonoBehaviour
         {
             _reloadTimer = _reloadTime;
             _bullets--;
-            GameObject myBullet = Instantiate(_prefabBullet, transform.position, Quaternion.identity);
-            Blobfish myBlobfish = myBullet.GetComponent<Blobfish>();
+            GameObject newBullet = Instantiate(_prefabBullet, transform.position, Quaternion.identity);
+            Bullet myBullet = newBullet.GetComponent<Bullet>();
             Vector2 mousePosition = Input.mousePosition;
             Vector2 playerPosition = Camera.main.WorldToScreenPoint((Vector2)_spriteGun.transform.position);
             Vector2 mouseDirection = mousePosition - playerPosition;
-            if (myBlobfish != null)
+            if (myBullet != null)
             {
-                myBlobfish.Direction = mouseDirection.normalized;
-                myBlobfish.Parent = this.gameObject;
+                myBullet.Direction = mouseDirection.normalized;
+                myBullet.Parent = this.gameObject;
             }
             Sequence sequence = DOTween.Sequence();
             Vector2 originalGunPosition = _spriteGun.transform.localPosition;

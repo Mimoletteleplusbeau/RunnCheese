@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class Blobfish : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
 
     private Rigidbody2D _rb;
