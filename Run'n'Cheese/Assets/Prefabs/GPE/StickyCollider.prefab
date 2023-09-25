@@ -34,7 +34,7 @@ Transform:
   m_Children:
   - {fileID: 2137230887633767447}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6912818025559033556
 SpriteRenderer:
@@ -181,6 +181,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1802881850309333910}
     m_Modifications:
+    - target: {fileID: 194322693005865339, guid: a0108003b0cc12d499bd041a444784a1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 255053776966052207, guid: a0108003b0cc12d499bd041a444784a1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1003258870391027353, guid: a0108003b0cc12d499bd041a444784a1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989452853577905928, guid: a0108003b0cc12d499bd041a444784a1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4973505856723402255, guid: a0108003b0cc12d499bd041a444784a1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5877192593339324393, guid: a0108003b0cc12d499bd041a444784a1,
         type: 3}
       propertyPath: m_RootOrder
@@ -236,10 +261,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6312479947289480749, guid: a0108003b0cc12d499bd041a444784a1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6540400022402125139, guid: a0108003b0cc12d499bd041a444784a1,
         type: 3}
       propertyPath: m_Name
       value: ANEMONE_REGROUPEMENT
+      objectReference: {fileID: 0}
+    - target: {fileID: 6540400022402125139, guid: a0108003b0cc12d499bd041a444784a1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7602664900435444236, guid: a0108003b0cc12d499bd041a444784a1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8958944937656179267, guid: a0108003b0cc12d499bd041a444784a1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
