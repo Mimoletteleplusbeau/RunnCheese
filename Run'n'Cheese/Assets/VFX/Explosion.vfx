@@ -18,7 +18,7 @@ MonoBehaviour:
   uiBounds:
     serializedVersion: 2
     x: -368
-    y: 442
+    y: 441
     width: 2423
     height: 3951
 --- !u!114 &114350483966674976
@@ -4179,7 +4179,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.75
+      m_SerializableObject: 0.5
     m_Space: 2147483647
   m_Property:
     name: A
@@ -4213,7 +4213,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 1.25
+      m_SerializableObject: 1
     m_Space: 2147483647
   m_Property:
     name: B
@@ -6899,7 +6899,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":1.0,"g":0.0,"b":0.0,"a":1.0},"time":0.02999923750758171},{"color":{"r":0.09462175518274307,"g":0.09462175518274307,"b":0.09462175518274307,"a":1.0},"time":0.24118410050868989},{"color":{"r":0.0,"g":0.0,"b":0.0,"a":1.0},"time":0.9799954295158386}],"alphaKeys":[{"alpha":1.0,"time":0.0},{"alpha":1.0,"time":1.0}],"gradientMode":0}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.3396226167678833,"g":0.0,"b":0.0,"a":1.0},"time":0.02999923750758171},{"color":{"r":0.09462175518274307,"g":0.09462175518274307,"b":0.09462175518274307,"a":1.0},"time":0.24118410050868989},{"color":{"r":0.0,"g":0.0,"b":0.0,"a":1.0},"time":0.9799954295158386}],"alphaKeys":[{"alpha":1.0,"time":0.0},{"alpha":1.0,"time":1.0}],"gradientMode":0}'
     m_Space: 2147483647
   m_Property:
     name: Color
@@ -7094,7 +7094,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.75
+      m_SerializableObject: 0.5
     m_Space: 2147483647
   m_Property:
     name: A
@@ -7128,7 +7128,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 1.5
+      m_SerializableObject: 1
     m_Space: 2147483647
   m_Property:
     name: B
