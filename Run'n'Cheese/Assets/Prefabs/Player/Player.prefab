@@ -532,7 +532,7 @@ Transform:
   - {fileID: 7613301426749646652}
   - {fileID: 1184575493}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7613301427442531051
 MonoBehaviour:
@@ -551,7 +551,7 @@ MonoBehaviour:
   platformsLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  maxSpeed: 0.3
+  maxSpeed: 0.2
   Flipped: 0
   groundFriction: 0.8
   groundMomentum: 0.5
