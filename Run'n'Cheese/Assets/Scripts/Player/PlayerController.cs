@@ -108,10 +108,10 @@ public class PlayerController : MonoBehaviour
 
     private void CheckWin()
     {
+        CheckForGround();
+
         if (MyState != PlayerState.WinLevel)
         {
-            CheckForGround();
-
             CheckForMovements();
 
             ApplyForces();
@@ -125,7 +125,6 @@ public class PlayerController : MonoBehaviour
 
         if (MyState != PlayerState.WinLevel)
         {
-
             ShowSpecialEffects();
 
             SetStates();
@@ -433,8 +432,10 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
+    #region Death
     private void OnDestroy()
     {
         LevelsManager.Instance.RestartLevel();
     }
+    #endregion
 }

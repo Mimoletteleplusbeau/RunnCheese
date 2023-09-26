@@ -35,6 +35,7 @@ public class PushZone : MonoBehaviour
                 if (PlayerController.Instance.MyState == PlayerController.PlayerState.JumpAscent || PlayerController.Instance.MyState == PlayerController.PlayerState.JumpDescent)
                 {
                     playerDirection.y = 1;
+                    playerDirection.x = (playerDirection.x + PlayerController.Instance.MoveVector.x) / 2;
                     //if (transform.position.y < PlayerController.Instance.transform.position.y)
                     //{
                     //    playerDirection.x = 0;
