@@ -20,8 +20,7 @@ public class TemporaryPlateform : DestructiblePlateform
         {
             if (collision.gameObject.transform.position.y < transform.position.y + _collider.bounds.extents.y) return;
             if (collision.gameObject.transform.position.x > transform.position.x + _collider.bounds.extents.x) return;
-            if (collision.gameObject.transform.position.y < transform.position.x - _collider.bounds.extents.x) return;
-
+            if (collision.gameObject.transform.position.x < transform.position.x - _collider.bounds.extents.x) return;
             Destroy(gameObject, _destroyTime);
             return;
         }

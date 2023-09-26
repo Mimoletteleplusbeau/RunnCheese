@@ -10,5 +10,6 @@ public class DestructiblePlateform : MonoBehaviour
         
         var myExplosion = GetComponent<ExplosionObject>();
         if (myExplosion != null) myExplosion.Explode();
+        else Destroy(gameObject);
     }
 }
