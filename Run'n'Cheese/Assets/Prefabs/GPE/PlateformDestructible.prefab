@@ -68,11 +68,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: MS_PLAT_V_1_BROKEN_Frag
       objectReference: {fileID: 0}
+    - target: {fileID: 1820178232839680400, guid: cee7a1f50a629ae4ebf893c2d47b6ad0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cee7a1f50a629ae4ebf893c2d47b6ad0, type: 3}
+--- !u!1 &2658206272959397817 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1820178232839680400, guid: cee7a1f50a629ae4ebf893c2d47b6ad0,
+    type: 3}
+  m_PrefabInstance: {fileID: 4440913106431577641}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3434003691911636227 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1299643467768458026, guid: cee7a1f50a629ae4ebf893c2d47b6ad0,
@@ -239,7 +250,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4707243278338156103}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -311,7 +322,7 @@ PrefabInstance:
     - target: {fileID: 2089805563883413004, guid: b937876e2a08e2343aaa720713de7459,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2089805563883413004, guid: b937876e2a08e2343aaa720713de7459,
         type: 3}
@@ -414,6 +425,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1904567539347206470}
+    - targetCorrespondingSourceObject: {fileID: 4661222642314331781, guid: b937876e2a08e2343aaa720713de7459,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 833978275245370000}
   m_SourcePrefab: {fileID: 100100000, guid: b937876e2a08e2343aaa720713de7459, type: 3}
 --- !u!1 &2852462094053945428 stripped
 GameObject:
@@ -433,6 +448,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71d27395fc9eba64ebd6ab53f96bda0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &833978275245370000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2852462094053945428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66bbe5611b9e28945a2568846ce9da54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originalObject: {fileID: 4707243278338156103}
+  fracturedObject: {fileID: 2658206272959397817}
+  explosionMinForce: 5
+  explosionMaxForce: 100
+  explosionForceRadius: 10
+  fragScaleFactor: 1
 --- !u!4 &8807489957667711197 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2089805563883413004, guid: b937876e2a08e2343aaa720713de7459,
