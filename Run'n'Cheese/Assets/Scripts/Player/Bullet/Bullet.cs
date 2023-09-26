@@ -8,7 +8,6 @@ public class Bullet : MonoBehaviour
 {
 
     private Rigidbody2D _rb;
-    private Animator _animator;
     private Vector2 _direction;
     public Vector2 Direction { set => _direction = value; get => _direction; }
     [HideInInspector] public GameObject Parent;
@@ -18,8 +17,6 @@ public class Bullet : MonoBehaviour
     [SerializeField] private LayerMask _defaultLayer;
     private Vector2 _hitNormal;
 
-    [Header("Animations")]
-    [Tooltip("The name of the explosion animation")] [SerializeField] private string _explosionAnimationName;
     [Space(5)]
     [Tooltip("The prefab of the push zone")] [SerializeField] private PushZone _pushZonePrefab;
 
@@ -31,8 +28,7 @@ public class Bullet : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<Animator>();
-        Invoke("DestroySelf", _destroyTime);
+        StartCoroutine(StartDestroy());
     }
 
     private void Update()
@@ -58,7 +54,6 @@ public class Bullet : MonoBehaviour
     private void SetExplosion(Collision2D collision)
     {
         _speed = 0f;
-        _animator.Play(_explosionAnimationName);
 
         if (!_isSticked)
             _hitNormal = collision.contacts[0].normal;
@@ -68,6 +63,8 @@ public class Bullet : MonoBehaviour
         // Feedback
         Instantiate(_explosionVFXPrefab, transform.position, Quaternion.identity);
         ScreenShake.Instance.Shake(_explosionShakeForce, _explosionShakeTime);
+
+        Destroy(gameObject);
     }
 
     private void SetStick(Collision2D collision)
@@ -75,13 +72,14 @@ public class Bullet : MonoBehaviour
         _isSticked = true;
         _hitNormal = collision.contacts[0].normal;
         _speed = 0;
-        CancelInvoke("DestroySelf");
+        StopCoroutine(StartDestroy());
         gameObject.layer = _defaultLayer;
         Parent = this.gameObject;
     }
 
-    private void DestroySelf()
+    IEnumerator StartDestroy()
     {
+        yield return new WaitForSeconds(_destroyTime);
         Destroy(gameObject);
     }
 }
