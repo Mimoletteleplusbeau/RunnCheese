@@ -7,6 +7,8 @@ public class DestructiblePlateform : MonoBehaviour
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.GetComponent<Bullet>() == null) return;
-        Destroy(gameObject);
+        
+        var myExplosion = GetComponent<ExplosionObject>();
+        if (myExplosion != null) myExplosion.Explode();
     }
 }

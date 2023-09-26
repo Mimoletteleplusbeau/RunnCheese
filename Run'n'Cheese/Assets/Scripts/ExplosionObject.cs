@@ -15,30 +15,18 @@ public class ExplosionObject : MonoBehaviour
 
     private GameObject fractObj;
 
-    void Update() // Input de key pour les tests à remplacer par un test de colison avec le projectile
+    public void Explode()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) 
+        Destroy(gameObject.GetComponent<BoxCollider2D>());
+        if (originalObject != null)
         {
-            Explode();
-        }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Reset();
-        }
-    }
-
-    void Explode()
-    {
-        if (originalObject != null)         // Pas utile si tu fais deja ça dans le script original
-        {
-            originalObject.SetActive(false); // La même ^
+            originalObject.SetActive(false);
 
             if (fracturedObject != null)
             {
                 fracturedObject.SetActive(true);
                 foreach (Transform t in fracturedObject.transform)
                 {
-                    Debug.Log(t.name);
                     var rb = t.GetComponent<Rigidbody>(); 
 
                     if (rb != null)
@@ -47,20 +35,13 @@ public class ExplosionObject : MonoBehaviour
                     StartCoroutine(Shrink(t, 2));
                 }
 
-                Destroy(fractObj, 5);
-
-
+                Destroy(fracturedObject, 5);
             }
         }
+        Destroy(gameObject, 10);
     }
 
-    void Reset() // A supr pour le code après 
-    {
-        Destroy(fractObj);
-        originalObject.SetActive(true);
-    }
-
-    IEnumerator Shrink(Transform t, float delay) // Vanish des props 
+    IEnumerator Shrink(Transform t, float delay)
     {
         yield return new WaitForSeconds(delay);
 

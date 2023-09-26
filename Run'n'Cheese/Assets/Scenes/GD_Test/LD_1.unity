@@ -3945,6 +3945,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2119241538}
     m_Modifications:
+    - target: {fileID: 833978275245370000, guid: f60078daec6799749a83e1d4162c1ced,
+        type: 3}
+      propertyPath: explosionMaxForce
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 833978275245370000, guid: f60078daec6799749a83e1d4162c1ced,
+        type: 3}
+      propertyPath: explosionMinForce
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 833978275245370000, guid: f60078daec6799749a83e1d4162c1ced,
+        type: 3}
+      propertyPath: explosionForceRadius
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2658206272959397817, guid: f60078daec6799749a83e1d4162c1ced,
         type: 3}
       propertyPath: m_IsActive
