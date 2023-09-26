@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: GameLevels
   m_EditorClassIdentifier: 
   Levels:
-  - GunTestScene
-  - MainMenu
+  - LD_1
+  - LD_1
