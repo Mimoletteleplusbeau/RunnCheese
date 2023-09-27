@@ -10,6 +10,7 @@ public class TimeManager : MonoBehaviour
     private float _timer;
     private bool _hasTimerStopped;
     [SerializeField] private TMP_Text _timerText;
+    [SerializeField] private TMP_Text _timerTextMilli;
 
     private void Awake()
     {
@@ -22,6 +23,7 @@ public class TimeManager : MonoBehaviour
         PlayerController.Instance.OnStateChange += CheckForPlayerInputs;
 
         _timerText.text = "00:00";
+        _timerTextMilli.text = "00";
     }
 
     private void Update()
@@ -32,7 +34,9 @@ public class TimeManager : MonoBehaviour
         _timer += Time.deltaTime;
         float minutes = Mathf.Floor(_timer/60);
         float seconds = Mathf.Floor(_timer%60);
+        float milliseconds = _timer % 1 * 100;
         _timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        _timerTextMilli.text = string.Format("{0:00}", milliseconds);
     }
 
     private void StopTimer()
