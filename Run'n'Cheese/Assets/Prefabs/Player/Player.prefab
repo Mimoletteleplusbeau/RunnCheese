@@ -506,6 +506,7 @@ GameObject:
   - component: {fileID: 7613301427442531053}
   - component: {fileID: 7613301427442531051}
   - component: {fileID: 1845943815896088591}
+  - component: {fileID: 5784633347335274427}
   - component: {fileID: 7613301427442531054}
   - component: {fileID: 7613301427442531055}
   m_Layer: 0
@@ -549,6 +550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveVector: {x: 0, y: 0}
   MyState: 0
+  CanMove: 0
   platformsLayerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -598,6 +600,18 @@ MonoBehaviour:
   _spriteGunAnimator: {fileID: 7714881936492388852}
   _sprite: {fileID: 7613301427142775227}
   _gunAnimationName: Firing
+--- !u!114 &5784633347335274427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7613301427442531050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8641b0749ae48b489a3ca913a41783a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &7613301427442531054
 Rigidbody2D:
   serializedVersion: 4
