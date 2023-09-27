@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 627756433}
-  m_IndirectSpecularColor: {r: 0.31514108, g: 0.6436739, b: 0.8560668, a: 1}
+  m_IndirectSpecularColor: {r: 0.31504923, g: 0.6434066, b: 0.8561808, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7074,23 +7074,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 2.64
-      objectReference: {fileID: 0}
-    - target: {fileID: 2090406359247173884, guid: adc25887af91f09448343998c0048011,
-        type: 3}
-      propertyPath: _vfxEnterGround
-      value: 
-      objectReference: {fileID: 4360662160258964290, guid: 0e2779fc1fd996f4c8de09e3500c69cb,
-        type: 3}
-    - target: {fileID: 2090406359247173884, guid: adc25887af91f09448343998c0048011,
-        type: 3}
-      propertyPath: _vfxLeaveGround
-      value: 
-      objectReference: {fileID: 7889119965779897832, guid: 289e51f14cac3d348826770c7d19d713,
-        type: 3}
-    - target: {fileID: 2090406359247173884, guid: adc25887af91f09448343998c0048011,
-        type: 3}
-      propertyPath: fallSpeedDescent
-      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 2090406359650658944, guid: adc25887af91f09448343998c0048011,
         type: 3}

@@ -533,7 +533,7 @@ Transform:
   - {fileID: 8815900358407912034}
   - {fileID: 1184575493}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7613301427442531051
 MonoBehaviour:
@@ -562,20 +562,22 @@ MonoBehaviour:
   jumpForce: 0.5
   minJumpForce: 0.4
   fallSpeedAscent: 0.05
-  fallSpeedDescent: 0.1
+  fallSpeedDescent: 0.07
   canWallSlide: 0
   fallSpeedWallSliding: 0.015
   maxFallSpeed: 1
   coyoteTime: 0.1
   jumpBufferTime: 0.2
   _groundedOffset: 0.05
-  _explosionTimer: 0.7
+  _explosionTimer: 0.3
   _maxVelocity: 1.5
   ShowTrail: 0
   squashAndStrech: 0
   _zoomCamera: {fileID: 1184575491}
-  _vfxLeaveGround: {fileID: 0}
-  _vfxEnterGround: {fileID: 0}
+  _vfxLeaveGround: {fileID: 7889119965779897832, guid: 289e51f14cac3d348826770c7d19d713,
+    type: 3}
+  _vfxEnterGround: {fileID: 4360662160258964290, guid: 0e2779fc1fd996f4c8de09e3500c69cb,
+    type: 3}
 --- !u!114 &1845943815896088591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -694,7 +696,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7613301428118929135}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.8867512, z: -10}
+  m_LocalPosition: {x: 0, y: 2.8867514, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

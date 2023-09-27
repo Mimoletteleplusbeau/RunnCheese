@@ -245,6 +245,7 @@ public class PlayerController : MonoBehaviour
         {
             float normalizedExplosionTimer = (_explosionCounter / _explosionTimer);
             _targetPosition += _explosionCurrentDirection * normalizedExplosionTimer * _explosionCurrentForce;
+            Y_Velocity = 0;
         }
         
     }
