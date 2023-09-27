@@ -87,17 +87,18 @@ public class PlayerController : MonoBehaviour
         input = new PlayerInputs();
         rigidbody = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        _spriteOriginalScale = spriteRenderer.transform.localScale;
-        _jumps = MaxJumps;
         boxCollider = GetComponent<Collider2D>();
         _trail = transform.GetComponentInChildren<TrailRenderer>();
-        MyState = PlayerState.Idle;
-        _zoomCamera.SetActive(false);
+
     }
 
     private void Start()
     {
         LevelEndManager.Instance.OnLevelWin += WinLevel;
+        _spriteOriginalScale = spriteRenderer.transform.localScale;
+        _jumps = MaxJumps;
+        MyState = PlayerState.Idle;
+        _zoomCamera.SetActive(false);
     }
 
     private void FixedUpdate()
