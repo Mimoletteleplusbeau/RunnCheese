@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class ExplosionObject : MonoBehaviour
 {
@@ -12,8 +13,6 @@ public class ExplosionObject : MonoBehaviour
     public float explosionMaxForce = 100;
     public float explosionForceRadius = 10;
     public float fragScaleFactor = 1;
-
-    private GameObject fractObj;
 
     public void Explode()
     {
@@ -50,8 +49,8 @@ public class ExplosionObject : MonoBehaviour
         while (newScale.x >= 0)
         {
             newScale -= new Vector3(fragScaleFactor, fragScaleFactor, fragScaleFactor);
-
-            t.localScale = newScale;
+            if (t!=null)
+                t.localScale = newScale;
             yield return new WaitForSeconds(0.05f);
         }
     }

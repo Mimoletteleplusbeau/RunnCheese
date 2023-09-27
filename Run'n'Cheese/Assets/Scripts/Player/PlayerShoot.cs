@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
+using Unity.VisualScripting;
 
 
 public class PlayerShoot : MonoBehaviour
@@ -42,6 +43,8 @@ public class PlayerShoot : MonoBehaviour
 
     private void Update()
     {
+        if (!PlayerController.Instance.CanMove) return;
+
         _reloadTimer -= Time.deltaTime;
         TurnGunAnimation();
         PlayerController playerController = GetComponent<PlayerController>();
@@ -79,7 +82,7 @@ public class PlayerShoot : MonoBehaviour
                 myBullet.Direction = mouseDirection.normalized;
                 myBullet.Parent = this.gameObject;
             }
-            Sequence sequence = DOTween.Sequence();
+            DG.Tweening.Sequence sequence = DOTween.Sequence();
             Vector2 originalGunPosition = _spriteGun.transform.localPosition;
             float _recoilOffset = 2f;
             sequence.Append(_spriteGun.transform.DOLocalMove(new Vector2(originalGunPosition.x + mouseDirection.normalized.x * _recoilOffset, originalGunPosition.y - mouseDirection.normalized.y * _recoilOffset), 0.05f));

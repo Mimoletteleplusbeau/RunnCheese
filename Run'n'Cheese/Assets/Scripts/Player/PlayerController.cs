@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 _targetPosition;
     private Collider2D boxCollider;
     [HideInInspector] public PlayerState MyState;
+    [HideInInspector] public bool CanMove = false;
 
     [Header("Collisions")]
     [Tooltip("The layer of the platforms the player is allowed to jump from")] [SerializeField] private LayerMask platformsLayerMask;
@@ -103,33 +104,42 @@ public class PlayerController : MonoBehaviour
     {
         _targetPosition = Vector2.zero;
 
-        CheckWin();
+        if (MyState != PlayerState.WinLevel && CanMove)
+        {
+            GeneralState();
+        }
+        else
+        {
+            WinState();
+        }
     }
 
-    private void CheckWin()
+    private void GeneralState()
     {
         CheckForGround();
 
-        if (MyState != PlayerState.WinLevel)
-        {
-            CheckForMovements();
+        CheckForMovements();
 
-            ApplyForces();
+        ApplyForces();
 
-            CheckForJumps();
-        }
+        CheckForJumps();
 
         ApplyGravity();
 
         ApplyPositionChanges();
 
-        if (MyState != PlayerState.WinLevel)
-        {
-            ShowSpecialEffects();
+        ShowSpecialEffects();
 
-            SetStates();
-        }
-        
+        SetStates();
+    }
+
+    private void WinState()
+    {
+        CheckForGround();
+
+        ApplyGravity();
+
+        ApplyPositionChanges();       
     }
 
     private void OnEnable()
@@ -385,6 +395,11 @@ public class PlayerController : MonoBehaviour
         }
 
         if (MyState != currentState) OnStateChange?.Invoke();
+    }
+
+    public void SetMovable(bool movable)
+    {
+        CanMove = movable;
     }
     #endregion
 
