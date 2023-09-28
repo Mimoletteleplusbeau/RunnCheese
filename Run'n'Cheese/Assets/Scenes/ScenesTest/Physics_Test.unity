@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 627756433}
-  m_IndirectSpecularColor: {r: 0.31504926, g: 0.64340657, b: 0.8561808, a: 1}
+  m_IndirectSpecularColor: {r: 0.31504923, g: 0.6434066, b: 0.8561808, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6718,6 +6718,62 @@ PrefabInstance:
       propertyPath: m_Name
       value: --GLOBAL GAMEPLAY--
       objectReference: {fileID: 0}
+    - target: {fileID: 2601273461930106660, guid: adc25887af91f09448343998c0048011,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2879237930884718717, guid: adc25887af91f09448343998c0048011,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7482667652216324306, guid: a0bc21fa076a5394287ccd961da44fa1,
+        type: 3}
+    - target: {fileID: 2879237930884718717, guid: adc25887af91f09448343998c0048011,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2879237930884718717, guid: adc25887af91f09448343998c0048011,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2879237930884718717, guid: adc25887af91f09448343998c0048011,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2879237930884718717, guid: adc25887af91f09448343998c0048011,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5260443847389956800, guid: adc25887af91f09448343998c0048011,
+        type: 3}
+      propertyPath: field of view
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 5260443847389956800, guid: adc25887af91f09448343998c0048011,
+        type: 3}
+      propertyPath: orthographic size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5759861433460847647, guid: adc25887af91f09448343998c0048011,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 72.99001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5759861433460847647, guid: adc25887af91f09448343998c0048011,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.3941298
+      objectReference: {fileID: 0}
+    - target: {fileID: 5759861433460847647, guid: adc25887af91f09448343998c0048011,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.6900005
+      objectReference: {fileID: 0}
     - target: {fileID: 5986378962330454520, guid: adc25887af91f09448343998c0048011,
         type: 3}
       propertyPath: m_RootOrder
@@ -6772,6 +6828,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7877583699127836719, guid: adc25887af91f09448343998c0048011,
+        type: 3}
+      propertyPath: m_Name
+      value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051275182209515153, guid: adc25887af91f09448343998c0048011,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8405261503612170770, guid: adc25887af91f09448343998c0048011,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0000038146973
+      objectReference: {fileID: 0}
+    - target: {fileID: 8405261503612170772, guid: adc25887af91f09448343998c0048011,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

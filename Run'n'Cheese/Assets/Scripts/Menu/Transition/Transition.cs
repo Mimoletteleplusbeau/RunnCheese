@@ -5,8 +5,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
-using UnityEditor.Animations;
-using UnityEditor.ProBuilder;
 
 public class Transition : MonoBehaviour
 {
