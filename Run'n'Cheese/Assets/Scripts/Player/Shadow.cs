@@ -17,8 +17,8 @@ public class Shadow : MonoBehaviour
         //Debug.Log(_projector.drawDistance);
         //Debug.Log(_projector.size.x);
         //Debug.Log(_projector.size.y);
-        Debug.Log(_projector.uvScale); // 1 1
-        Debug.Log(_projector.uvBias); // 0 0
+        //Debug.Log(_projector.uvScale); // 1 1
+        //Debug.Log(_projector.uvBias); // 0 0
     }
 
     [SerializeField] private Vector2 uvBias;

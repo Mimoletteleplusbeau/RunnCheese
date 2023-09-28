@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-public class RestartButton : MonoBehaviour
+public class RestartAndQuitButtons : MonoBehaviour
 {
     private PlayerInputs _playerinput;
 
@@ -17,12 +18,14 @@ public class RestartButton : MonoBehaviour
     {
         _playerinput.Enable();
         _playerinput.Player.Restart.performed += OnRestart;
+        _playerinput.Player.Quit.performed += OnQuit;
     }
 
     private void OnDisable()
     {
         _playerinput.Disable();
         _playerinput.Player.Restart.performed -= OnRestart;
+        _playerinput.Player.Quit.performed -= OnQuit;
     }
 
     private void OnRestart(InputAction.CallbackContext callback)
@@ -30,5 +33,8 @@ public class RestartButton : MonoBehaviour
         LevelsManager.Instance.RestartLevel();
     }
 
-
+    private void OnQuit(InputAction.CallbackContext callback)
+    {
+        LevelsManager.Instance.GoToMenu();
+    }
 }

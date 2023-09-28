@@ -6,4 +6,6 @@ using UnityEngine;
 public class LevelsList : ScriptableObject
 {
     public string[] Levels;
+
+    public string MainMenu;
 }

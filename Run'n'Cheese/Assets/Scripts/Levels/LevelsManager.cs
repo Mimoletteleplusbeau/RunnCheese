@@ -38,6 +38,15 @@ public class LevelsManager : MonoBehaviour
 
     public void DirectlyGoToNextLevel()
     {
+        Debug.Log(_currentLevel);
+        _currentLevel++;
+        Debug.Log(_currentLevel);
         SceneManager.LoadScene(_levelsList.Levels[_currentLevel+1]);
+    }
+
+    public void GoToMenu()
+    {
+        _currentLevel = 0;
+        Transition.Instance.SetTransition(() => SceneManager.LoadScene(_levelsList.MainMenu));
     }
 }
