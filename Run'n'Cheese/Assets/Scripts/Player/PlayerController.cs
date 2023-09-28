@@ -6,6 +6,7 @@ using DG.Tweening;
 using UnityEngine.UIElements;
 using Unity.VisualScripting;
 using System;
+using System.Globalization;
 
 public class PlayerController : MonoBehaviour
 {

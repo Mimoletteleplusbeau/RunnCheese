@@ -92,7 +92,7 @@ public class PlayerShoot : MonoBehaviour
             _spriteGunAnimator.Play(_gunAnimationName);
         }
     }
-    void Reload()
+    public void Reload()
     {
         _bullets = _bulletsMax;
     }

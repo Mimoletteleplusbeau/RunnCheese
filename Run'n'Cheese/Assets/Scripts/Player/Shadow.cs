@@ -31,7 +31,7 @@ public class Shadow : MonoBehaviour
         if (raycastHit2D.collider == null) return;
 
         float distance = _projector.transform.position.y - raycastHit2D.transform.position.y;
-        Debug.Log(distance);
+        //Debug.Log(distance);
         Debug.DrawLine(new Vector3(_projector.transform.position.x, _projector.transform.position.y), new Vector3(_projector.transform.position.x, raycastHit2D.transform.position.y), Color.red);
     }
 }

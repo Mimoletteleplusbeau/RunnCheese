@@ -10,6 +10,7 @@ public class PushZone : MonoBehaviour
     [Tooltip("The time the push zone stays active in seconds")] [SerializeField] private float _activationTime;
     [HideInInspector] public Vector2 HitNormal;
     private bool _hasHitPlayer = false;
+    private int _playerJumps;
 
     [Header("FX")]
     [SerializeField] private float _explosionShakeForce;
@@ -41,11 +42,28 @@ public class PushZone : MonoBehaviour
                     //    playerDirection.x = 0;
                     //}
                 }
+            } else if (playerDirection.y <= 0)
+            {
+                Debug.Log("jumps given");
+                GiveBullets();
             }
+            Debug.Log("jumps given3");
+            GiveBullets();
             PlayerController.Instance.SetForce(playerDirection, _force);
             ScreenShake.Instance.Shake(_explosionShakeForce, _explosionShakeTime);
             _hasHitPlayer = true;
         }
+    }
+
+    public void AddBullets(int number)
+    {
+        _playerJumps = number;
+    }
+
+    private void GiveBullets()
+    {
+        PlayerController.Instance.GetComponent<PlayerShoot>().Reload();
+        _playerJumps = 0;
     }
 
     private void OnDrawGizmos()

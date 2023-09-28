@@ -9,6 +9,7 @@ public abstract class Enemy : MonoBehaviour
         if (collider.gameObject.GetComponent<PushZone>() != null)
         {
             Destroy(gameObject);
+            collider.gameObject.GetComponent<PushZone>().AddBullets(1);
         } else if (collider.gameObject.GetComponent<PlayerController>() != null)
         {
             Destroy(collider.gameObject);
