@@ -17,6 +17,9 @@ public class Gull : Enemy
     [Range(0, 1)] [Tooltip("The min stats multiplier")] [SerializeField] float _minRandomRange = 1;
     [Range(1, 5)] [Tooltip("The max stats multiplier")] [SerializeField] float _maxRandomRange = 1;
 
+    [Header("Sprites")]
+    [SerializeField] private SpriteRenderer _spriteRenderer;
+
     private void Start()
     {
         _pivotPoint = transform.position;
@@ -32,6 +35,8 @@ public class Gull : Enemy
         transform.position = direction.normalized * _radius;
         transform.position += _pivotPoint;
         Debug.DrawLine(_pivotPoint, transform.position);
+
+        _spriteRenderer.flipX = _angle % 360 > 180;
     }
 
     private void PutRandomValues()
