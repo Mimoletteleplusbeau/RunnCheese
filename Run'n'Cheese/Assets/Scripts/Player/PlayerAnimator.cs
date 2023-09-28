@@ -65,7 +65,7 @@ public class PlayerAnimator : MonoBehaviour
 
     public void WinAnimationEnd()
     {
-        LevelsManager.Instance.GoToNextLevel();
+        LevelEndUIManager.Instance.ShowEndUITransition();
     }
 
     private void CheckRunVFX()

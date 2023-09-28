@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: GameLevels
   m_EditorClassIdentifier: 
   Levels:
-  - LD_1
-  - LD_1
+  - LEVEL_1_FINAL
+  - MVP_Scene_Template

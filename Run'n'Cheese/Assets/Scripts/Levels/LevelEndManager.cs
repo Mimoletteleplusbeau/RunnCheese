@@ -16,13 +16,8 @@ public class LevelEndManager : MonoBehaviour
 
     private void Start()
     {
-        if (Seagull.Instance != null) 
+        if (Seagull.Instance != null)
             Seagull.Instance.OnKill += LevelEnd;
-    }
-
-    private void OnDisable()
-    {
-        Seagull.Instance.OnKill -= LevelEnd;
     }
 
     private void LevelEnd()

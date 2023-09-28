@@ -35,7 +35,7 @@ Transform:
   - {fileID: 5414155614576785089}
   - {fileID: 8724025107172386162}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1986645195662435478
 GameObject:
@@ -420,6 +420,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc3cb05a3117dbf4dbdd70ee6a4975ed, type: 3}
+--- !u!114 &8051275182209515152 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6866738091550878677, guid: cc3cb05a3117dbf4dbdd70ee6a4975ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 3526439416930014533}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a63e885e3077bbf41a61c6aa1d92fc7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8051275182209515167 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6866738091550878682, guid: cc3cb05a3117dbf4dbdd70ee6a4975ed,
@@ -832,6 +844,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8937510846408389518, guid: 87d1707958f212e4ea7cd6355d89b01d,
+        type: 3}
+      propertyPath: <Transition>k__BackingField
+      value: 
+      objectReference: {fileID: 8051275182209515152}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -909,7 +926,7 @@ PrefabInstance:
     - target: {fileID: 3807245024074552363, guid: b4b40cf21cd4cbb4ca36e6629b54f5dc,
         type: 3}
       propertyPath: m_Name
-      value: Timer
+      value: UI
       objectReference: {fileID: 0}
     - target: {fileID: 5709937506812750802, guid: b4b40cf21cd4cbb4ca36e6629b54f5dc,
         type: 3}

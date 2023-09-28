@@ -7,7 +7,6 @@ using DG.Tweening;
 
 public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    private MenuManager _menuManager;
 
     [Header("Button Parameters")]
     [SerializeField] private string _targetScene;
@@ -16,14 +15,9 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     [SerializeField] private float _hoverScaleDuration = 0.3f;
     [SerializeField] private float _notHoverScaleDuration = 0.5f;
 
-    private void Start()
-    {
-        _menuManager = MenuManager.MenuManagerInstance;
-    }
-
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (_menuManager.CanClickButtons)
+        if (MenuManager.MenuManagerInstance.CanClickButtons)
         {
             transform.DOKill();
             transform.DOScale(new Vector3(_hoverScale, _hoverScale), _hoverScaleDuration);
@@ -38,20 +32,20 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void GoToScene()
     {
-        if (_menuManager.CanClickButtons)
+        if (MenuManager.MenuManagerInstance.CanClickButtons)
         {
-            _menuManager.SetButtonsUnclickable();
-            _menuManager.Transition.SetTransition(() => SceneManager.LoadScene(_targetScene));
+            MenuManager.MenuManagerInstance.SetButtonsUnclickable();
+            MenuManager.MenuManagerInstance.Transition.SetTransition(() => SceneManager.LoadScene(_targetScene));
 
         }
     }
 
     public void QuitGame()
     {
-        if (_menuManager.CanClickButtons)
+        if (MenuManager.MenuManagerInstance.CanClickButtons)
         {
-            _menuManager.SetButtonsUnclickable();
-            _menuManager.Transition.SetTransition(() => Application.Quit());
+            MenuManager.MenuManagerInstance.SetButtonsUnclickable();
+            MenuManager.MenuManagerInstance.Transition.SetTransition(() => Application.Quit());
 
         }
     }
