@@ -5,7 +5,7 @@ using TMPro;
 
 public class TimeManager : MonoBehaviour
 {
-    public static TimeManager instance;
+    public static TimeManager Instance;
     private bool _hasPlayerMoved;
     private float _timer;
     private bool _hasTimerStopped;
@@ -14,7 +14,7 @@ public class TimeManager : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        Instance = this;
     }
 
     private void Start()
@@ -32,11 +32,16 @@ public class TimeManager : MonoBehaviour
         if (_hasTimerStopped) return;
 
         _timer += Time.deltaTime;
-        float minutes = Mathf.Floor(_timer/60);
-        float seconds = Mathf.Floor(_timer%60);
+        SetTimer(_timerText, _timerTextMilli);
+    }
+
+    public void SetTimer(TMP_Text _timerSeconds, TMP_Text _timerMilliseconds)
+    {
+        float minutes = Mathf.Floor(_timer / 60);
+        float seconds = Mathf.Floor(_timer % 60);
         float milliseconds = _timer % 1 * 100;
-        _timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-        _timerTextMilli.text = string.Format("{0:00}", milliseconds);
+        _timerSeconds.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        _timerMilliseconds.text = string.Format("{0:00}", milliseconds);
     }
 
     private void StopTimer()

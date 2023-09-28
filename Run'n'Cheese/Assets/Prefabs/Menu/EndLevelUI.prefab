@@ -335,6 +335,52 @@ MonoBehaviour:
   m_Spacing: {x: 35, y: 0}
   m_Constraint: 2
   m_ConstraintCount: 1
+--- !u!1 &5924432131487286607
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5489163821298870804}
+  - component: {fileID: 4670180600000152922}
+  m_Layer: 0
+  m_Name: LevelEndUIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5489163821298870804
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5924432131487286607}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -358.8966, y: -215.89117, z: 34.193645}
+  m_LocalScale: {x: 1.0738256, y: 1.0738256, z: 1.0738256}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5276290277517880236}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4670180600000152922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5924432131487286607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c547ed72964939743bd5f83d98341969, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timerText: {fileID: 103969475353590205}
+  _timerTextMilli: {fileID: 2922554142177340565}
 --- !u!1 &7338023479040489552
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,6 +586,7 @@ RectTransform:
   - {fileID: 8841455165038428595}
   - {fileID: 1920456320893772266}
   - {fileID: 8269966482816588473}
+  - {fileID: 5489163821298870804}
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
