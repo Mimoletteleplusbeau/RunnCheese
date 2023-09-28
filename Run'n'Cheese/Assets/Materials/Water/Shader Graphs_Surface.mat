@@ -97,7 +97,7 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Deep_Water_Color: {r: 0.20008005, g: 0.39528006, b: 0.61, a: 1}
+    - _Deep_Water_Color: {r: 0.2, g: 0.4377228, b: 0.6117647, a: 1}
     - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
     - _RefractionScale: {r: 8, g: 8, b: 0, a: 0}
     - _Shallow_Water_Color: {r: 0, g: 0.99056596, b: 0.92994887, a: 0.5529412}

@@ -8,7 +8,7 @@ public class TemporaryPlateformManager : MonoBehaviour
     [SerializeField] private TemporaryPlateform _startPlateform;
     private Vector2 _plateformPosition;
     private Quaternion _plateformRotation;
-    private Vector2 _plateformScale;
+    private Vector3 _plateformScale;
     private float _plateformRadius;
     [SerializeField] private float _respawnTime;
     private bool _canSpawn;
