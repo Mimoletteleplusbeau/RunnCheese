@@ -1080,9 +1080,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Settings
-
-'
+  m_text: Credits
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fd0edfb5f05aa4241877deb021d4f2f5, type: 2}
   m_sharedMaterial: {fileID: 371225275219373217, guid: fd0edfb5f05aa4241877deb021d4f2f5,
@@ -1174,7 +1172,7 @@ GameObject:
   - component: {fileID: 1378538743}
   - component: {fileID: 1378538746}
   m_Layer: 5
-  m_Name: q
+  m_Name: Button Credits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1312,6 +1310,7 @@ MonoBehaviour:
   _hoverScale: 1.05
   _hoverScaleDuration: 0.2
   _notHoverScaleDuration: 0.2
+  Action: 4
 --- !u!1 &1558256353
 GameObject:
   m_ObjectHideFlags: 0
@@ -1464,6 +1463,7 @@ MonoBehaviour:
   _hoverScale: 1.05
   _hoverScaleDuration: 0.2
   _notHoverScaleDuration: 0.2
+  Action: 4
 --- !u!1001 &1728955273
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2061,6 +2061,7 @@ MonoBehaviour:
   _hoverScale: 1.05
   _hoverScaleDuration: 0.2
   _notHoverScaleDuration: 0.2
+  Action: 2
 --- !u!1001 &2009503491
 PrefabInstance:
   m_ObjectHideFlags: 0

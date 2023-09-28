@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using UnityEngine.UI;
+using System;
+using UnityEngine.Events;
 
 public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -14,6 +17,49 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     [SerializeField] private float _hoverScale = 1.1f;
     [SerializeField] private float _hoverScaleDuration = 0.3f;
     [SerializeField] private float _notHoverScaleDuration = 0.5f;
+    [SerializeField] private ButtonAction Action;
+
+    public enum ButtonAction
+    {
+        Next,
+        Restart,
+        Quit,
+        Menu,
+        ByName,
+    }
+
+    private void Start()
+    {
+        SetAction();
+    }
+
+    private void SetAction()
+    {
+        UnityAction myAction;
+        Debug.Log(LevelsManager.Instance);
+        switch (Action)
+        {
+            case ButtonAction.Next:
+                myAction = () => LevelsManager.Instance.GoToNextLevel();
+                break;
+            case ButtonAction.Restart:
+                myAction = () => LevelsManager.Instance.RestartLevel();
+                break;
+            case ButtonAction.Quit:
+                myAction = QuitGame;
+                break;
+            case ButtonAction.Menu:
+                myAction = () => LevelsManager.Instance.GoToMenu(); // ANNONYMOUS FUNCTION DOESNT WORK
+                break;
+            case ButtonAction.ByName:
+                myAction = GoToScene;
+                break;
+            default:
+                myAction = () => LevelsManager.Instance.RestartLevel();
+                break;
+        } 
+        GetComponent<Button>().onClick.AddListener(myAction);
+    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
