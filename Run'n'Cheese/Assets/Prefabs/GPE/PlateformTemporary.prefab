@@ -130,6 +130,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3756113610911283470}
+    - targetCorrespondingSourceObject: {fileID: 4661222642314331781, guid: b937876e2a08e2343aaa720713de7459,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8191515339181866597}
   m_SourcePrefab: {fileID: 100100000, guid: b937876e2a08e2343aaa720713de7459, type: 3}
 --- !u!4 &523980498027176088 stripped
 Transform:
@@ -157,6 +161,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _destroyTime: 3
   _shakeVisual: {fileID: 1754698180728134872}
+--- !u!114 &8191515339181866597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6551060866151020561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66bbe5611b9e28945a2568846ce9da54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originalObject: {fileID: 8078534272466411350}
+  fracturedObject: {fileID: 1684720687737269919}
+  explosionMinForce: 100
+  explosionMaxForce: 500
+  explosionForceRadius: 10
+  fragScaleFactor: 1
 --- !u!1001 &1990658500616377294
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -962,6 +984,12 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &1684720687737269919 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3f9369e840a284446b3d950dbcb8fc56,
+    type: 3}
+  m_PrefabInstance: {fileID: 1990658500616377294}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1709698243951839218 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 872058017045156924, guid: 3f9369e840a284446b3d950dbcb8fc56,
