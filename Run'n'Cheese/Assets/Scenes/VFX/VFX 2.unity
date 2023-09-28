@@ -8893,6 +8893,16 @@ PrefabInstance:
       propertyPath: m_SoftZoneHeight
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2090406359650658947, guid: adc25887af91f09448343998c0048011,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2090406360444976376, guid: adc25887af91f09448343998c0048011,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 2090406360444976390, guid: adc25887af91f09448343998c0048011,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10234,8 +10244,8 @@ PolygonCollider2D:
     m_Paths:
     - - {x: 33.284, y: 9.830348}
       - {x: -44.319714, y: 10.874838}
-      - {x: -44.56875, y: -7.9963875}
-      - {x: 32.93281, y: -8.016312}
+      - {x: -44.54611, y: -7.520896}
+      - {x: 32.8914, y: -7.552523}
   m_UseDelaunayMesh: 0
 --- !u!4 &1601308409 stripped
 Transform:
