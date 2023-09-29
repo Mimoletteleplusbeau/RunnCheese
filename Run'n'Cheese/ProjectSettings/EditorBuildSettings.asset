@@ -9,15 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Build_Scenes/MainMenu.unity
     guid: 6dc2955af668cc24a9322fde3ec25e85
   - enabled: 1
-    path: Assets/Scenes/ScenesTest/Physics_Test.unity
-    guid: edd50d2fd7a9e234bb4f7390240f2349
-  - enabled: 1
-    path: Assets/Scenes/GD_Test/LD_LVL1.unity
-    guid: 3204f0956225ce545adf9f3285e224ae
-  - enabled: 1
     path: Assets/Scenes/GD_Test/LD_1.unity
     guid: a300dc4cd4af0114f905c06bf95ef9ee
   - enabled: 1
+    path: Assets/Scenes/GD_Test/LD_LVL2.unity
+    guid: 3204f0956225ce545adf9f3285e224ae
+  - enabled: 1
     path: Assets/Scenes/Build_Scenes/LEVEL_1_FINAL.unity
     guid: b8e2586d46470f349aa13807a5fe0b54
+  - enabled: 1
+    path: Assets/Scenes/ScenesTest/Physics_Test.unity
+    guid: edd50d2fd7a9e234bb4f7390240f2349
   m_configObjects: {}

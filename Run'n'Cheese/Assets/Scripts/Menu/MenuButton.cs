@@ -98,8 +98,7 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         if (MenuManager.MenuManagerInstance.CanClickButtons)
         {
             MenuManager.MenuManagerInstance.SetButtonsUnclickable();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
+            LevelsManager.Instance.DirectlyRestartLevel();
         }
     }
 
@@ -107,19 +106,13 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         if (MenuManager.MenuManagerInstance.CanClickButtons)
         {
-            Debug.Log("OKclick");
             MenuManager.MenuManagerInstance.SetButtonsUnclickable();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-
-        }
-        else
-        {
-            Debug.Log("NOPEclick");
+            LevelsManager.Instance.DirectlyGoToNextLevel();
         }
     }
 
     private void GoToMenu()
     {
-        LevelsManager.Instance.GoToMenu();
+        LevelsManager.Instance.DirectlyGoToMenu();
     }
 }

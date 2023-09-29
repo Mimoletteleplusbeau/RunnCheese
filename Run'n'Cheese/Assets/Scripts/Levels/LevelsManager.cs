@@ -8,7 +8,7 @@ public class LevelsManager : MonoBehaviour
 {
     public static LevelsManager Instance;
     [SerializeField] private LevelsList _levelsList;
-    public int _currentLevel;
+    private int _currentLevel;
 
     private void Awake()
     {
@@ -21,10 +21,43 @@ public class LevelsManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        SceneManager.sceneLoaded += GetCurrentLevel;
+    }
+
+    private void GetCurrentLevel(Scene scene, LoadSceneMode mode)
+    {
+        scene = SceneManager.GetActiveScene();
+
+        for (int i = 0; i < _levelsList.Levels.Length; i++)
+        {
+            if (scene.name == _levelsList.Levels[i])
+            {
+                _currentLevel = i;
+                break;
+            }
+        }
+
+    }
+
     public void GoToNextLevel()
     {
-        Debug.Log("levelsManagerNextLevel");
+        if (_currentLevel + 1 >= _levelsList.Levels.Length)
+        {
+            GoToMenu();
+            return;
+        }
         Transition.Instance.SetTransition(DirectlyGoToNextLevel);
+    }
+    public void DirectlyGoToNextLevel()
+    {
+        if (_currentLevel + 1 >= _levelsList.Levels.Length)
+        {
+            DirectlyGoToMenu();
+            return;
+        }
+        SceneManager.LoadScene(_levelsList.Levels[_currentLevel + 1]);
     }
 
     public void RestartLevel()
@@ -37,17 +70,14 @@ public class LevelsManager : MonoBehaviour
         SceneManager.LoadScene(_levelsList.Levels[_currentLevel]);
     }
 
-    public void DirectlyGoToNextLevel()
-    {
-        Debug.Log(_currentLevel);
-        _currentLevel++;
-        Debug.Log(_currentLevel);
-        SceneManager.LoadScene(_levelsList.Levels[_currentLevel+1]);
-    }
-
     public void GoToMenu()
     {
         _currentLevel = 0;
-        Transition.Instance.SetTransition(() => SceneManager.LoadScene(_levelsList.MainMenu));
+        Transition.Instance.SetTransition(DirectlyGoToMenu);
+    }
+
+    public void DirectlyGoToMenu()
+    {
+        SceneManager.LoadScene(_levelsList.MainMenu);
     }
 }

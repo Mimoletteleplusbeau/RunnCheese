@@ -17,6 +17,5 @@ public class MenuManager : MonoBehaviour
     public void SetButtonsUnclickable()
     {
         CanClickButtons = false;
-        Debug.LogErrorFormat("Unclicable");
     }
 }
