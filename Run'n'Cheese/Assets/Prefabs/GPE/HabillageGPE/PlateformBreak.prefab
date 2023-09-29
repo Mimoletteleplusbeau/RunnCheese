@@ -173,9 +173,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalObject: {fileID: 2359684661841379600}
   fracturedObject: {fileID: 1684720687737269919}
-  explosionMinForce: 100
-  explosionMaxForce: 500
-  explosionForceRadius: 10
+  explosionMinForce: 50
+  explosionMaxForce: 100
+  explosionForceRadius: 5
   fragScaleFactor: 1
 --- !u!1001 &1990658500616377294
 PrefabInstance:

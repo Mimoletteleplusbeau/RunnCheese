@@ -2105,9 +2105,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalObject: {fileID: 4707243278338156103}
   fracturedObject: {fileID: 3557882330787230584}
-  explosionMinForce: 100
-  explosionMaxForce: 500
-  explosionForceRadius: 20
+  explosionMinForce: 50
+  explosionMaxForce: 100
+  explosionForceRadius: 5
   fragScaleFactor: 1
 --- !u!4 &8807489957667711197 stripped
 Transform:
