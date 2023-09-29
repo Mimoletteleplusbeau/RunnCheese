@@ -31,7 +31,7 @@ public class ExplosionObject : MonoBehaviour
                     if (rb != null)
                         rb.AddExplosionForce(Random.Range(explosionMinForce, explosionMaxForce), originalObject.transform.position, explosionForceRadius);
 
-                    StartCoroutine(Shrink(t, 2));
+                    //StartCoroutine(Shrink(t, 2));
                 }
 
                 Destroy(fracturedObject, 5);

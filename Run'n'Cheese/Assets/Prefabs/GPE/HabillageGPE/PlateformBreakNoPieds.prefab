@@ -96,17 +96,17 @@ PrefabInstance:
     - target: {fileID: 2598505217579852924, guid: b937876e2a08e2343aaa720713de7459,
         type: 3}
       propertyPath: m_Size.y
-      value: 0.7
+      value: 0.31197405
       objectReference: {fileID: 0}
     - target: {fileID: 2598505217579852924, guid: b937876e2a08e2343aaa720713de7459,
         type: 3}
       propertyPath: m_Offset.x
-      value: -0.31
+      value: -0.31000006
       objectReference: {fileID: 0}
     - target: {fileID: 2598505217579852924, guid: b937876e2a08e2343aaa720713de7459,
         type: 3}
       propertyPath: m_Offset.y
-      value: 0.84
+      value: 1.0340238
       objectReference: {fileID: 0}
     - target: {fileID: 4661222642314331781, guid: b937876e2a08e2343aaa720713de7459,
         type: 3}
@@ -373,7 +373,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3f9369e840a284446b3d950dbcb8fc56,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 956087058528722037, guid: 3f9369e840a284446b3d950dbcb8fc56,
         type: 3}
@@ -2509,7 +2509,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a2d88031a6bc48443b0b6cee6fdd88f9,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1905905227140211132, guid: a2d88031a6bc48443b0b6cee6fdd88f9,
         type: 3}
@@ -2654,6 +2654,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PANNEAU
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 337405d649f46ca4f9d4e2186b44980a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1951428834223464212, guid: 337405d649f46ca4f9d4e2186b44980a,
         type: 3}
