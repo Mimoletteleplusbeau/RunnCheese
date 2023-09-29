@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: GameLevels
   m_EditorClassIdentifier: 
   Levels:
-  - LEVEL_1_FINAL
-  - MVP_Scene_Template
+  - Physics_Test
+  - LD_LVL1
   MainMenu: MainMenu

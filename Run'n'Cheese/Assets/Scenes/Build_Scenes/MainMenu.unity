@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1890244885}
-  m_IndirectSpecularColor: {r: 0.24378747, g: 0.50095713, b: 0.66327786, a: 1}
+  m_IndirectSpecularColor: {r: 0.24378742, g: 0.5009571, b: 0.66327786, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1305,7 +1305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4068ce7b7585bd840b23c456490650de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetScene: LEVEL_1_FINAL
+  _targetScene: Physics_Test
   _originalScale: 1
   _hoverScale: 1.05
   _hoverScaleDuration: 0.2
@@ -1458,7 +1458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4068ce7b7585bd840b23c456490650de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetScene: LEVEL_1_FINAL
+  _targetScene: Physics_Test
   _originalScale: 1
   _hoverScale: 1.05
   _hoverScaleDuration: 0.2
@@ -2056,7 +2056,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4068ce7b7585bd840b23c456490650de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetScene: LEVEL_1_FINAL
+  _targetScene: Physics_Test
   _originalScale: 1
   _hoverScale: 1.05
   _hoverScaleDuration: 0.2

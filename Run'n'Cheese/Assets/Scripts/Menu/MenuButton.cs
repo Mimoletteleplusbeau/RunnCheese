@@ -36,26 +36,25 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     private void SetAction()
     {
         UnityAction myAction;
-        Debug.Log(LevelsManager.Instance);
         switch (Action)
         {
             case ButtonAction.Next:
-                myAction = () => LevelsManager.Instance.GoToNextLevel();
+                myAction = GoToNextLevel;
                 break;
             case ButtonAction.Restart:
-                myAction = () => LevelsManager.Instance.RestartLevel();
+                myAction = RestartLevel;
                 break;
             case ButtonAction.Quit:
                 myAction = QuitGame;
                 break;
             case ButtonAction.Menu:
-                myAction = () => LevelsManager.Instance.GoToMenu(); // ANNONYMOUS FUNCTION DOESNT WORK
+                myAction = GoToMenu;
                 break;
             case ButtonAction.ByName:
                 myAction = GoToScene;
                 break;
             default:
-                myAction = () => LevelsManager.Instance.RestartLevel();
+                myAction = RestartLevel;
                 break;
         } 
         GetComponent<Button>().onClick.AddListener(myAction);
@@ -82,7 +81,6 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         {
             MenuManager.MenuManagerInstance.SetButtonsUnclickable();
             MenuManager.MenuManagerInstance.Transition.SetTransition(() => SceneManager.LoadScene(_targetScene));
-
         }
     }
 
@@ -92,7 +90,36 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         {
             MenuManager.MenuManagerInstance.SetButtonsUnclickable();
             MenuManager.MenuManagerInstance.Transition.SetTransition(() => Application.Quit());
+        }
+    }
+
+    private void RestartLevel()
+    {
+        if (MenuManager.MenuManagerInstance.CanClickButtons)
+        {
+            MenuManager.MenuManagerInstance.SetButtonsUnclickable();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
         }
+    }
+
+    private void GoToNextLevel()
+    {
+        if (MenuManager.MenuManagerInstance.CanClickButtons)
+        {
+            Debug.Log("OKclick");
+            MenuManager.MenuManagerInstance.SetButtonsUnclickable();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+        }
+        else
+        {
+            Debug.Log("NOPEclick");
+        }
+    }
+
+    private void GoToMenu()
+    {
+        LevelsManager.Instance.GoToMenu();
     }
 }

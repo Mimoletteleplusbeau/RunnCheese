@@ -8,7 +8,7 @@ public class LevelsManager : MonoBehaviour
 {
     public static LevelsManager Instance;
     [SerializeField] private LevelsList _levelsList;
-    private int _currentLevel;
+    public int _currentLevel;
 
     private void Awake()
     {
@@ -23,6 +23,7 @@ public class LevelsManager : MonoBehaviour
 
     public void GoToNextLevel()
     {
+        Debug.Log("levelsManagerNextLevel");
         Transition.Instance.SetTransition(DirectlyGoToNextLevel);
     }
 
