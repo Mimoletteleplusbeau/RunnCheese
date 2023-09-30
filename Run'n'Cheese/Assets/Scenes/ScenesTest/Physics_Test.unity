@@ -2413,6 +2413,56 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1213355748}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &473572676 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2090406359247173885, guid: adc25887af91f09448343998c0048011,
+    type: 3}
+  m_PrefabInstance: {fileID: 1441212032}
+  m_PrefabAsset: {fileID: 0}
+--- !u!68 &473572683
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473572676}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 0.29187012, y: -0.82799625}
+  - {x: 0.28394318, y: 0.44875622}
+  - {x: -0.22907257, y: 0.4504037}
+  - {x: -0.2807846, y: -0.83427477}
+  - {x: 0.29187012, y: -0.8279681}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!4 &498042965 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5083089412103721098, guid: 3bc708c244a288241955b9632048b963,
@@ -6825,10 +6875,15 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2090406359247173880, guid: adc25887af91f09448343998c0048011, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2090406359247173885, guid: adc25887af91f09448343998c0048011,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 473572683}
   m_SourcePrefab: {fileID: 100100000, guid: adc25887af91f09448343998c0048011, type: 3}
 --- !u!1001 &1445475144
 PrefabInstance:
