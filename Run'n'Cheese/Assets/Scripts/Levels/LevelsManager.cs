@@ -32,7 +32,7 @@ public class LevelsManager : MonoBehaviour
 
         for (int i = 0; i < _levelsList.Levels.Length; i++)
         {
-            if (scene.name == _levelsList.Levels[i])
+            if (scene.name == _levelsList.Levels[i].Name)
             {
                 _currentLevel = i;
                 break;
@@ -57,7 +57,7 @@ public class LevelsManager : MonoBehaviour
             DirectlyGoToMenu();
             return;
         }
-        SceneManager.LoadScene(_levelsList.Levels[_currentLevel + 1]);
+        SceneManager.LoadScene(_levelsList.Levels[_currentLevel + 1].Name);
     }
 
     public void RestartLevel()
@@ -67,7 +67,7 @@ public class LevelsManager : MonoBehaviour
 
     public void DirectlyRestartLevel()
     {
-        SceneManager.LoadScene(_levelsList.Levels[_currentLevel]);
+        SceneManager.LoadScene(_levelsList.Levels[_currentLevel].Name);
     }
 
     public void GoToMenu()
