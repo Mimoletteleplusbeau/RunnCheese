@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61e1f92ef559002468a36ba2dff9409a, type: 3}
   m_Name: GameLevels
   m_EditorClassIdentifier: 
-  Levels:
-  - Physics_Test
   MainMenu: MainMenu
+  Levels:
+  - Name: Physics_Test
+    FishTimer1: 22
+    FishTimer2: 16
+    FishTimer3: 10

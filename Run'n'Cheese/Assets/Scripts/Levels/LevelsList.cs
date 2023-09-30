@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New LevelsList", menuName = "LevelsList")]
 public class LevelsList : ScriptableObject
 {
-    public string[] Levels;
-
     public string MainMenu;
+
+    public LevelData[] Levels;
 }
