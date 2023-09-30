@@ -11,12 +11,12 @@ PrefabInstance:
     - target: {fileID: 6928214377236207114, guid: 83ad5a34afbd6bf47bd02878ec271938,
         type: 3}
       propertyPath: m_Name
-      value: Enemy Variant
+      value: KillZone
       objectReference: {fileID: 0}
     - target: {fileID: 8232881472159033318, guid: 83ad5a34afbd6bf47bd02878ec271938,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8232881472159033318, guid: 83ad5a34afbd6bf47bd02878ec271938,
         type: 3}
@@ -70,6 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9722838662185834, guid: 83ad5a34afbd6bf47bd02878ec271938, type: 3}
+    - {fileID: 6224301781378775871, guid: 83ad5a34afbd6bf47bd02878ec271938, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

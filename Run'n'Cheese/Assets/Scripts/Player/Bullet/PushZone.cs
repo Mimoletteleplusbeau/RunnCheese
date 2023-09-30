@@ -37,18 +37,12 @@ public class PushZone : MonoBehaviour
                 {
                     playerDirection.y = 1;
                     playerDirection.x = (playerDirection.x + PlayerController.Instance.MoveVector.x) / 2;
-                    //if (transform.position.y < PlayerController.Instance.transform.position.y)
-                    //{
-                    //    playerDirection.x = 0;
-                    //}
                 }
-            } else if (playerDirection.y <= 0)
+            }
+            if (HitNormal.y > 0)
             {
-                Debug.Log("jumps given");
                 GiveBullets();
             }
-            Debug.Log("jumps given3");
-            GiveBullets();
             PlayerController.Instance.SetForce(playerDirection, _force);
             ScreenShake.Instance.Shake(_explosionShakeForce, _explosionShakeTime);
             _hasHitPlayer = true;
