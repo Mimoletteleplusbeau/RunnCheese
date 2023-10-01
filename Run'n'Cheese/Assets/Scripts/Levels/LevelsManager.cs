@@ -80,4 +80,13 @@ public class LevelsManager : MonoBehaviour
     {
         SceneManager.LoadScene(_levelsList.MainMenu);
     }
+
+    public float[] GetFishTimer()
+    {
+        float fishTimer1 = _levelsList.Levels[_currentLevel].FishTimer1;
+        float fishTimer2 = _levelsList.Levels[_currentLevel].FishTimer2;
+        float fishTimer3 = _levelsList.Levels[_currentLevel].FishTimer3;
+        float[] fishTimers = new float[] { fishTimer1, fishTimer2, fishTimer3 };
+        return fishTimers;
+    }
 }

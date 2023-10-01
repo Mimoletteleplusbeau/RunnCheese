@@ -259,6 +259,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7188010545935381496}
     m_Modifications:
+    - target: {fileID: 1658862140607067448, guid: cc3cb05a3117dbf4dbdd70ee6a4975ed,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6866738091550878676, guid: cc3cb05a3117dbf4dbdd70ee6a4975ed,
         type: 3}
       propertyPath: m_Name
@@ -887,12 +892,12 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4198533583298037756, guid: b4b40cf21cd4cbb4ca36e6629b54f5dc,
         type: 3}
-      insertIndex: 0
-      addedObject: {fileID: 8051275182209515167}
+      insertIndex: 1
+      addedObject: {fileID: 4221124570539933427}
     - targetCorrespondingSourceObject: {fileID: 4198533583298037756, guid: b4b40cf21cd4cbb4ca36e6629b54f5dc,
         type: 3}
-      insertIndex: 2
-      addedObject: {fileID: 4221124570539933427}
+      insertIndex: -1
+      addedObject: {fileID: 8051275182209515167}
     - targetCorrespondingSourceObject: {fileID: 4198533583298037756, guid: b4b40cf21cd4cbb4ca36e6629b54f5dc,
         type: 3}
       insertIndex: -1
@@ -1048,14 +1053,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 134048092, guid: af11d951a8a61f14abfd9c66d6c62820,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5547607881500072509}
-    - targetCorrespondingSourceObject: {fileID: 134048092, guid: af11d951a8a61f14abfd9c66d6c62820,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2378486991787464564}
     - targetCorrespondingSourceObject: {fileID: 4579017865216794791, guid: af11d951a8a61f14abfd9c66d6c62820,
         type: 3}
       insertIndex: -1
@@ -1064,6 +1061,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3253113139041703433}
+    - targetCorrespondingSourceObject: {fileID: 134048092, guid: af11d951a8a61f14abfd9c66d6c62820,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5547607881500072509}
+    - targetCorrespondingSourceObject: {fileID: 134048092, guid: af11d951a8a61f14abfd9c66d6c62820,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2378486991787464564}
   m_SourcePrefab: {fileID: 100100000, guid: af11d951a8a61f14abfd9c66d6c62820, type: 3}
 --- !u!4 &2090406359247173882 stripped
 Transform:

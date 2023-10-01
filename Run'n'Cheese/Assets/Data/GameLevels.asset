@@ -15,6 +15,6 @@ MonoBehaviour:
   MainMenu: MainMenu
   Levels:
   - Name: Physics_Test
-    FishTimer1: 22
-    FishTimer2: 16
-    FishTimer3: 10
+    FishTimer1: 35
+    FishTimer2: 20
+    FishTimer3: 13

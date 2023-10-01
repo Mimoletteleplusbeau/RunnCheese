@@ -44,6 +44,11 @@ public class TimeManager : MonoBehaviour
         _timerMilliseconds.text = string.Format("{0:00}", milliseconds);
     }
 
+    public float GetTimer()
+    {
+        return Mathf.Round(_timer * 100) / 100;
+    }
+
     private void StopTimer()
     {
         _hasTimerStopped = true;
