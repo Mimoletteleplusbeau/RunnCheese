@@ -73,6 +73,10 @@ public class PlayerController : MonoBehaviour
     [Header("VFX")]
     [SerializeField] private GameObject _vfxLeaveGround;
     [SerializeField] private GameObject _vfxEnterGround;
+    [SerializeField] private GameObject _vfxDeath;
+
+    [Header("Death")]
+    [SerializeField] private float _afterDeathWaitTime;
 
     public enum PlayerState
     {
@@ -461,7 +465,9 @@ public class PlayerController : MonoBehaviour
     #region Death
     private void OnDestroy()
     {
-        LevelsManager.Instance.RestartLevel();
+        LevelsManager.Instance.RestartAfterTime(_afterDeathWaitTime);
+        var deathVFX = Instantiate(_vfxDeath, transform.position, Quaternion.identity);
+        deathVFX.transform.SetParent(transform.parent);
     }
     #endregion
 }

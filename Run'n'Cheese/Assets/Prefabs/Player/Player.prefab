@@ -581,6 +581,9 @@ MonoBehaviour:
     type: 3}
   _vfxEnterGround: {fileID: 4360662160258964290, guid: 0e2779fc1fd996f4c8de09e3500c69cb,
     type: 3}
+  _vfxDeath: {fileID: 5389857409857594494, guid: 4451a2b93b2c9be4db1f5204efe84531,
+    type: 3}
+  _afterDeathWaitTime: 1
 --- !u!114 &1845943815896088591
 MonoBehaviour:
   m_ObjectHideFlags: 0

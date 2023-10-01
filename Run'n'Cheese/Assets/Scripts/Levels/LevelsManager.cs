@@ -70,6 +70,17 @@ public class LevelsManager : MonoBehaviour
         SceneManager.LoadScene(_levelsList.Levels[_currentLevel].Name);
     }
 
+    public void RestartAfterTime(float time)
+    {
+        StartCoroutine(WaitForRestart(time));
+    }
+
+    private IEnumerator WaitForRestart(float time)
+    {
+        yield return new WaitForSeconds(time);
+        RestartLevel();
+    }
+
     public void GoToMenu()
     {
         _currentLevel = 0;
