@@ -309,6 +309,11 @@ public class PlayerController : MonoBehaviour
         Debug.DrawRay(boxCollider.bounds.center - new Vector3(boxCollider.bounds.extents.x + defaultOffset, 0), Vector2.down * (boxCollider.bounds.extents.y + _groundedOffset), rayColor);
         Debug.DrawRay(boxCollider.bounds.center - new Vector3(boxCollider.bounds.extents.x + defaultOffset, boxCollider.bounds.extents.y + _groundedOffset), Vector2.right * (boxCollider.bounds.extents.x + defaultOffset), rayColor);
 
+        if (raycastHit2D.collider != null && raycastHit2D.collider.gameObject.GetComponent<TemporaryPlateform>() != null)
+        {
+            raycastHit2D.collider.gameObject.GetComponent<TemporaryPlateform>().StartPlayerBreak();
+        }
+
         return raycastHit2D.collider != null;
     }
 

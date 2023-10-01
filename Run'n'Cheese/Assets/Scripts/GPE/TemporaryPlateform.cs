@@ -10,6 +10,7 @@ public class TemporaryPlateform : DestructiblePlateform
     private Collider2D _collider;
     [SerializeField] private float _destroyTime;
     [SerializeField] private ShakeTransform _shakeVisual;
+    private bool _isShaking;
 
     private void Awake()
     {
@@ -30,8 +31,7 @@ public class TemporaryPlateform : DestructiblePlateform
             if (collision.gameObject.transform.position.y < transform.position.y + _collider.bounds.extents.y) return;
             if (collision.gameObject.transform.position.x > transform.position.x + _collider.bounds.extents.x) return;
             if (collision.gameObject.transform.position.x < transform.position.x - _collider.bounds.extents.x) return;
-            _shakeVisual.Begin();
-            StartCoroutine(Break(_destroyTime));
+            StartPlayerBreak();
             return;
         }
 
@@ -39,6 +39,15 @@ public class TemporaryPlateform : DestructiblePlateform
         base.OnCollisionEnter2D(collision);
         StopAllCoroutines();
         OnDeath?.Invoke();
+    }
+
+    public void StartPlayerBreak()
+    {
+        if (_isShaking) return;
+        _isShaking = true;
+        StopAllCoroutines();
+        _shakeVisual.Begin();
+        StartCoroutine(Break(_destroyTime));
     }
 
     IEnumerator Break(float time)
