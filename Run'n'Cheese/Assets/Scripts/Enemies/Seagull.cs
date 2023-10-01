@@ -6,7 +6,9 @@ using UnityEngine;
 public class Seagull : Enemy
 {
     public static Seagull Instance;
+
     public event Action OnKill;
+    [field: SerializeField] protected override GameObject _VFXDeath { get; set; }
 
     private void Awake()
     {
@@ -16,5 +18,6 @@ public class Seagull : Enemy
     private void OnDestroy()
     {
         OnKill?.Invoke();
+        SpawnDeathVFX();
     }
 }

@@ -20,6 +20,9 @@ public class Gull : Enemy
     [Header("Sprites")]
     [SerializeField] private SpriteRenderer _spriteRenderer;
 
+    [field: SerializeField] protected override GameObject _VFXDeath { get; set; }
+
+
     private void Start()
     {
         _pivotPoint = transform.position;
@@ -55,5 +58,10 @@ public class Gull : Enemy
         Gizmos.color = new Color(0, 0, 0, 0.3f);
         Vector3 previewTransform = _pivotPoint == Vector3.zero ? transform.position : _pivotPoint;
         Gizmos.DrawSphere(previewTransform, _radius);
+    }
+
+    private void OnDestroy()
+    {
+        SpawnDeathVFX();
     }
 }

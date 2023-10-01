@@ -17,6 +17,9 @@ public class Crab : Enemy
     private float _checkTimer;
     private float _cooldownFrames = 2f;
 
+    [field:SerializeField] protected override GameObject _VFXDeath { get; set; }
+
+
     private void Awake()
     {
         _direction = Vector2.right;
@@ -74,5 +77,10 @@ public class Crab : Enemy
         //Debug.DrawRay(boxCollider.bounds.center + new Vector3(direction.x * (boxCollider.bounds.extents.x + offset), boxCollider.bounds.extents.y), Vector2.down * (boxCollider.bounds.size.y), rayColor);
 
         return raycastHit2D.collider != null;
+    }
+
+    private void OnDestroy()
+    {
+        SpawnDeathVFX();
     }
 }

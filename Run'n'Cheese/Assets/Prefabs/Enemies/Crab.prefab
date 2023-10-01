@@ -369,6 +369,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _groundedOffset: 0.15
+  <_VFXDeath>k__BackingField: {fileID: 5389857409857594494, guid: 4451a2b93b2c9be4db1f5204efe84531,
+    type: 3}
 --- !u!61 &1341668189428800759
 BoxCollider2D:
   m_ObjectHideFlags: 0

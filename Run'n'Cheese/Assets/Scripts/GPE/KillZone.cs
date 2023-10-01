@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KillZone : Enemy
+public class KillZone : MonoBehaviour
 {
 
-    protected override void OnTriggerEnter2D(Collider2D collider)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.GetComponent<PlayerController>() == null) return;
 

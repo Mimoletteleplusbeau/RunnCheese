@@ -25,7 +25,6 @@ public class TemporaryPlateform : DestructiblePlateform
 
     protected override void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.collider.name);
         if (collision.gameObject.GetComponent<PlayerController>() != null)
         {
             if (collision.gameObject.transform.position.y < transform.position.y + _collider.bounds.extents.y) return;
