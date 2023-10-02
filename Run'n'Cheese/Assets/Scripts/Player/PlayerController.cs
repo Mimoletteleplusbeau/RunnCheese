@@ -468,7 +468,6 @@ public class PlayerController : MonoBehaviour
     private void OnDestroy()
     {
         if (!gameObject.scene.isLoaded) return;
-        Debug.Log("player death");
         OnDeath?.Invoke();
         LevelsManager.Instance.RestartAfterTime(_afterDeathWaitTime);
         var deathVFX = Instantiate(_vfxDeath, transform.position, Quaternion.identity);

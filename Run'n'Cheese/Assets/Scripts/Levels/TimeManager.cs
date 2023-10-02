@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class TimeManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class TimeManager : MonoBehaviour
     private bool _hasTimerStopped;
     [SerializeField] private TMP_Text _timerText;
     [SerializeField] private TMP_Text _timerTextMilli;
+    [SerializeField] private GameObject _timeText;
 
     private void Awake()
     {
@@ -58,5 +60,10 @@ public class TimeManager : MonoBehaviour
     {
         if (PlayerController.Instance.MyState == PlayerController.PlayerState.Walk || PlayerController.Instance.MyState == PlayerController.PlayerState.JumpAscent)
             _hasPlayerMoved = true;
+    }
+
+    public void HideTimeUI()
+    {
+        _timeText.SetActive(false);
     }
 }

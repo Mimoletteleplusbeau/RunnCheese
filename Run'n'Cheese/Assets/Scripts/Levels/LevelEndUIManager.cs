@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 public class LevelEndUIManager : MonoBehaviour
 {
@@ -35,11 +36,17 @@ public class LevelEndUIManager : MonoBehaviour
     private void Start()
     {
         _endUI.SetActive(false);
+        Transition.Instance.OnFadeOutStart += HideEndUI;
     }
 
     public void ShowEndUITransition()
     {
         Transition.Instance.SetTransition(ShowEndUI);
+    }
+
+    public void ShowEndUIWithoutTransition()
+    {
+        ShowEndUI();
     }
 
     private void ShowEndUI()
@@ -77,6 +84,11 @@ public class LevelEndUIManager : MonoBehaviour
             _timeLeft.text = _AllFishesSentence;
         }
 
+    }
+
+    public void HideEndUI(Action endAction)
+    {
+        _endUI.SetActive(false);
     }
 
     IEnumerator ResultsFishApparition()
