@@ -10733,6 +10733,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5241507032985022753, guid: b37e773a123943941a4e73cd86d337da,
+        type: 3}
+      propertyPath: _playerDeath
+      value: 
+      objectReference: {fileID: 8300000, guid: 25dbc112c5c12d140b340f851dbabb45, type: 3}
+    - target: {fileID: 5241507032985022753, guid: b37e773a123943941a4e73cd86d337da,
+        type: 3}
+      propertyPath: _playerExplosionEjection
+      value: 
+      objectReference: {fileID: 8300000, guid: 25dbc112c5c12d140b340f851dbabb45, type: 3}
     - target: {fileID: 5358256206968236437, guid: b37e773a123943941a4e73cd86d337da,
         type: 3}
       propertyPath: m_RootOrder

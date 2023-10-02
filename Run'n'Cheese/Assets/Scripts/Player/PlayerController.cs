@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public static PlayerController Instance;
     public event Action OnStateChange;
     public event Action OnJump;
+    public event Action OnExplosionEjection;
+    public event Action OnDeath;
 
     private PlayerInputs input;
     private Rigidbody2D rigidbody;
@@ -257,6 +259,7 @@ public class PlayerController : MonoBehaviour
         _jumpBufferCounter = 0;
         _jumps--;
         Y_Velocity = 0;
+        OnExplosionEjection?.Invoke();
         //Debug.Log(_targetPosition + _explosionCurrentDirection * (_explosionCounter / _explosionTimer) * _explosionCurrentForce);
     }
 
@@ -467,6 +470,7 @@ public class PlayerController : MonoBehaviour
     #region Death
     private void OnDestroy()
     {
+        OnDeath?.Invoke();
         LevelsManager.Instance.RestartAfterTime(_afterDeathWaitTime);
         var deathVFX = Instantiate(_vfxDeath, transform.position, Quaternion.identity);
         deathVFX.transform.SetParent(transform.parent);

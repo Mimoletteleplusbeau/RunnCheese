@@ -9,15 +9,17 @@ public class Seagull : Enemy
 
     public event Action OnKill;
     [field: SerializeField] protected override GameObject _VFXDeath { get; set; }
+    [field: SerializeField] protected override AudioClip _SFXDeath { get; set; }
+
 
     private void Awake()
     {
         Instance = this;
     }
 
-    private void OnDestroy()
+    protected override void OnDestroy()
     {
         OnKill?.Invoke();
-        SpawnDeathVFX();
+        base.OnDestroy();
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Enemy : MonoBehaviour
 {
     [field: SerializeField] protected abstract GameObject _VFXDeath { get; set; }
+    [field: SerializeField] protected abstract AudioClip _SFXDeath { get; set; }
 
     protected virtual void OnTriggerEnter2D(Collider2D collider)
     {
@@ -18,9 +19,16 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
-    protected virtual void SpawnDeathVFX()
+    protected virtual void DeathFeedbacks()
     {
         GameObject vfx = Instantiate(_VFXDeath, transform.position, Quaternion.identity);
         vfx.transform.SetParent(transform.parent);
+
+        SoundManager.Instance.PlaySound(_SFXDeath);
+    }
+
+    protected virtual void OnDestroy()
+    {
+        DeathFeedbacks();
     }
 }

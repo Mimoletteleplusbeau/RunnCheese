@@ -235,6 +235,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <_VFXDeath>k__BackingField: {fileID: 5389857409857594494, guid: 4451a2b93b2c9be4db1f5204efe84531,
     type: 3}
+  <_SFXDeath>k__BackingField: {fileID: 8300000, guid: 25dbc112c5c12d140b340f851dbabb45,
+    type: 3}
 --- !u!4 &9125760901023927275 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8232881472159033318, guid: 83ad5a34afbd6bf47bd02878ec271938,
