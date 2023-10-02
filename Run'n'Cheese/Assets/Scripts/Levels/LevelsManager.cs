@@ -67,7 +67,6 @@ public class LevelsManager : MonoBehaviour
 
     public void DirectlyRestartLevel()
     {
-        Debug.Log("level restart");
         SceneManager.LoadScene(_levelsList.Levels[_currentLevel].Name);
     }
 

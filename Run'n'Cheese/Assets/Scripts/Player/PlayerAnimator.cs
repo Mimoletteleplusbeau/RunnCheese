@@ -65,7 +65,8 @@ public class PlayerAnimator : MonoBehaviour
 
     public void WinAnimationEnd()
     {
-        LevelEndUIManager.Instance.ShowEndUITransition();
+        LevelEndUIManager.Instance.ShowEndUIWithoutTransition();
+        TimeManager.Instance.HideTimeUI();
     }
 
     private void CheckRunVFX()
