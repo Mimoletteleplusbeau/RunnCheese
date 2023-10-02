@@ -55,7 +55,6 @@ public class PlayerController : MonoBehaviour
     [Tooltip("The time a jump is allowed before reaching the ground in seconds")] [SerializeField] private float jumpBufferTime;
     private float _jumpBufferCounter;
     private bool _isGrounded;
-    private bool _isTouchingWall;
     [Tooltip("The offset of the ground detection")] [SerializeField] private float _groundedOffset;
 
     [Header("External Forces")]
@@ -112,8 +111,6 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-        _isTouchingWall = IsTouchingWalls();
         _targetPosition = Vector2.zero;
 
         if (MyState != PlayerState.WinLevel && CanMove)
@@ -470,6 +467,8 @@ public class PlayerController : MonoBehaviour
     #region Death
     private void OnDestroy()
     {
+        if (!gameObject.scene.isLoaded) return;
+        Debug.Log("player death");
         OnDeath?.Invoke();
         LevelsManager.Instance.RestartAfterTime(_afterDeathWaitTime);
         var deathVFX = Instantiate(_vfxDeath, transform.position, Quaternion.identity);

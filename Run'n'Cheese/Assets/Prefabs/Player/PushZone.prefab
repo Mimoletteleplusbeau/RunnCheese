@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _force: {x: 1.2, y: 0.6}
   _radius: 1.5
-  _activationTime: 0.4
+  _activationTime: 0.3
   HitNormal: {x: 0, y: 0}
   _explosionShakeForce: 25
   _explosionShakeTime: 0.1

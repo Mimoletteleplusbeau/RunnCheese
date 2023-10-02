@@ -21,6 +21,7 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void DeathFeedbacks()
     {
+        if (!gameObject.scene.isLoaded) return;
         GameObject vfx = Instantiate(_VFXDeath, transform.position, Quaternion.identity);
         vfx.transform.SetParent(transform.parent);
 

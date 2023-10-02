@@ -26,6 +26,7 @@ public class PushZone : MonoBehaviour
     private void Update()
     {
         if (_hasHitPlayer) return;
+        if (PlayerController.Instance == null) return;
 
         float distance = Vector3.Distance(transform.position, PlayerController.Instance.transform.position);
         if (distance <= _radius)

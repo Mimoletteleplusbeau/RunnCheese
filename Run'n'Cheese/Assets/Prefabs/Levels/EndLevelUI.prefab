@@ -1241,6 +1241,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9030425175947122232, guid: 52de6340b06986c4bb0d3d3531744f2d,
         type: 3}
+      propertyPath: Action
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9030425175947122232, guid: 52de6340b06986c4bb0d3d3531744f2d,
+        type: 3}
       propertyPath: _targetScene
       value: LD_1
       objectReference: {fileID: 0}
