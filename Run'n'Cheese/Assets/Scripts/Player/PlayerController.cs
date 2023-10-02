@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance;
     public event Action OnStateChange;
+    public event Action OnJump;
 
     private PlayerInputs input;
     private Rigidbody2D rigidbody;
@@ -230,6 +231,7 @@ public class PlayerController : MonoBehaviour
             Y_Velocity = jumpForce;
             _jumps--;
             _jumpBufferCounter = 0;
+            OnJump?.Invoke();
         }
     }
 
