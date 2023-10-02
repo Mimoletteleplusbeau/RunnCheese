@@ -8,6 +8,7 @@ public class BeginningCutsceneManager : MonoBehaviour
 
     [SerializeField] private GameObject _camera;
     [SerializeField] private float _cutsceneTime;
+    [SerializeField] private float _laughTime;
 
     private void Awake()
     {
@@ -22,7 +23,9 @@ public class BeginningCutsceneManager : MonoBehaviour
 
     IEnumerator StartCutsceneTimer()
     {
-        yield return new WaitForSeconds(_cutsceneTime);
+        yield return new WaitForSeconds(_laughTime);
+        if (Seagull.Instance != null)  SoundManager.Instance.PlaySound(Seagull.Instance.SFXLaugh);
+        yield return new WaitForSeconds(_cutsceneTime - _laughTime);
         DisableCamera();
     }
 
