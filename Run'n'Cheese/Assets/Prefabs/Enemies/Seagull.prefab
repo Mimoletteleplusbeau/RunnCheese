@@ -131,7 +131,7 @@ PrefabInstance:
     - target: {fileID: 8232881472159033318, guid: 83ad5a34afbd6bf47bd02878ec271938,
         type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8232881472159033318, guid: 83ad5a34afbd6bf47bd02878ec271938,
         type: 3}
@@ -237,6 +237,7 @@ MonoBehaviour:
     type: 3}
   <_SFXDeath>k__BackingField: {fileID: 8300000, guid: 731934cd616f16c4891dd4e7f5b9b604,
     type: 3}
+  SFXLaugh: {fileID: 8300000, guid: 178ee28c7d9bc3341b87801cf092d903, type: 3}
 --- !u!4 &9125760901023927275 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8232881472159033318, guid: 83ad5a34afbd6bf47bd02878ec271938,

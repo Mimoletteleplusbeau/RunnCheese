@@ -17,7 +17,7 @@ public class LevelsManager : MonoBehaviour
         } else
         {
             Instance = this;
-            DontDestroyOnLoad(this);
+            DontDestroyOnLoad(gameObject);
         }
     }
 

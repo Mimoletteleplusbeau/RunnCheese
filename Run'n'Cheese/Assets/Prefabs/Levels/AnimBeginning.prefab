@@ -31,7 +31,7 @@ Transform:
   m_Children:
   - {fileID: 6269277969449311998}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5229744346751344055
 MonoBehaviour:
@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _camera: {fileID: 8404376253880888537}
   _cutsceneTime: 3.2
+  _laughTime: 2.6
 --- !u!1 &7800082961271950742
 GameObject:
   m_ObjectHideFlags: 0
