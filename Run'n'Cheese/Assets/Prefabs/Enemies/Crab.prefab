@@ -490,7 +490,7 @@ MonoBehaviour:
   _groundedOffset: 0.15
   <_VFXDeath>k__BackingField: {fileID: 9222293444271351485, guid: 9ba45a8eaf242374e839b513e1217efa,
     type: 3}
-  <_SFXDeath>k__BackingField: {fileID: 8300000, guid: 25dbc112c5c12d140b340f851dbabb45,
+  <_SFXDeath>k__BackingField: {fileID: 8300000, guid: 731934cd616f16c4891dd4e7f5b9b604,
     type: 3}
 --- !u!61 &1341668189428800759
 BoxCollider2D:

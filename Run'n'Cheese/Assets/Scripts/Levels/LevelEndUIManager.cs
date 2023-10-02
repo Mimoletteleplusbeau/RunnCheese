@@ -53,6 +53,7 @@ public class LevelEndUIManager : MonoBehaviour
     {
         _endUI.SetActive(true);
         TimeManager.Instance.SetTimer(_timerText, _timerTextMilli);
+        SoundsList.Instance.PlayEndUIAppear();
 
         float[] fishTimes = LevelsManager.Instance.GetFishTimer();
         float finalTime = TimeManager.Instance.GetTimer();
@@ -96,13 +97,18 @@ public class LevelEndUIManager : MonoBehaviour
         yield return new WaitForSeconds(_timeBeforeStarsApparition);
         foreach (var fish in _fishTimers)
         {
-            FishAppear(fish);
+            if (fish.activeInHierarchy)
+            {
+                FishAppear(fish);
+            }
             yield return new WaitForSeconds(_timeBetweenStars);
         }
     }
 
     private void FishAppear(GameObject fish)
     {
+        SoundsList.Instance.PlayFishAppear();
+
         fish.transform.localScale = Vector2.one * _starStartScale;
         fish.transform.DOScale(Vector2.one, _starApparitionTime).SetEase(Ease.InExpo);
     }

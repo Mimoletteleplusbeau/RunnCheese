@@ -16,6 +16,8 @@ public class ExplosionObject : MonoBehaviour
 
     public void Explode()
     {
+        SoundsList.Instance.PlayPlateformBreak();
+
         Destroy(gameObject.GetComponent<BoxCollider2D>());
         if (originalObject != null)
         {

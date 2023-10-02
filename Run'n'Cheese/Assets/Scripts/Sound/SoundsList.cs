@@ -16,6 +16,11 @@ public class SoundsList : MonoBehaviour
 
     [Header("Menu")]
     [SerializeField] private AudioClip _buttonClick;
+    [SerializeField] private AudioClip _fishAppearEnd;
+    [SerializeField] private AudioClip _endUIFanfare;
+
+    [Header("GPE")]
+    [SerializeField] private AudioClip _plateformBreak;
 
     private void Awake()
     {
@@ -52,6 +57,9 @@ public class SoundsList : MonoBehaviour
     void PlayPlayerExplosionEjection() => PlaySound(_playerExplosionEjection);
     void PlayPlayerDeath() => PlaySound(_playerDeath);
     public void PlayButtonClick() => PlaySound(_buttonClick);
+    public void PlayPlateformBreak() => PlaySound(_plateformBreak);
+    public void PlayFishAppear() => PlaySound(_fishAppearEnd);
+    public void PlayEndUIAppear() => PlaySound(_endUIFanfare);
 
     private void PlaySound(AudioClip clip)
     {
