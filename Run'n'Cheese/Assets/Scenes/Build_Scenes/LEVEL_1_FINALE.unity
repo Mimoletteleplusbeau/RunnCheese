@@ -16449,11 +16449,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2090406359247173884, guid: adc25887af91f09448343998c0048011,
         type: 3}
-      propertyPath: _explosionTimer
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2090406359247173884, guid: adc25887af91f09448343998c0048011,
-        type: 3}
       propertyPath: _vfxEnterGround
       value: 
       objectReference: {fileID: 4360662160258964290, guid: 0e2779fc1fd996f4c8de09e3500c69cb,
@@ -16464,11 +16459,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7889119965779897832, guid: 289e51f14cac3d348826770c7d19d713,
         type: 3}
-    - target: {fileID: 2090406359247173884, guid: adc25887af91f09448343998c0048011,
-        type: 3}
-      propertyPath: fallSpeedDescent
-      value: 0.03
-      objectReference: {fileID: 0}
     - target: {fileID: 2090406360444976390, guid: adc25887af91f09448343998c0048011,
         type: 3}
       propertyPath: m_LocalPosition.x
