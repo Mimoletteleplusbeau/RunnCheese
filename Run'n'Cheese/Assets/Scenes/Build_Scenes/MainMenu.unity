@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1890244885}
-  m_IndirectSpecularColor: {r: 0.24378505, g: 0.501136, b: 0.66305256, a: 1}
+  m_IndirectSpecularColor: {r: 0.24378747, g: 0.50095713, b: 0.66327786, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -17492,19 +17492,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1378538744}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1378538746}
-        m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
-        m_MethodName: GoToScene
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1378538744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19048,19 +19036,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1558256356}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1558256358}
-        m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
-        m_MethodName: GoToScene
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1558256356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19111,7 +19087,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4068ce7b7585bd840b23c456490650de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetScene: Physics_Test
+  _targetScene: LEVEL_1_FINALE
   _originalScale: 1
   _hoverScale: 1.05
   _hoverScaleDuration: 0.2
@@ -24191,19 +24167,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1897046355}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1897046357}
-        m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
-        m_MethodName: QuitGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1897046355
 MonoBehaviour:
   m_ObjectHideFlags: 0

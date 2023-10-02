@@ -57,6 +57,8 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                 myAction = RestartLevel;
                 break;
         } 
+
+        GetComponent<Button>().onClick.AddListener(PlaySound);
         GetComponent<Button>().onClick.AddListener(myAction);
     }
 
@@ -114,5 +116,13 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     private void GoToMenu()
     {
         LevelsManager.Instance.DirectlyGoToMenu();
+    }
+
+    private void PlaySound()
+    {
+        if (MenuManager.MenuManagerInstance.CanClickButtons)
+        {
+            SoundsList.Instance.PlayButtonClick();
+        }
     }
 }
