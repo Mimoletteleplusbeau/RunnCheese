@@ -8,7 +8,7 @@ public class LevelsManager : MonoBehaviour
 {
     public static LevelsManager Instance;
     [SerializeField] private LevelsList _levelsList;
-    private int _currentLevel;
+    private int _currentLevel = -1;
 
     private void Awake()
     {
@@ -29,6 +29,7 @@ public class LevelsManager : MonoBehaviour
     private void GetCurrentLevel(Scene scene, LoadSceneMode mode)
     {
         scene = SceneManager.GetActiveScene();
+        int previousLevel = _currentLevel;
 
         for (int i = 0; i < _levelsList.Levels.Length; i++)
         {
@@ -39,6 +40,16 @@ public class LevelsManager : MonoBehaviour
             }
         }
 
+        CheckForLevelRestart(previousLevel);
+
+    }
+
+    private void CheckForLevelRestart(int previousLevel)
+    {
+        if (_currentLevel == previousLevel)
+        {
+            Destroy(BeginningCutsceneManager.Instance.gameObject);
+        }
     }
 
     public void GoToNextLevel()
@@ -83,7 +94,7 @@ public class LevelsManager : MonoBehaviour
 
     public void GoToMenu()
     {
-        _currentLevel = 0;
+        _currentLevel = -1;
         Transition.Instance.SetTransition(DirectlyGoToMenu);
     }
 

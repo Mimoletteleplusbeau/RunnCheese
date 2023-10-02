@@ -111,6 +111,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        CheckIsCutscene();
         _targetPosition = Vector2.zero;
 
         if (MyState != PlayerState.WinLevel && CanMove)
@@ -120,6 +121,14 @@ public class PlayerController : MonoBehaviour
         else
         {
             WinState();
+        }
+    }
+
+    private void CheckIsCutscene()
+    {
+        if (BeginningCutsceneManager.Instance == null)
+        {
+            SetMovable(true);
         }
     }
 

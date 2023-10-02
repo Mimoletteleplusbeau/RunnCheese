@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class BeginningCutsceneManager : MonoBehaviour
 {
+    static public BeginningCutsceneManager Instance;
+
     [SerializeField] private GameObject _camera;
     [SerializeField] private float _cutsceneTime;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
