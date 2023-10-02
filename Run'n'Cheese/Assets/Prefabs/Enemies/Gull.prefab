@@ -384,7 +384,7 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 4980008289253999239}
   <_VFXDeath>k__BackingField: {fileID: 5389857409857594494, guid: 4451a2b93b2c9be4db1f5204efe84531,
     type: 3}
-  <_SFXDeath>k__BackingField: {fileID: 8300000, guid: 25dbc112c5c12d140b340f851dbabb45,
+  <_SFXDeath>k__BackingField: {fileID: 8300000, guid: e9028af9a22a4a348a43887ab41568af,
     type: 3}
 --- !u!4 &1623574373889504656 stripped
 Transform:

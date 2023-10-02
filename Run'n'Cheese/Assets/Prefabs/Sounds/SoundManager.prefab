@@ -33,7 +33,7 @@ Transform:
   - {fileID: 2493875241211226377}
   - {fileID: 657461964705606040}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2714515654674764004
 MonoBehaviour:
@@ -61,10 +61,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c020dcc93d1929249b4daf9bd14b2b79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerJump: {fileID: 8300000, guid: 25dbc112c5c12d140b340f851dbabb45, type: 3}
+  _playerJump: {fileID: 8300000, guid: 1bd8f1ddc3b9d1d45a752c876385222d, type: 3}
   _playerExplosionEjection: {fileID: 8300000, guid: 25dbc112c5c12d140b340f851dbabb45,
     type: 3}
-  _playerDeath: {fileID: 8300000, guid: 25dbc112c5c12d140b340f851dbabb45, type: 3}
+  _playerDeath: {fileID: 8300000, guid: a3f573c7765e21343b0a8d96596766e2, type: 3}
   _buttonClick: {fileID: 8300000, guid: 25dbc112c5c12d140b340f851dbabb45, type: 3}
 --- !u!1 &5066073401487434719
 GameObject:
