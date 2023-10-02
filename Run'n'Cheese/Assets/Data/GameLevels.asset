@@ -14,7 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainMenu: MainMenu
   Levels:
-  - Name: Physics_Test
+  - Name: LEVEL_1_FINALE
+    FishTimer1: 35
+    FishTimer2: 20
+    FishTimer3: 13
+  - Name: LEVEL_2_FINAL
+    FishTimer1: 35
+    FishTimer2: 20
+    FishTimer3: 13
+  - Name: PAS_TOUCHER_LEVEL_3
     FishTimer1: 35
     FishTimer2: 20
     FishTimer3: 13
