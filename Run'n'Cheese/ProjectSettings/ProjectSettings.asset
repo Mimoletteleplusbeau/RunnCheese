@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: L3JV-2023-2024-PoleIIID
-  productName: DontTouchMyFish
+  productName: LetMyFishAlone
   defaultCursor: {fileID: 2800000, guid: 70a0d9a9a5ad6434190b3e8ff907710a, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}

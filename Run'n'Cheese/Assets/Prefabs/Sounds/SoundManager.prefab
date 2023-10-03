@@ -71,7 +71,7 @@ MonoBehaviour:
   _buttonClick: {fileID: 8300000, guid: 25dbc112c5c12d140b340f851dbabb45, type: 3}
   _fishAppearEnd: {fileID: 8300000, guid: c13a9b64a18784247b540eb647fed157, type: 3}
   _endUIFanfare: {fileID: 8300000, guid: e0a1d785df4d38e4ea3bdc5cd2b080fe, type: 3}
-  _plateformBreak: {fileID: 8300000, guid: 6f13faea452e0d444b1486ba0bc47a85, type: 3}
+  _plateformBreak: {fileID: 8300000, guid: 885a9753a067f62499e3dfe602c1fe27, type: 3}
 --- !u!1 &4343788975980404979
 GameObject:
   m_ObjectHideFlags: 0
