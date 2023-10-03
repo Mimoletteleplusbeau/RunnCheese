@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
     private float X_Velocity;
 
     [Header("Jump")]
+    [Tooltip("Allows the player to jump")] [SerializeField] private bool CanJump;
     [Tooltip("The number of jumps allowed before touching the ground")] [SerializeField] private float MaxJumps;
     private float _jumps;
     [Tooltip("The force of the jump")] [SerializeField] private float jumpForce = 1;
@@ -217,7 +218,7 @@ public class PlayerController : MonoBehaviour
 
     private void CheckForJumps()
     {
-        if (_jumpInput)
+        if (CanJump && _jumpInput)
         {
             _jumpInput = false;
             if ((!IsTouchingWalls() || IsGrounded()) && (_explosionCounter <= 0.01f))
