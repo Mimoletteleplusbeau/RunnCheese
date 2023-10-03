@@ -19087,7 +19087,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4068ce7b7585bd840b23c456490650de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetScene: LEVEL_1_FINALE
+  _targetScene: TUTO_FINALE
   _originalScale: 1
   _hoverScale: 1.05
   _hoverScaleDuration: 0.2

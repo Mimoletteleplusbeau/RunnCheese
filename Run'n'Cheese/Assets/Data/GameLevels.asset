@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainMenu: MainMenu
   Levels:
+  - Name: TUTO_FINALE
+    FishTimer1: 35
+    FishTimer2: 20
+    FishTimer3: 13
   - Name: LEVEL_1_FINALE
     FishTimer1: 35
     FishTimer2: 20
