@@ -555,7 +555,7 @@ MonoBehaviour:
   platformsLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  maxSpeed: 0.15
+  maxSpeed: 0.125
   Flipped: 0
   groundFriction: 0.8
   groundMomentum: 0.5
@@ -573,7 +573,7 @@ MonoBehaviour:
   jumpBufferTime: 0.2
   _groundedOffset: 0.05
   _explosionTimer: 0.3
-  _maxVelocity: 1.5
+  _maxVelocity: 1.25
   ShowTrail: 0
   squashAndStrech: 0
   _zoomCamera: {fileID: 1184575491}
