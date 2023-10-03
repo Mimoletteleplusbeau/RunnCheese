@@ -67,7 +67,7 @@ MonoBehaviour:
     type: 3}
   _playerDeath: {fileID: 8300000, guid: a3f573c7765e21343b0a8d96596766e2, type: 3}
   _playerShoot: {fileID: 8300000, guid: 731934cd616f16c4891dd4e7f5b9b604, type: 3}
-  _pushZoneAppear: {fileID: 8300000, guid: 25dbc112c5c12d140b340f851dbabb45, type: 3}
+  _pushZoneAppear: {fileID: 8300000, guid: 6fdb63cc2b888d343a49e21ccf689a18, type: 3}
   _buttonClick: {fileID: 8300000, guid: 25dbc112c5c12d140b340f851dbabb45, type: 3}
   _fishAppearEnd: {fileID: 8300000, guid: c13a9b64a18784247b540eb647fed157, type: 3}
   _endUIFanfare: {fileID: 8300000, guid: e0a1d785df4d38e4ea3bdc5cd2b080fe, type: 3}
