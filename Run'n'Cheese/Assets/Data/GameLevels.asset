@@ -15,17 +15,17 @@ MonoBehaviour:
   MainMenu: MainMenu
   Levels:
   - Name: TUTO_FINALE
-    FishTimer1: 28
-    FishTimer2: 21
-    FishTimer3: 15
+    FishTimer1: 34
+    FishTimer2: 23
+    FishTimer3: 18
   - Name: LEVEL_1_FINALE
-    FishTimer1: 20
-    FishTimer2: 16
-    FishTimer3: 13
-  - Name: LEVEL_2_FINAL
     FishTimer1: 30
-    FishTimer2: 24
-    FishTimer3: 17
+    FishTimer2: 22
+    FishTimer3: 16
+  - Name: LEVEL_2_FINAL
+    FishTimer1: 40
+    FishTimer2: 30
+    FishTimer3: 20
   - Name: LEVEL_3_FINAL
     FishTimer1: 60
     FishTimer2: 54
