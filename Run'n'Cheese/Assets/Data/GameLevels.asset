@@ -26,7 +26,7 @@ MonoBehaviour:
     FishTimer1: 30
     FishTimer2: 24
     FishTimer3: 17
-  - Name: PAS_TOUCHER_LEVEL_3
+  - Name: LEVEL_3_FINAL
     FishTimer1: 60
     FishTimer2: 54
     FishTimer3: 48
