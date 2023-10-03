@@ -17680,6 +17680,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetScene: Credits
+  _IDScene: 0
   _originalScale: 1
   _hoverScale: 1.05
   _hoverScaleDuration: 0.2
@@ -19224,6 +19225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetScene: TUTO_FINALE
+  _IDScene: 0
   _originalScale: 1
   _hoverScale: 1.05
   _hoverScaleDuration: 0.2
@@ -19474,6 +19476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetScene: LevelSelection
+  _IDScene: 0
   _originalScale: 1
   _hoverScale: 1.05
   _hoverScaleDuration: 0.2
@@ -24497,6 +24500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetScene: Physics_Test
+  _IDScene: 0
   _originalScale: 1
   _hoverScale: 1.05
   _hoverScaleDuration: 0.2

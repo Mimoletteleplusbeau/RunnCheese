@@ -57,6 +57,7 @@ public class LevelEndUIManager : MonoBehaviour
 
         float[] fishTimes = LevelsManager.Instance.GetFishTimer();
         float finalTime = TimeManager.Instance.GetTimer();
+        LevelsManager.Instance.SetBestTime(LevelsManager.Instance.GetLevelID(), finalTime);
         bool _hasAllFishes = true;
 
         for (int i = 0; i < fishTimes.Length; i++)
@@ -65,6 +66,7 @@ public class LevelEndUIManager : MonoBehaviour
             {
                 _fishTimers[i].SetActive(true);
                 _fishTimers[i].transform.localScale = Vector2.zero;
+                LevelsManager.Instance.SetBestTotalFishCount(LevelsManager.Instance.GetLevelID(), i, true);
             } else
             {
                 float timeDifference = finalTime - fishTimes[i];

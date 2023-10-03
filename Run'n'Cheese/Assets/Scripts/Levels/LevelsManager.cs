@@ -9,6 +9,7 @@ public class LevelsManager : MonoBehaviour
     public static LevelsManager Instance;
     [SerializeField] private LevelsList _levelsList;
     private int _currentLevel = -1;
+    [SerializeField] bool _resetDataOnStart;
 
     private void Awake()
     {
@@ -24,6 +25,11 @@ public class LevelsManager : MonoBehaviour
     private void Start()
     {
         SceneManager.sceneLoaded += GetCurrentLevel;
+        foreach(var levelData in _levelsList.Levels)
+        {
+            levelData.BestTime = int.MaxValue;
+            levelData.HasFishes = new bool[3];
+        }
     }
 
     private void GetCurrentLevel(Scene scene, LoadSceneMode mode)
@@ -41,7 +47,11 @@ public class LevelsManager : MonoBehaviour
         }
 
         CheckForLevelRestart(previousLevel);
+    }
 
+    public int GetLevelID()
+    {
+        return _currentLevel;
     }
 
     private void CheckForLevelRestart(int previousLevel)
@@ -103,6 +113,11 @@ public class LevelsManager : MonoBehaviour
         SceneManager.LoadScene(_levelsList.MainMenu);
     }
 
+    public LevelData[] GetLevelList()
+    {
+        return _levelsList.Levels;
+    }
+
     public float[] GetFishTimer()
     {
         float fishTimer1 = _levelsList.Levels[_currentLevel].FishTimer1;
@@ -110,5 +125,18 @@ public class LevelsManager : MonoBehaviour
         float fishTimer3 = _levelsList.Levels[_currentLevel].FishTimer3;
         float[] fishTimers = new float[] { fishTimer1, fishTimer2, fishTimer3 };
         return fishTimers;
+    }
+
+    public void SetBestTime(int currentLevel, float currentTime)
+    {
+        if (currentTime < _levelsList.Levels[currentLevel].BestTime)
+        {
+            _levelsList.Levels[currentLevel].BestTime = currentTime;
+        }
+    }
+
+    public void SetBestTotalFishCount(int currentLevel, int fishID, bool newValue)
+    {
+        _levelsList.Levels[currentLevel].HasFishes[fishID] = newValue;
     }
 }

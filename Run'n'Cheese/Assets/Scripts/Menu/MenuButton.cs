@@ -13,6 +13,7 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     [Header("Button Parameters")]
     [SerializeField] private string _targetScene;
+    [SerializeField] private int _IDScene;
     [SerializeField] private float _originalScale = 1;
     [SerializeField] private float _hoverScale = 1.1f;
     [SerializeField] private float _hoverScaleDuration = 0.3f;
@@ -26,6 +27,7 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         Quit,
         Menu,
         ByName,
+        ByLevelID,
     }
 
     private void Start()
@@ -53,10 +55,13 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             case ButtonAction.ByName:
                 myAction = GoToScene;
                 break;
+            case ButtonAction.ByLevelID:
+                myAction = GoToIDScene;
+                break;
             default:
                 myAction = RestartLevel;
                 break;
-        } 
+        }
 
         GetComponent<Button>().onClick.AddListener(PlaySound);
         GetComponent<Button>().onClick.AddListener(myAction);
@@ -83,6 +88,15 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         {
             MenuManager.MenuManagerInstance.SetButtonsUnclickable();
             MenuManager.MenuManagerInstance.Transition.SetTransition(() => SceneManager.LoadScene(_targetScene));
+        }
+    }
+
+    public void GoToIDScene()
+    {
+        if (MenuManager.MenuManagerInstance.CanClickButtons)
+        {
+            MenuManager.MenuManagerInstance.SetButtonsUnclickable();
+            MenuManager.MenuManagerInstance.Transition.SetTransition(() => SceneManager.LoadScene(LevelsManager.Instance.GetLevelList()[_IDScene].Name));
         }
     }
 
