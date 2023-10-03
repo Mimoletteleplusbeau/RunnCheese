@@ -21,6 +21,7 @@ public class PushZone : MonoBehaviour
         Destroy(gameObject, _activationTime);
         _collider = GetComponent<CircleCollider2D>();
         _collider.radius = _radius;
+        SoundsList.Instance.PushZoneAppear();
     }
 
     private void Update()

@@ -13,6 +13,8 @@ public class SoundsList : MonoBehaviour
     [SerializeField] private AudioClip _playerJump;
     [SerializeField] private AudioClip _playerExplosionEjection;
     [SerializeField] private AudioClip _playerDeath;
+    [SerializeField] private AudioClip _playerShoot;
+    [SerializeField] private AudioClip _pushZoneAppear;
 
     [Header("Menu")]
     [SerializeField] private AudioClip _buttonClick;
@@ -51,11 +53,14 @@ public class SoundsList : MonoBehaviour
         PlayerController.Instance.OnJump += PlayPlayerJump;
         PlayerController.Instance.OnExplosionEjection += PlayPlayerExplosionEjection;
         PlayerController.Instance.OnDeath += PlayPlayerDeath;
+        PlayerController.Instance.GetComponent<PlayerShoot>().OnPlayerShoot += PlayPlayerShoot;
     }
 
     void PlayPlayerJump() => PlaySound(_playerJump);
     void PlayPlayerExplosionEjection() => PlaySound(_playerExplosionEjection);
     void PlayPlayerDeath() => PlaySound(_playerDeath);
+    void PlayPlayerShoot() => PlaySound(_playerShoot);
+    public void PushZoneAppear() => PlaySound(_pushZoneAppear);
     public void PlayButtonClick() => PlaySound(_buttonClick);
     public void PlayPlateformBreak() => PlaySound(_plateformBreak);
     public void PlayFishAppear() => PlaySound(_fishAppearEnd);

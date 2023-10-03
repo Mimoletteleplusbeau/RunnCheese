@@ -4,10 +4,12 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
 using Unity.VisualScripting;
-
+using System;
 
 public class PlayerShoot : MonoBehaviour
 {
+    public Action OnPlayerShoot;
+
     private PlayerInputs _inputs;
     [Tooltip("The prefab of the bullet")] [SerializeField] private GameObject _prefabBullet;
     private float _bullets;
@@ -70,6 +72,8 @@ public class PlayerShoot : MonoBehaviour
     {
         if (_bullets > 0 && _reloadTimer < 0)
         {
+            OnPlayerShoot?.Invoke();
+            
             _reloadTimer = _reloadTime;
             _bullets--;
             GameObject newBullet = Instantiate(_prefabBullet, transform.position, Quaternion.identity);
