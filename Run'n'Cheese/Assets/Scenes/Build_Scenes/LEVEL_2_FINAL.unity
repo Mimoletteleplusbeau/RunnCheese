@@ -20392,6 +20392,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -37.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5179456761246139816, guid: adc25887af91f09448343998c0048011,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
+      value: -32.59879
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179456761246139816, guid: adc25887af91f09448343998c0048011,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
+      value: -2.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5179456761246139816, guid: adc25887af91f09448343998c0048011,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
+      value: -2.3
+      objectReference: {fileID: 0}
     - target: {fileID: 5260443847389956800, guid: adc25887af91f09448343998c0048011,
         type: 3}
       propertyPath: field of view
