@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Build_Scenes/LEVEL_2_FINAL.unity
     guid: b8e2586d46470f349aa13807a5fe0b54
   - enabled: 1
-    path: Assets/Scenes/Build_Scenes/PAS_TOUCHER_LEVEL_3.unity
+    path: Assets/Scenes/Build_Scenes/LEVEL_3_FINAL.unity
     guid: d456b92e77855724cbefa745e9dfe4a4
   - enabled: 1
     path: Assets/Scenes/ScenesTest/Physics_Test.unity
