@@ -27319,6 +27319,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5241507032985022753, guid: b37e773a123943941a4e73cd86d337da,
+        type: 3}
+      propertyPath: _pushZoneAppear
+      value: 
+      objectReference: {fileID: 8300000, guid: 41bf9abab238ff040b3705b8db06f67c, type: 3}
     - target: {fileID: 5358256206968236437, guid: b37e773a123943941a4e73cd86d337da,
         type: 3}
       propertyPath: m_RootOrder
